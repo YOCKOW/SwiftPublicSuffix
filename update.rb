@@ -11,9 +11,39 @@ update.rb
 
 require 'fileutils'
 require 'open-uri'
+require 'time'
 
 ROOT_DIR = File.realpath('.', File.dirname(__FILE__))
 SOURCE_FILE = File.expand_path('Sources/PublicSuffix/PublicSuffixList.swift', ROOT_DIR)
+
+LICENSE_URL = URI.parse('https://www.mozilla.org/media/MPL/2.0/index.txt')
+LIST_URL = URI.parse('https://publicsuffix.org/list/public_suffix_list.dat')
+
+$stdout.puts("* Fetching Public Suffix List")
+PUBLIC_SUFFIX_LIST_DAT = LIST_URL.open
+REMOTE_LAST_MODIFIED = PUBLIC_SUFFIX_LIST_DAT.last_modified
+
+if FileTest.exist?(SOURCE_FILE)
+  local_last_modified = nil
+  File.open(SOURCE_FILE, 'r') {|file|
+    file.each_line {|line|
+      if line =~ /\(Last-Modified:\s*(.+)\)/i
+        begin
+          local_last_modified = Time.parse($1)
+        rescue
+          local_last_modified = nil
+        end
+        break
+      end
+    }
+  }
+  if local_last_modified == nil || REMOTE_LAST_MODIFIED <= local_last_modified
+    $stderr.puts("Already up to date (or unexpected error occurred).")
+    $stderr.puts("- Last-Modified of the remote file: #{REMOTE_LAST_MODIFIED}")
+    $stderr.puts("- Last-Modified of the local file: #{local_last_modified}")
+    exit()
+  end
+end
 
 $stdout.puts("Updating '#{SOURCE_FILE}'")
 
@@ -22,7 +52,30 @@ if FileTest.exist?(SOURCE_FILE)
   FileUtils.cp(SOURCE_FILE, BACKUP)
 end
 
-last_modified = nil
+blacklist = {}
+whitelist = {}
+PUBLIC_SUFFIX_LIST_DAT.each{|line|
+  line.strip!
+  next if line =~ %r{^//}
+  
+  white = (line.gsub!(/^!/, '') == nil) ? false : true
+  list = white ? whitelist : blacklist
+  
+  labels = line.split('.').reverse
+  nn = labels.count
+  next if nn < 1
+  
+  for ii in 0..(nn - 1)
+    label = labels[ii]
+    label = :any if label == '*'
+    list[label] = {} if !list.has_key?(label)
+    list = list[label]
+    if ii == nn - 1 && label != :any
+      list[:termination] = true
+    end
+  end
+}
+raise "No data about Public Suffix" if blacklist.keys.count < 1
 
 File.open(SOURCE_FILE, 'w') { |file|
   $stdout.puts("* Fetching Mozilla Public License Version 2.0 (MPL 2.0)")
@@ -31,40 +84,8 @@ File.open(SOURCE_FILE, 'w') { |file|
   license_url.open{|file| license = file.read }
   raise "Cannot fetch license." if license.length < 1
   
-  
-  $stdout.puts("* Fetching Public Suffix List")
-  blacklist = {}
-  whitelist = {}
-  list_url = URI.parse('https://publicsuffix.org/list/public_suffix_list.dat')
-  list_url.open {|io|
-    last_modified = io.last_modified
-    
-    io.each {|line|
-      line.strip!
-      next if line =~ %r{^//}
-      
-      white = (line.gsub!(/^!/, '') == nil) ? false : true
-      list = white ? whitelist : blacklist
-      
-      labels = line.split('.').reverse
-      nn = labels.count
-      next if nn < 1
-      
-      for ii in 0..(nn - 1)
-        label = labels[ii]
-        label = :any if label == '*'
-        list[label] = {} if !list.has_key?(label)
-        list = list[label]
-        if ii == nn - 1 && label != :any
-          list[:termination] = true
-        end
-      end
-    }
-  }
-  raise "No data about Public Suffix" if blacklist.keys.count < 1
-  
   file.puts("// This file was created automatically")
-  file.puts("//   from #{list_url} (Last-Modified: #{last_modified ? last_modified.to_s : 'unknown'})")
+  file.puts("//   from #{LIST_URL} (Last-Modified: #{REMOTE_LAST_MODIFIED ? REMOTE_LAST_MODIFIED : 'unknown'})")
   # file.puts("//   at #{DateTime.now.to_s}")
   
   file.puts()
@@ -144,6 +165,8 @@ File.open(SOURCE_FILE, 'w') { |file|
 }
 
 FileUtils.rm(BACKUP) if FileTest.exist?(BACKUP)
+
+PUBLIC_SUFFIX_LIST_DAT.close
 
 if ARGV.include?("--commit") && last_modified != nil
   diff = %x(git diff)
