@@ -22,6 +22,7 @@ if FileTest.exist?(SOURCE_FILE)
   FileUtils.cp(SOURCE_FILE, BACKUP)
 end
 
+last_modified = nil
 
 File.open(SOURCE_FILE, 'w') { |file|
   $stdout.puts("* Fetching Mozilla Public License Version 2.0 (MPL 2.0)")
@@ -34,7 +35,6 @@ File.open(SOURCE_FILE, 'w') { |file|
   $stdout.puts("* Fetching Public Suffix List")
   blacklist = {}
   whitelist = {}
-  last_modified = nil
   list_url = URI.parse('https://publicsuffix.org/list/public_suffix_list.dat')
   list_url.open {|io|
     last_modified = io.last_modified
@@ -144,6 +144,15 @@ File.open(SOURCE_FILE, 'w') { |file|
 }
 
 FileUtils.rm(BACKUP) if FileTest.exist?(BACKUP)
+
+if ARGV.include?("--commit") && last_modified != nil
+  diff = %x(git diff)
+  if $? == 0 && !diff.empty?
+    system('git commit -a -m "Update PublicSuffixList.swift with the latest list."') &&
+    system("git tag 1.0.0+List" + last_modified.strftime('%Y%m%d%H%M%S%Z'))
+  end
+end
+
 
 $stdout.puts("DONE.")
 
