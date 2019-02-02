@@ -1,5 +1,5 @@
 // This file was created automatically
-//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2019-01-31 22:20:18 UTC)
+//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2019-02-01 16:37:04 UTC)
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
