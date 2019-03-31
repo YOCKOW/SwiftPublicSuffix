@@ -1,6 +1,6 @@
 /***************************************************************************************************
  PublicSuffix.Node.swift
-   © 2017-2018 YOCKOW.
+   © 2017-2019 YOCKOW.
      Licensed under MIT License.
      See "LICENSE.txt" for more information.
  **************************************************************************************************/
@@ -29,11 +29,11 @@ extension PublicSuffix {
       }
     }
     
-    public var hashValue: Int {
+    public func hash(into hasher:inout Hasher) {
       switch self {
-      case .termination: return 0
-      case .any: return Int.max
-      case .label(let label, next:_): return label.hashValue
+      case .termination: hasher.combine(0)
+      case .any: hasher.combine(Int.max)
+      case .label(let label, next:_): hasher.combine(label)
       }
     }
   }

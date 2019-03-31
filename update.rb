@@ -172,7 +172,7 @@ if ARGV.include?("--commit") && REMOTE_LAST_MODIFIED != nil
   diff = %x(git diff)
   if $? == 0 && !diff.empty?
     system('git commit -a -m "Update PublicSuffixList.swift with the latest list."') &&
-    system("git tag 1.0.0+List" + REMOTE_LAST_MODIFIED.strftime('%Y%m%d%H%M%S%Z'))
+    system("git tag 1.1.0+List" + REMOTE_LAST_MODIFIED.strftime('%Y%m%d%H%M%S%Z'))
   end
 end
 
