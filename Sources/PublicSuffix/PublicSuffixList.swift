@@ -1,5 +1,5 @@
 // This file was created automatically
-//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2019-05-29 18:26:17 UTC)
+//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2019-05-30 18:38:26 UTC)
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -1557,9 +1557,10 @@ extension PublicSuffix {
   private static let _black_site_platformsh: PublicSuffix.Node = .label("platformsh", next:[.any])
   private static let _black_site_loginline: PublicSuffix.Node = .label("loginline", next:[.termination])
   private static let _black_site_cyon: PublicSuffix.Node = .label("cyon", next:[.termination])
+  private static let _black_site_cloudera: PublicSuffix.Node = .label("cloudera", next:[.termination])
   private static let _black_site_byen: PublicSuffix.Node = .label("byen", next:[.termination])
   private static let _black_site_barsy: PublicSuffix.Node = .label("barsy", next:[.termination])
-  private static let _black_site: PublicSuffix.Node = .label("site", next:[.termination, _black_site_cyon, _black_site_loginline, _black_site_barsy, _black_site_platformsh, _black_site_byen])
+  private static let _black_site: PublicSuffix.Node = .label("site", next:[.termination, _black_site_cloudera, _black_site_cyon, _black_site_loginline, _black_site_barsy, _black_site_platformsh, _black_site_byen])
   private static let _black_singles: PublicSuffix.Node = .label("singles", next:[.termination])
   private static let _black_sina: PublicSuffix.Node = .label("sina", next:[.termination])
   private static let _black_silk: PublicSuffix.Node = .label("silk", next:[.termination])
