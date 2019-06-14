@@ -1,5 +1,5 @@
 // This file was created automatically
-//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2019-05-31 16:39:31 UTC)
+//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2019-06-14 01:26:44 UTC)
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -9039,12 +9039,13 @@ extension PublicSuffix {
   private static let _black_aq: PublicSuffix.Node = .label("aq", next:[.termination])
   private static let _black_apple: PublicSuffix.Node = .label("apple", next:[.termination])
   private static let _black_app_wnext: PublicSuffix.Node = .label("wnext", next:[.termination])
+  private static let _black_app_web: PublicSuffix.Node = .label("web", next:[.termination])
   private static let _black_app_telebit: PublicSuffix.Node = .label("telebit", next:[.termination])
   private static let _black_app_run_a: PublicSuffix.Node = .label("a", next:[.termination])
   private static let _black_app_run: PublicSuffix.Node = .label("run", next:[.termination, _black_app_run_a])
   private static let _black_app_loginline: PublicSuffix.Node = .label("loginline", next:[.termination])
   private static let _black_app_hasura: PublicSuffix.Node = .label("hasura", next:[.termination])
-  private static let _black_app: PublicSuffix.Node = .label("app", next:[.termination, _black_app_wnext, _black_app_run, _black_app_hasura, _black_app_loginline, _black_app_telebit])
+  private static let _black_app: PublicSuffix.Node = .label("app", next:[.termination, _black_app_wnext, _black_app_run, _black_app_web, _black_app_hasura, _black_app_loginline, _black_app_telebit])
   private static let _black_apartments: PublicSuffix.Node = .label("apartments", next:[.termination])
   private static let _black_aol: PublicSuffix.Node = .label("aol", next:[.termination])
   private static let _black_ao_pb: PublicSuffix.Node = .label("pb", next:[.termination])
