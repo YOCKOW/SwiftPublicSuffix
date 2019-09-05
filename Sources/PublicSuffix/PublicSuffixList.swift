@@ -1,5 +1,5 @@
 // This file was created automatically
-//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2019-09-03 20:38:32 UTC)
+//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2019-09-04 18:04:31 UTC)
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -1279,13 +1279,15 @@ extension PublicSuffix {
   private static let _black_tokyo: PublicSuffix.Node = .label("tokyo", next:[.termination])
   private static let _black_today: PublicSuffix.Node = .label("today", next:[.termination])
   private static let _black_to_vpnplus: PublicSuffix.Node = .label("vpnplus", next:[.termination])
+  private static let _black_to_quickconnect_direct: PublicSuffix.Node = .label("direct", next:[.termination])
+  private static let _black_to_quickconnect: PublicSuffix.Node = .label("quickconnect", next:[_black_to_quickconnect_direct])
   private static let _black_to_org: PublicSuffix.Node = .label("org", next:[.termination])
   private static let _black_to_net: PublicSuffix.Node = .label("net", next:[.termination])
   private static let _black_to_mil: PublicSuffix.Node = .label("mil", next:[.termination])
   private static let _black_to_gov: PublicSuffix.Node = .label("gov", next:[.termination])
   private static let _black_to_edu: PublicSuffix.Node = .label("edu", next:[.termination])
   private static let _black_to_com: PublicSuffix.Node = .label("com", next:[.termination])
-  private static let _black_to: PublicSuffix.Node = .label("to", next:[.termination, _black_to_com, _black_to_gov, _black_to_net, _black_to_org, _black_to_edu, _black_to_mil, _black_to_vpnplus])
+  private static let _black_to: PublicSuffix.Node = .label("to", next:[.termination, _black_to_com, _black_to_gov, _black_to_net, _black_to_org, _black_to_edu, _black_to_mil, _black_to_vpnplus, _black_to_quickconnect])
   private static let _black_tn_turen: PublicSuffix.Node = .label("turen", next:[.termination])
   private static let _black_tn_tourism: PublicSuffix.Node = .label("tourism", next:[.termination])
   private static let _black_tn_rnu: PublicSuffix.Node = .label("rnu", next:[.termination])
