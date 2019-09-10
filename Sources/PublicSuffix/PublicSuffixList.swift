@@ -1,5 +1,5 @@
 // This file was created automatically
-//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2019-09-04 18:04:31 UTC)
+//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2019-09-09 20:54:07 UTC)
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -7055,7 +7055,6 @@ extension PublicSuffix {
   private static let _black_ie_gov: PublicSuffix.Node = .label("gov", next:[.termination])
   private static let _black_ie_blogspot: PublicSuffix.Node = .label("blogspot", next:[.termination])
   private static let _black_ie: PublicSuffix.Node = .label("ie", next:[.termination, _black_ie_gov, _black_ie_blogspot, _black_ie_nym])
-  private static let _black_id_zone: PublicSuffix.Node = .label("zone", next:[.termination])
   private static let _black_id_web: PublicSuffix.Node = .label("web", next:[.termination])
   private static let _black_id_sch: PublicSuffix.Node = .label("sch", next:[.termination])
   private static let _black_id_ponpes: PublicSuffix.Node = .label("ponpes", next:[.termination])
@@ -7069,7 +7068,7 @@ extension PublicSuffix {
   private static let _black_id_co: PublicSuffix.Node = .label("co", next:[.termination, _black_id_co_blogspot])
   private static let _black_id_biz: PublicSuffix.Node = .label("biz", next:[.termination])
   private static let _black_id_ac: PublicSuffix.Node = .label("ac", next:[.termination])
-  private static let _black_id: PublicSuffix.Node = .label("id", next:[.termination, _black_id_ac, _black_id_biz, _black_id_co, _black_id_desa, _black_id_go, _black_id_mil, _black_id_my, _black_id_net, _black_id_or, _black_id_ponpes, _black_id_sch, _black_id_web, _black_id_zone])
+  private static let _black_id: PublicSuffix.Node = .label("id", next:[.termination, _black_id_ac, _black_id_biz, _black_id_co, _black_id_desa, _black_id_go, _black_id_mil, _black_id_my, _black_id_net, _black_id_or, _black_id_ponpes, _black_id_sch, _black_id_web])
   private static let _black_icu: PublicSuffix.Node = .label("icu", next:[.termination])
   private static let _black_ice: PublicSuffix.Node = .label("ice", next:[.termination])
   private static let _black_icbc: PublicSuffix.Node = .label("icbc", next:[.termination])
