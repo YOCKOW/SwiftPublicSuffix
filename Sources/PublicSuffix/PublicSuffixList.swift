@@ -1,5 +1,5 @@
 // This file was created automatically
-//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2019-10-14 09:40:53 UTC)
+//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2019-10-22 13:43:25 UTC)
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -1537,8 +1537,11 @@ extension PublicSuffix {
   private static let _black_so_sch: PublicSuffix.Node = .label("sch", next:[.termination])
   private static let _black_so_org: PublicSuffix.Node = .label("org", next:[.termination])
   private static let _black_so_net: PublicSuffix.Node = .label("net", next:[.termination])
+  private static let _black_so_me: PublicSuffix.Node = .label("me", next:[.termination])
+  private static let _black_so_gov: PublicSuffix.Node = .label("gov", next:[.termination])
+  private static let _black_so_edu: PublicSuffix.Node = .label("edu", next:[.termination])
   private static let _black_so_com: PublicSuffix.Node = .label("com", next:[.termination])
-  private static let _black_so: PublicSuffix.Node = .label("so", next:[.termination, _black_so_com, _black_so_net, _black_so_org, _black_so_sch])
+  private static let _black_so: PublicSuffix.Node = .label("so", next:[.termination, _black_so_com, _black_so_edu, _black_so_gov, _black_so_me, _black_so_net, _black_so_org, _black_so_sch])
   private static let _black_sncf: PublicSuffix.Node = .label("sncf", next:[.termination])
   private static let _black_sn_univ: PublicSuffix.Node = .label("univ", next:[.termination])
   private static let _black_sn_perso: PublicSuffix.Node = .label("perso", next:[.termination])
