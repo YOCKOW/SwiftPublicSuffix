@@ -1,5 +1,5 @@
 // This file was created automatically
-//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2019-12-20 18:17:33 UTC)
+//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2019-12-23 11:03:30 UTC)
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -9019,10 +9019,9 @@ extension PublicSuffix {
   private static let _black_au_edu_nt: PublicSuffix.Node = .label("nt", next:[.termination])
   private static let _black_au_edu_nsw_schools: PublicSuffix.Node = .label("schools", next:[.termination])
   private static let _black_au_edu_nsw: PublicSuffix.Node = .label("nsw", next:[.termination, _black_au_edu_nsw_schools])
-  private static let _black_au_edu_eq: PublicSuffix.Node = .label("eq", next:[.termination])
   private static let _black_au_edu_catholic: PublicSuffix.Node = .label("catholic", next:[.termination])
   private static let _black_au_edu_act: PublicSuffix.Node = .label("act", next:[.termination])
-  private static let _black_au_edu: PublicSuffix.Node = .label("edu", next:[.termination, _black_au_edu_act, _black_au_edu_catholic, _black_au_edu_eq, _black_au_edu_nsw, _black_au_edu_nt, _black_au_edu_qld, _black_au_edu_sa, _black_au_edu_tas, _black_au_edu_vic, _black_au_edu_wa])
+  private static let _black_au_edu: PublicSuffix.Node = .label("edu", next:[.termination, _black_au_edu_act, _black_au_edu_catholic, _black_au_edu_nsw, _black_au_edu_nt, _black_au_edu_qld, _black_au_edu_sa, _black_au_edu_tas, _black_au_edu_vic, _black_au_edu_wa])
   private static let _black_au_conf: PublicSuffix.Node = .label("conf", next:[.termination])
   private static let _black_au_com_blogspot: PublicSuffix.Node = .label("blogspot", next:[.termination])
   private static let _black_au_com: PublicSuffix.Node = .label("com", next:[.termination, _black_au_com_blogspot])
