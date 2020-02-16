@@ -1,5 +1,5 @@
 // This file was created automatically
-//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2020-02-06 17:54:34 UTC)
+//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2020-02-15 22:01:03 UTC)
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -7444,7 +7444,17 @@ extension PublicSuffix {
   private static let _black_flights: PublicSuffix.Node = .label("flights", next:[.termination])
   private static let _black_flickr: PublicSuffix.Node = .label("flickr", next:[.termination])
   private static let _black_fk: PublicSuffix.Node = .label("fk", next:[.any])
-  private static let _black_fj: PublicSuffix.Node = .label("fj", next:[.any])
+  private static let _black_fj_pro: PublicSuffix.Node = .label("pro", next:[.termination])
+  private static let _black_fj_org: PublicSuffix.Node = .label("org", next:[.termination])
+  private static let _black_fj_net: PublicSuffix.Node = .label("net", next:[.termination])
+  private static let _black_fj_name: PublicSuffix.Node = .label("name", next:[.termination])
+  private static let _black_fj_mil: PublicSuffix.Node = .label("mil", next:[.termination])
+  private static let _black_fj_info: PublicSuffix.Node = .label("info", next:[.termination])
+  private static let _black_fj_gov: PublicSuffix.Node = .label("gov", next:[.termination])
+  private static let _black_fj_com: PublicSuffix.Node = .label("com", next:[.termination])
+  private static let _black_fj_biz: PublicSuffix.Node = .label("biz", next:[.termination])
+  private static let _black_fj_ac: PublicSuffix.Node = .label("ac", next:[.termination])
+  private static let _black_fj: PublicSuffix.Node = .label("fj", next:[.termination, _black_fj_ac, _black_fj_biz, _black_fj_com, _black_fj_gov, _black_fj_info, _black_fj_mil, _black_fj_name, _black_fj_net, _black_fj_org, _black_fj_pro])
   private static let _black_fitness: PublicSuffix.Node = .label("fitness", next:[.termination])
   private static let _black_fit_ptplus: PublicSuffix.Node = .label("ptplus", next:[.termination])
   private static let _black_fit: PublicSuffix.Node = .label("fit", next:[.termination, _black_fit_ptplus])
