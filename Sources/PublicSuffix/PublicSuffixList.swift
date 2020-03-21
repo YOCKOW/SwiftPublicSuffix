@@ -1,5 +1,5 @@
 // This file was created automatically
-//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2020-03-15 18:42:25 UTC)
+//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2020-03-21 01:18:31 UTC)
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -4371,6 +4371,7 @@ extension PublicSuffix {
   private static let _black_ly_com: PublicSuffix.Node = .label("com", next:[.termination])
   private static let _black_ly: PublicSuffix.Node = .label("ly", next:[.termination, _black_ly_com, _black_ly_net, _black_ly_gov, _black_ly_plc, _black_ly_edu, _black_ly_sch, _black_ly_med, _black_ly_org, _black_ly_id])
   private static let _black_lv_org: PublicSuffix.Node = .label("org", next:[.termination])
+  private static let _black_lv_nom: PublicSuffix.Node = .label("nom", next:[.termination])
   private static let _black_lv_net: PublicSuffix.Node = .label("net", next:[.termination])
   private static let _black_lv_mil: PublicSuffix.Node = .label("mil", next:[.termination])
   private static let _black_lv_id: PublicSuffix.Node = .label("id", next:[.termination])
@@ -4379,7 +4380,7 @@ extension PublicSuffix {
   private static let _black_lv_conf: PublicSuffix.Node = .label("conf", next:[.termination])
   private static let _black_lv_com: PublicSuffix.Node = .label("com", next:[.termination])
   private static let _black_lv_asn: PublicSuffix.Node = .label("asn", next:[.termination])
-  private static let _black_lv: PublicSuffix.Node = .label("lv", next:[.termination, _black_lv_com, _black_lv_edu, _black_lv_gov, _black_lv_org, _black_lv_mil, _black_lv_id, _black_lv_net, _black_lv_asn, _black_lv_conf])
+  private static let _black_lv: PublicSuffix.Node = .label("lv", next:[.termination, _black_lv_com, _black_lv_edu, _black_lv_gov, _black_lv_org, _black_lv_mil, _black_lv_id, _black_lv_net, _black_lv_asn, _black_lv_conf, _black_lv_nom])
   private static let _black_luxury: PublicSuffix.Node = .label("luxury", next:[.termination])
   private static let _black_luxe: PublicSuffix.Node = .label("luxe", next:[.termination])
   private static let _black_lupin: PublicSuffix.Node = .label("lupin", next:[.termination])
@@ -8540,11 +8541,12 @@ extension PublicSuffix {
   private static let _black_bz_za: PublicSuffix.Node = .label("za", next:[.termination])
   private static let _black_bz_org: PublicSuffix.Node = .label("org", next:[.termination])
   private static let _black_bz_nym: PublicSuffix.Node = .label("nym", next:[.termination])
+  private static let _black_bz_nom: PublicSuffix.Node = .label("nom", next:[.termination])
   private static let _black_bz_net: PublicSuffix.Node = .label("net", next:[.termination])
   private static let _black_bz_gov: PublicSuffix.Node = .label("gov", next:[.termination])
   private static let _black_bz_edu: PublicSuffix.Node = .label("edu", next:[.termination])
   private static let _black_bz_com: PublicSuffix.Node = .label("com", next:[.termination])
-  private static let _black_bz: PublicSuffix.Node = .label("bz", next:[.termination, _black_bz_com, _black_bz_net, _black_bz_org, _black_bz_edu, _black_bz_gov, _black_bz_za, _black_bz_nym])
+  private static let _black_bz: PublicSuffix.Node = .label("bz", next:[.termination, _black_bz_com, _black_bz_net, _black_bz_org, _black_bz_edu, _black_bz_gov, _black_bz_za, _black_bz_nom, _black_bz_nym])
   private static let _black_by_of: PublicSuffix.Node = .label("of", next:[.termination])
   private static let _black_by_nym: PublicSuffix.Node = .label("nym", next:[.termination])
   private static let _black_by_mil: PublicSuffix.Node = .label("mil", next:[.termination])
