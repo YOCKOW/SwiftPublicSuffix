@@ -1,5 +1,5 @@
 // This file was created automatically
-//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2020-03-21 01:18:31 UTC)
+//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2020-03-22 19:13:30 UTC)
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -8415,7 +8415,8 @@ extension PublicSuffix {
   private static let _black_cl_gob: PublicSuffix.Node = .label("gob", next:[.termination])
   private static let _black_cl_co: PublicSuffix.Node = .label("co", next:[.termination])
   private static let _black_cl_blogspot: PublicSuffix.Node = .label("blogspot", next:[.termination])
-  private static let _black_cl: PublicSuffix.Node = .label("cl", next:[.termination, _black_cl_gov, _black_cl_gob, _black_cl_co, _black_cl_mil, _black_cl_blogspot, _black_cl_nom])
+  private static let _black_cl_aprendemas: PublicSuffix.Node = .label("aprendemas", next:[.termination])
+  private static let _black_cl: PublicSuffix.Node = .label("cl", next:[.termination, _black_cl_aprendemas, _black_cl_co, _black_cl_gob, _black_cl_gov, _black_cl_mil, _black_cl_blogspot, _black_cl_nom])
   private static let _black_ck: PublicSuffix.Node = .label("ck", next:[.any])
   private static let _black_cityeats: PublicSuffix.Node = .label("cityeats", next:[.termination])
   private static let _black_city_ng: PublicSuffix.Node = .label("ng", next:[.termination])
