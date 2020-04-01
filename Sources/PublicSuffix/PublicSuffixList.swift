@@ -1,5 +1,5 @@
 // This file was created automatically
-//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2020-03-30 09:15:03 UTC)
+//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2020-04-01 11:02:16 UTC)
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -849,9 +849,8 @@ extension PublicSuffix {
   private static let _black_us_sc_cc: PublicSuffix.Node = .label("cc", next:[.termination])
   private static let _black_us_sc: PublicSuffix.Node = .label("sc", next:[.termination, _black_us_sc_k12, _black_us_sc_cc, _black_us_sc_lib])
   private static let _black_us_ri_lib: PublicSuffix.Node = .label("lib", next:[.termination])
-  private static let _black_us_ri_k12: PublicSuffix.Node = .label("k12", next:[.termination])
   private static let _black_us_ri_cc: PublicSuffix.Node = .label("cc", next:[.termination])
-  private static let _black_us_ri: PublicSuffix.Node = .label("ri", next:[.termination, _black_us_ri_k12, _black_us_ri_cc, _black_us_ri_lib])
+  private static let _black_us_ri: PublicSuffix.Node = .label("ri", next:[.termination, _black_us_ri_cc, _black_us_ri_lib])
   private static let _black_us_pr_lib: PublicSuffix.Node = .label("lib", next:[.termination])
   private static let _black_us_pr_k12: PublicSuffix.Node = .label("k12", next:[.termination])
   private static let _black_us_pr_cc: PublicSuffix.Node = .label("cc", next:[.termination])
@@ -6984,7 +6983,7 @@ extension PublicSuffix {
   private static let _black_io_banzaicloud: PublicSuffix.Node = .label("banzaicloud", next:[_black_io_banzaicloud_app])
   private static let _black_io_backplaneapp: PublicSuffix.Node = .label("backplaneapp", next:[.termination])
   private static let _black_io_b$data: PublicSuffix.Node = .label("b-data", next:[.termination])
-  private static let _black_io_azurecontainer: PublicSuffix.Node = .label("azurecontainer", next:[.termination])
+  private static let _black_io_azurecontainer: PublicSuffix.Node = .label("azurecontainer", next:[.any])
   private static let _black_io_applicationcloud: PublicSuffix.Node = .label("applicationcloud", next:[.termination])
   private static let _black_io_apigee: PublicSuffix.Node = .label("apigee", next:[.termination])
   private static let _black_io_2038: PublicSuffix.Node = .label("2038", next:[.termination])
