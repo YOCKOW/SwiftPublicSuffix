@@ -1,5 +1,5 @@
 // This file was created automatically
-//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2020-04-04 03:31:41 UTC)
+//   from https://publicsuffix.org/list/public_suffix_list.dat (Last-Modified: 2020-04-07 19:17:33 UTC)
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -7703,6 +7703,7 @@ extension PublicSuffix {
   private static let _black_de_speedpartner_customer: PublicSuffix.Node = .label("customer", next:[.termination])
   private static let _black_de_speedpartner: PublicSuffix.Node = .label("speedpartner", next:[_black_de_speedpartner_customer])
   private static let _black_de_spdns: PublicSuffix.Node = .label("spdns", next:[.termination])
+  private static let _black_de_schulserver: PublicSuffix.Node = .label("schulserver", next:[.termination])
   private static let _black_de_myhome$server: PublicSuffix.Node = .label("myhome-server", next:[.termination])
   private static let _black_de_my$wan: PublicSuffix.Node = .label("my-wan", next:[.termination])
   private static let _black_de_my$vigor: PublicSuffix.Node = .label("my-vigor", next:[.termination])
@@ -7756,7 +7757,7 @@ extension PublicSuffix {
   private static let _black_de_4lima: PublicSuffix.Node = .label("4lima", next:[.termination])
   private static let _black_de_2ix: PublicSuffix.Node = .label("2ix", next:[.termination])
   private static let _black_de_12hp: PublicSuffix.Node = .label("12hp", next:[.termination])
-  private static let _black_de: PublicSuffix.Node = .label("de", next:[.termination, _black_de_bplaced, _black_de_square7, _black_de_com, _black_de_cosidns, _black_de_dynamisches$dns, _black_de_dnsupdater, _black_de_internet$dns, _black_de_l$o$g$i$n, _black_de_dnshome, _black_de_fuettertdasnetz, _black_de_isteingeek, _black_de_istmein, _black_de_lebtimnetz, _black_de_leitungsen, _black_de_traeumtgerade, _black_de_ddnss, _black_de_dyndns1, _black_de_dyn$ip24, _black_de_home$webserver, _black_de_myhome$server, _black_de_goip, _black_de_blogspot, _black_de_dyn$berlin, _black_de_in$berlin, _black_de_in$brb, _black_de_in$butter, _black_de_in$dsl, _black_de_in$vpn, _black_de_mein$iserv, _black_de_test$iserv, _black_de_keymachine, _black_de_git$repos, _black_de_lcube$server, _black_de_svn$repos, _black_de_barsy, _black_de_logoip, _black_de_firewall$gateway, _black_de_my$gateway, _black_de_my$router, _black_de_spdns, _black_de_speedpartner, _black_de_taifun$dns, _black_de_12hp, _black_de_2ix, _black_de_4lima, _black_de_lima$city, _black_de_dd$dns, _black_de_dray$dns, _black_de_draydns, _black_de_dyn$vpn, _black_de_dynvpn, _black_de_mein$vigor, _black_de_my$vigor, _black_de_my$wan, _black_de_syno$ds, _black_de_synology$diskstation, _black_de_synology$ds, _black_de_uberspace, _black_de_virtualuser, _black_de_virtual$user, _black_de_community$pro, _black_de_diskussionsbereich])
+  private static let _black_de: PublicSuffix.Node = .label("de", next:[.termination, _black_de_bplaced, _black_de_square7, _black_de_com, _black_de_cosidns, _black_de_dynamisches$dns, _black_de_dnsupdater, _black_de_internet$dns, _black_de_l$o$g$i$n, _black_de_dnshome, _black_de_fuettertdasnetz, _black_de_isteingeek, _black_de_istmein, _black_de_lebtimnetz, _black_de_leitungsen, _black_de_traeumtgerade, _black_de_ddnss, _black_de_dyndns1, _black_de_dyn$ip24, _black_de_home$webserver, _black_de_myhome$server, _black_de_goip, _black_de_blogspot, _black_de_dyn$berlin, _black_de_in$berlin, _black_de_in$brb, _black_de_in$butter, _black_de_in$dsl, _black_de_in$vpn, _black_de_mein$iserv, _black_de_schulserver, _black_de_test$iserv, _black_de_keymachine, _black_de_git$repos, _black_de_lcube$server, _black_de_svn$repos, _black_de_barsy, _black_de_logoip, _black_de_firewall$gateway, _black_de_my$gateway, _black_de_my$router, _black_de_spdns, _black_de_speedpartner, _black_de_taifun$dns, _black_de_12hp, _black_de_2ix, _black_de_4lima, _black_de_lima$city, _black_de_dd$dns, _black_de_dray$dns, _black_de_draydns, _black_de_dyn$vpn, _black_de_dynvpn, _black_de_mein$vigor, _black_de_my$vigor, _black_de_my$wan, _black_de_syno$ds, _black_de_synology$diskstation, _black_de_synology$ds, _black_de_uberspace, _black_de_virtualuser, _black_de_virtual$user, _black_de_community$pro, _black_de_diskussionsbereich])
   private static let _black_dds: PublicSuffix.Node = .label("dds", next:[.termination])
   private static let _black_dclk: PublicSuffix.Node = .label("dclk", next:[.termination])
   private static let _black_day: PublicSuffix.Node = .label("day", next:[.termination])
