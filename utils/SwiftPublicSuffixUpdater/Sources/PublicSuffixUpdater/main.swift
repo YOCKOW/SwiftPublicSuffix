@@ -5,8 +5,8 @@
     See "LICENSE.txt" for more information.
  ************************************************************************************************ */
 
+import PublicSuffixUpdaterLibrary
 import yCodeUpdater
-import PublicSuffixUpdater
 
 let manager = CodeUpdaterManager()
 manager.updaters = [
