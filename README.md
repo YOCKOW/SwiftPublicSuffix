@@ -2,7 +2,7 @@
 
 `SwiftPublicSuffix` provides Swift code converted from [PUBLIC SUFFIX LIST](https://publicsuffix.org/list/).
 It was originally written as a part of [SwiftCGIResponder](https://github.com/YOCKOW/SwiftCGIResponder).  
-It is not intended to use this library directly in each project. You can use [SwiftNetwork](https://github.com/YOCKOW/SwiftNetwork) instead.
+It is not intended to use this library directly in each project. You can use [SwiftNetworkGear](https://github.com/YOCKOW/SwiftNetworkGear) instead.
 
 # Requirements
 

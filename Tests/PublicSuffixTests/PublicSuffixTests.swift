@@ -10,7 +10,7 @@ import XCTest
 
 final class PublicSuffixTests: XCTestCase {
   func test_nodeSet() {
-    let set: PublicSuffix.Node.Set = [.termination, .label("label", next: [])]
+    let set: PublicSuffix.Node.Set = [.termination, .label("label", next: [.termination])]
     XCTAssertTrue(set.containsTerminationNode())
     XCTAssertNotNil(set.node(of: "label"))
     
