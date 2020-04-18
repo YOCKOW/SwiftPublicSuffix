@@ -75,12 +75,10 @@ extension PublicSuffix {
       }
       
       public func node<S>(of label: S) -> Node? where S: StringProtocol {
-        for node in self._set {
-          if case .label(let ll, next: _) = node._node, label == ll {
-            return node._node
-          }
-        }
-        return nil
+        // _HashableNode ignores "next set".
+        let pseudoNode = _HashableNode(.label(label as? String ?? String(label), next: []))
+        guard let index = self._set.firstIndex(of: pseudoNode) else { return nil }
+        return self._set[index]._node
       }
       
       public func containsAnyLabelNode() -> Bool {
