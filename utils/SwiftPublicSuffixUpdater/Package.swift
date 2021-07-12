@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
   name: "PublicSuffixUpdater",
   platforms: [
-    .macOS(.v10_15),
+    .macOS("10.15.4"), // Workaround for https://bugs.swift.org/browse/SR-13859
     .iOS(.v13),
     .watchOS(.v6),
     .tvOS(.v13),
@@ -18,8 +18,8 @@ let package = Package(
   ],
   dependencies: [
     // Dependencies declare other packages that this package depends on.
-    .package(url: "https://github.com/YOCKOW/SwiftStringComposition.git", from: "2.0.0"),
-    .package(url: "https://github.com/YOCKOW/ySwiftCodeUpdater.git", from: "2.0.0"),
+    .package(url: "https://github.com/YOCKOW/SwiftStringComposition.git", from: "2.0.2"),
+    .package(url: "https://github.com/YOCKOW/ySwiftCodeUpdater.git", from: "2.0.2"),
   ],
   targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
