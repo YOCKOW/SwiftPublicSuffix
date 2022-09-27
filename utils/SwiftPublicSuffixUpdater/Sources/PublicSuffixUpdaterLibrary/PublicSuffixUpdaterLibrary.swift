@@ -1,6 +1,6 @@
 /* *************************************************************************************************
  PublicSuffixUpdater.swift
-  © 2020 YOCKOW.
+  © 2020,2022 YOCKOW.
     Licensed under MIT License.
     See "LICENSE.txt" for more information.
  ************************************************************************************************ */
@@ -53,8 +53,8 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
     }
     
     // - MARK: Derive domains
-    
-    var positives: [Substring] = []
+
+    var positives: [String] = []
     var negatives: [String] = []
     for interm in intermediates {
       for line in interm.content {
@@ -62,13 +62,13 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
         if payload.isEmpty || payload.hasPrefix("//") { continue }
         
         if payload.hasPrefix("!") {
-          positives.append(payload.dropFirst())
+          positives.append(String(payload.dropFirst()))
         } else {
           negatives.append(payload)
         }
       }
     }
-    
+
     /// Sort list of reversed domains.
     ///
     /// For example,
@@ -81,18 +81,18 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
     /// ["jp", "foo"]
     /// ["jp"]
     /// ```
-    func __sorter<C>(_ list0: C, _ list1: C) -> Bool where C: Collection, C.Index == Int, C.Element == Substring {
+    func __sorter<C>(_ list0: C, _ list1: C) -> Bool where C: Collection, C.Index == Int, C.Element == String {
       let (n0, n1) = (list0.count, list1.count)
       assert(n0 > 0 && n1 > 0)
       for ii in 0..<min(n0, n1) {
         if list0[list0.startIndex + ii] < list1[list1.startIndex + ii] { return true }
         if list0[list0.startIndex + ii] > list1[list1.startIndex + ii] { return false }
       }
-      assert(n0 != n1)
+      assert(n0 != n1, "SAME LIST!?\n  - list0: \(list0.joined(separator: ","))\n  - list1: \(list1.joined(separator: ","))")
       return n0 > n1
     }
-    func _sort<S>(_ list: Array<S>) -> [[Substring]] where S: StringProtocol, S.SubSequence == Substring {
-      return list.map({ $0.split(separator: ".").reversed() }).sorted(by: __sorter)
+    func _sort(_ list: [String]) -> [[String]] {
+      return list.map({ $0.split(separator: ".").reversed().map(String.init) }).sorted(by: __sorter)
     }
     
     
@@ -107,17 +107,19 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
     /// private static let _negative_jp: PublicSuffix.Node = .label("baz", next: [.termination, _negative_foo])
     /// public static let negativeList: PublicSuffix.Node.Set = [_negative_com, _negative_jp]
     /// ```
-    func _convert<S>(_ list: Array<S>, prefix: String) -> StringLines where S: StringProtocol, S.SubSequence == Substring {
+    func _convert(_ list: [String], prefix: String) -> StringLines {
       var result = StringLines()
-      
+
+      // NOTE: Avoid the bug: https://github.com/apple/swift/issues/59865
+
       let sorted = _sort(list)
-      var links: [ArraySlice<Substring>: Set<ArraySlice<Substring>>] = [:]
-      var nonRoots: Set<ArraySlice<Substring>> = []
+      var links: [[String]: Set<[String]>] = [:]
+      var nonRoots: Set<[String]> = []
       
-      let ANY: ArraySlice<Substring> = ["$A"]
-      let TERMINATION: ArraySlice<Substring> = ["$T"]
+      let ANY = ["$A"]
+      let TERMINATION = ["$T"]
       
-      func __insert(root: ArraySlice<Substring>, next: ArraySlice<Substring>) {
+      func __insert(root: [String], next: [String]) {
         if links.keys.contains(root) {
           links[root]!.insert(next)
         } else {
@@ -131,10 +133,10 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
         
         let startDroppingCount: Int
         if reversedDomain.last! == "*" {
-          __insert(root: reversedDomain.dropLast(), next: ANY)
+          __insert(root: .init(reversedDomain.dropLast()), next: ANY)
           startDroppingCount = 2
         } else {
-          __insert(root: reversedDomain[...], next: TERMINATION)
+          __insert(root: reversedDomain, next: TERMINATION)
           startDroppingCount = 1
         }
         for ii in startDroppingCount..<reversedDomain.count {
@@ -142,7 +144,7 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
         }
       }
       
-      func __id<C>(_ reversedDomain: C) -> String where C: Collection, C.Element == Substring {
+      func __id(_ reversedDomain: [String]) -> String {
         if reversedDomain.count == 1 {
           if reversedDomain.first! == ANY.first! {
             return ".any"
