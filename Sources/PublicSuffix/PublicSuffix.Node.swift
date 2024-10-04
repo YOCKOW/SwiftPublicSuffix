@@ -1,6 +1,6 @@
 /***************************************************************************************************
  PublicSuffix.Node.swift
-   © 2017-2020 YOCKOW.
+   © 2017-2020,2024 YOCKOW.
      Licensed under MIT License.
      See "LICENSE.txt" for more information.
  **************************************************************************************************/
@@ -27,8 +27,8 @@ extension PublicSuffix {
   ///   .label("bar", next: [.termination]),
   /// ])
   /// ```
-  public enum Node {
-    public struct Set: ExpressibleByArrayLiteral {
+  public enum Node: Sendable {
+    public struct Set: ExpressibleByArrayLiteral, Sendable {
       public typealias ArrayLiteralElement = Node
       
       private struct _HashableNode: Hashable {

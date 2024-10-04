@@ -6,7 +6,7 @@ It is not intended to use this library directly in each project. You can use [Sw
 
 # Requirements
 
-- Swift 5 (including compatibility mode for Swift 4 or 4.2)
+- Swift 5, 6 (including language mode for Swift 4 or 4.2)
 - macOS or Linux
 
 # License
