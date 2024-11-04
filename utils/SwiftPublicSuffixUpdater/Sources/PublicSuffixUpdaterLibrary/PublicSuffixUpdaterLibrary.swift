@@ -21,7 +21,7 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
   }
   
   public var destinationURL: URL {
-    var url = URL(fileURLWithPath: #file)
+    var url = URL(fileURLWithPath: #filePath)
     for _ in 0..<5 { url = url.deletingLastPathComponent() }
     url.appendPathComponent("Sources")
     url.appendPathComponent("PublicSuffix")
