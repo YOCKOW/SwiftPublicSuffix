@@ -1,18 +1,80 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
-directory=$(cd "$(dirname "$0")" && pwd)
-package_path="${directory}/SwiftPublicSuffixUpdater"
-build_path=$(cd "${directory}/../.build" && pwd -P)
-build_config="--package-path \"${package_path}\" --build-path \"${build_path}\""
+function __isTrue() {
+  if [[ "${(L)1:-}" == "true" ]]; then
+    return 0
+  fi
+  return 1
+}
 
-cmd="exit 1"
+function __isFalse() {
+  if [[ "${(L)1:-}" == "false" ]]; then
+    return 0
+  fi
+  return 1
+}
 
-if [ "$1" = "--build" ] || [ "$1" = "-b" ]; then
-  cmd="swift build ${build_config}"
-elif [ "$1" = "--test" ] || [ "$1" = "-t" ]; then
-  cmd="swift test ${build_config}"
-else
-  cmd="swift run ${build_config} PublicSuffixUpdater $@"
+declare -r utilsDir="$(cd "$(dirname "$0")" && pwd -L)"
+declare -r updaterPackageDir="${utilsDir}/SwiftPublicSuffixUpdater"
+declare -r repoDir="$(cd "${utilsDir}/.." && pwd -P)"
+declare -r targetRelativePath="Sources/PublicSuffix/PublicSuffixList.swift"
+declare scratchPath="${repoDir}/.build"
+declare -a swiftCommandArguments=(--package-path "$updaterPackageDir" --scratch-path "$scratchPath")
+declare -A parsedArguments=()
+zparseopts -D -E -M -A parsedArguments -- \
+  b -build=b \
+  t -test=t \
+  -commit
+
+if [[ -v YOCKOW_USE_LOCAL_PACKAGES ]] && ! __isFalse "$YOCKOW_USE_LOCAL_PACKAGES"; then
+  scratchPath="$HOME/.yswift-build"
 fi
 
-eval $cmd
+declare doBuild="false"
+if [[ -n "${parsedArguments[(i)-b]}" ]]; then
+  doBuild="true"
+fi
+
+declare doTest="false"
+if [[ -n "${parsedArguments[(i)-t]}" ]]; then
+  doTest="true"
+fi
+
+declare doCommit="false"
+if [[ -n "${parsedArguments[(i)--commit]}" ]]; then
+  doCommit="true"
+fi
+
+if __isTrue "$doBuild"; then
+  set -x;
+  swift build $swiftCommandArguments
+  { set +x; } 2>/dev/null
+fi
+if __isTrue "$doTest"; then
+  set -x;
+  swift test $swiftCommandArguments
+  { set +x; } 2>/dev/null
+fi
+if ! __isTrue "$doBuild" && ! __isTrue "$doTest"; then
+  set -x;
+  swift run $swiftCommandArguments PublicSuffixUpdater
+  { set +x; } 2>/dev/null
+
+  if __isTrue "$doCommit"; then
+    cd "$repoDir"
+
+    declare gitStatus=""
+    gitStatus=$(git status --short "$targetRelativePath")
+
+    if [[ -z "$gitStatus" ]]; then
+      echo "No changes were found at ${targetRelativePath}."
+      exit 0
+    fi
+
+    declare -r uDate=$(date '+%Y/%m/%d %H:%M:%S%z')
+    set -x
+    git add "$targetRelativePath"
+    git commit --message "Update the List."$'\n\n'"(Updated by script at ${uDate}.)"
+    { set +x; } 2>/dev/null
+  fi
+fi
