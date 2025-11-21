@@ -41,6 +41,7 @@ jobs:
           git config --local user.name "${GIT_USER_NAME}"
           git config --local user.email "${GIT_USER_EMAIL}"
           git checkout -b "${TARGET_BRANCH}"
+          git fetch origin "${TARGET_BRANCH}:refs/remotes/origin/${TARGET_BRANCH}"
           git merge "origin/${TARGET_BRANCH}"
           ./utils/update --commit
           git push --set-upstream origin "${TARGET_BRANCH}:${TARGET_BRANCH}"
