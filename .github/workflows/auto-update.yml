@@ -1,0 +1,57 @@
+name: Auto-update
+on:
+  schedule:
+    - cron: "0 0 * * 0"
+  workflow_dispatch: # Enable to run manually
+jobs:
+  auto-update:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      TARGET_BRANCH: auto-update
+    steps:
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get upgrade -y
+          sudo apt-get install -y git zsh
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+      - name: Use a cache for ".build" directory.
+        uses: actions/cache@v4
+        with:
+          path: .build
+          key: build-${{ github.workspace }}-${{ runner.os }}-auto-update
+          restore-keys: |
+            build-${{ github.workspace }}-${{ runner.os }}-auto-update
+            build-${{ github.workspace }}-${{ runner.os }}-
+            build-${{ github.workspace }}-
+      - uses: YOCKOW/Action-setup-swift@main
+        with:
+          swift-version: "6.2.1"
+      - name: Update the list and commit
+        id: update-and-commit
+        env:
+          GIT_USER_NAME: "github-actions[bot]"
+          GIT_USER_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
+        run: |
+          git config --global --add safe.directory "$(realpath .)"
+          git config --local user.name "${GIT_USER_NAME}"
+          git config --local user.email "${GIT_USER_EMAIL}"
+          git checkout -b "${TARGET_BRANCH}"
+          git merge "origin/${TARGET_BRANCH}"
+          ./utils/update --commit
+          git push --set-upstream origin "${TARGET_BRANCH}:${TARGET_BRANCH}"
+          echo "update-diff=$(git diff --shortstat HEAD..origin/main)" >>"$GITHUB_OUTPUT"
+      - name: Create PR and merge.
+        if: ${{ steps.update-and-commit.outputs.update-diff != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git checkout "${TARGET_BRANCH}"
+          declare prURL
+          prURL=$(gh pr create --base main --head "${TARGET_BRANCH}" --title "Update the list." --body "${{ steps.update-and-commit.outputs.update-diff }}")
+          gh pr review "$prURL" --approve
+          gh pr merge --merge --auto "$prURL"
