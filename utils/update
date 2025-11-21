@@ -16,12 +16,15 @@ function __isFalse() {
 
 declare -r utilsDir="$(cd "$(dirname "$0")" && pwd -L)"
 declare -r updaterPackageDir="${utilsDir}/SwiftPublicSuffixUpdater"
-declare scratchPath="$(cd "${utilsDir}/../.build" && pwd -P)"
+declare -r repoDir="$(cd "${utilsDir}/.." && pwd -P)"
+declare -r targetRelativePath="Sources/PublicSuffix/PublicSuffixList.swift"
+declare scratchPath="${repoDir}/.build"
 declare -a swiftCommandArguments=(--package-path "$updaterPackageDir" --scratch-path "$scratchPath")
 declare -A parsedArguments=()
 zparseopts -D -E -M -A parsedArguments -- \
   b -build=b \
-  t -test=t
+  t -test=t \
+  -commit
 
 if [[ -v YOCKOW_USE_LOCAL_PACKAGES ]] && ! __isFalse "$YOCKOW_USE_LOCAL_PACKAGES"; then
   scratchPath="$HOME/.yswift-build"
@@ -35,6 +38,11 @@ fi
 declare doTest="false"
 if [[ -n "${parsedArguments[(i)-t]}" ]]; then
   doTest="true"
+fi
+
+declare doCommit="false"
+if [[ -n "${parsedArguments[(i)--commit]}" ]]; then
+  doCommit="true"
 fi
 
 if __isTrue "$doBuild"; then
@@ -51,4 +59,22 @@ if ! __isTrue "$doBuild" && ! __isTrue "$doTest"; then
   set -x;
   swift run $swiftCommandArguments PublicSuffixUpdater
   { set +x; } 2>/dev/null
+
+  if __isTrue "$doCommit"; then
+    cd "$repoDir"
+
+    declare gitStatus=""
+    gitStatus=$(git status --short "$targetRelativePath")
+
+    if [[ -z "$gitStatus" ]]; then
+      echo "No changes were found at ${targetRelativePath}."
+      exit 0
+    fi
+
+    declare -r uDate=$(date '+%Y/%m/%d %H:%M:%S%z')
+    set -x
+    git add "$targetRelativePath"
+    git commit --message "Update the List."$'\n\n'"(Updated by script at ${uDate}.)"
+    { set +x; } 2>/dev/null
+  fi
 fi
