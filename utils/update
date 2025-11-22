@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -eu
+
 function __isTrue() {
   if [[ "${(L)1:-}" == "true" ]]; then
     return 0
