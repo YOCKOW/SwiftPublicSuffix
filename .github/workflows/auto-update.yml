@@ -10,6 +10,7 @@ jobs:
       contents: write
       pull-requests: write
     env:
+      BASE_BRANCH: main
       TARGET_BRANCH: auto-update
     steps:
       - name: Install dependencies
@@ -41,13 +42,14 @@ jobs:
           set -x
           git config --local user.name "${GIT_USER_NAME}"
           git config --local user.email "${GIT_USER_EMAIL}"
+          git fetch origin "${BASE_BRANCH}:refs/remotes/origin/${BASE_BRANCH}"
           git fetch origin "${TARGET_BRANCH}:refs/remotes/origin/${TARGET_BRANCH}"
           git checkout "origin/${TARGET_BRANCH}"
           git checkout -b "${TARGET_BRANCH}"
-          git merge origin/main
+          git merge "origin/${BASE_BRANCH}"
           ./utils/update --commit
           git push --set-upstream origin "${TARGET_BRANCH}:${TARGET_BRANCH}"
-          updateSummary=$(git diff --shortstat origin/main..HEAD)
+          updateSummary=$(git diff --shortstat "origin/${BASE_BRANCH}..HEAD")
           echo "update-summary=${updateSummary}" >>"$GITHUB_OUTPUT"
       - name: Create PR and merge.
         if: ${{ steps.update-and-commit.outputs.update-summary != '' }}
@@ -58,6 +60,6 @@ jobs:
           declare prURL
           set -x
           git checkout "${TARGET_BRANCH}"
-          prURL=$(gh pr create --base main --head "${TARGET_BRANCH}" --title "Update the list." --body "${UPDATE_SUMMARY}")
+          prURL=$(gh pr create --base "${BASE_BRANCH}"" --head "${TARGET_BRANCH}" --title "Update the list." --body "${UPDATE_SUMMARY}")
           gh pr review "$prURL" --approve
           gh pr merge --merge --auto "$prURL"
