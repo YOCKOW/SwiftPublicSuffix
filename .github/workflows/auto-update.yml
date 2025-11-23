@@ -58,8 +58,18 @@ jobs:
           UPDATE_SUMMARY: ${{ steps.update-and-commit.outputs.update-summary }}
         run: |
           declare prURL
-          set -x
+          declare checksState
+          set -xu
           git checkout "${TARGET_BRANCH}"
           prURL=$(gh pr create --base "${BASE_BRANCH}"" --head "${TARGET_BRANCH}" --title "Update the list." --body "${UPDATE_SUMMARY}")
+          sleep 10
+          gh pr checks --watch --fail-fast "$prURL"
+          checksState="$(gh pr checks --json state --jq '.[] | .state' "$prURL" | sort -u)"
+          { set +x; } 2>/dev/null
+          if [[ "$checksState" != "SUCCESS" ]]; then
+            echo "::error title=Test(s) Failed::$(gh pr checks "$prURL")"
+            exit 1
+          fi
+          set -x
           gh pr review "$prURL" --approve
           gh pr merge --merge --auto "$prURL"
