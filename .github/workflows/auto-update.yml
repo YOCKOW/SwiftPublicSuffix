@@ -39,13 +39,12 @@ jobs:
         run: |
           declare updateSummary=""
           set -x
-
-          git config --global --add safe.directory "$(realpath .)"
           git config --local user.name "${GIT_USER_NAME}"
           git config --local user.email "${GIT_USER_EMAIL}"
           git fetch origin "${TARGET_BRANCH}:refs/remotes/origin/${TARGET_BRANCH}"
           git checkout "origin/${TARGET_BRANCH}"
           git checkout -b "${TARGET_BRANCH}"
+          git merge origin/main
           ./utils/update --commit
           git push --set-upstream origin "${TARGET_BRANCH}:${TARGET_BRANCH}"
           updateSummary=$(git diff --shortstat origin/main..HEAD)
@@ -58,7 +57,6 @@ jobs:
         run: |
           declare prURL
           set -x
-
           git checkout "${TARGET_BRANCH}"
           prURL=$(gh pr create --base main --head "${TARGET_BRANCH}" --title "Update the list." --body "${UPDATE_SUMMARY}")
           gh pr review "$prURL" --approve
