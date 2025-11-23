@@ -37,6 +37,9 @@ jobs:
           GIT_USER_NAME: "github-actions[bot]"
           GIT_USER_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
         run: |
+          declare updateSummary=""
+          set -x
+
           git config --global --add safe.directory "$(realpath .)"
           git config --local user.name "${GIT_USER_NAME}"
           git config --local user.email "${GIT_USER_EMAIL}"
@@ -45,14 +48,18 @@ jobs:
           git checkout -b "${TARGET_BRANCH}"
           ./utils/update --commit
           git push --set-upstream origin "${TARGET_BRANCH}:${TARGET_BRANCH}"
-          echo "update-diff=$(git diff --shortstat HEAD..origin/main)" >>"$GITHUB_OUTPUT"
+          updateSummary=$(git diff --shortstat origin/main..HEAD)
+          echo "update-summary=${updateSummary}" >>"$GITHUB_OUTPUT"
       - name: Create PR and merge.
-        if: ${{ steps.update-and-commit.outputs.update-diff != '' }}
+        if: ${{ steps.update-and-commit.outputs.update-summary != '' }}
         env:
           GH_TOKEN: ${{ github.token }}
+          UPDATE_SUMMARY: ${{ steps.update-and-commit.outputs.update-summary }}
         run: |
-          git checkout "${TARGET_BRANCH}"
           declare prURL
-          prURL=$(gh pr create --base main --head "${TARGET_BRANCH}" --title "Update the list." --body "${{ steps.update-and-commit.outputs.update-diff }}")
+          set -x
+
+          git checkout "${TARGET_BRANCH}"
+          prURL=$(gh pr create --base main --head "${TARGET_BRANCH}" --title "Update the list." --body "${UPDATE_SUMMARY}")
           gh pr review "$prURL" --approve
           gh pr merge --merge --auto "$prURL"
