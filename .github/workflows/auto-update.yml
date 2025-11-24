@@ -54,7 +54,7 @@ jobs:
       - name: Create PR and merge.
         if: ${{ steps.update-and-commit.outputs.update-summary != '' }}
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.AUTO_UPDATE_TOKEN }}
           UPDATE_SUMMARY: ${{ steps.update-and-commit.outputs.update-summary }}
         run: |
           declare prURL
