@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2025-11-24T08:25:52Z
-// ETag: W/"1d1a7205ab015223256c6bda6bae2cb0"
+// Last-Modified: 2025-11-24T09:12:52Z
+// ETag: W/"b7e06de735aeb3f850f6c134fe7b648e"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -3474,6 +3474,7 @@ extension PublicSuffix {
   private static let _negative_dev_fly: PublicSuffix.Node = .label("fly", next: [.termination])
   private static let _negative_dev_gateway: PublicSuffix.Node = .label("gateway", next: [.any])
   private static let _negative_dev_githubpreview: PublicSuffix.Node = .label("githubpreview", next: [.termination])
+  private static let _negative_dev_grebedoc: PublicSuffix.Node = .label("grebedoc", next: [.termination])
   private static let _negative_dev_hrsn: PublicSuffix.Node = .label("hrsn", next: [.termination])
   private static let _negative_dev_inbrowser: PublicSuffix.Node = .label("inbrowser", next: [.any])
   private static let _negative_dev_isHa: PublicSuffix.Node = .label("is-a", next: [.termination])
@@ -3536,7 +3537,7 @@ extension PublicSuffix {
   private static let _negative_dev_webhare: PublicSuffix.Node = .label("webhare", next: [.any])
   private static let _negative_dev_workers: PublicSuffix.Node = .label("workers", next: [.termination])
   private static let _negative_dev_xmit: PublicSuffix.Node = .label("xmit", next: [.termination])
-  private static let _negative_dev: PublicSuffix.Node = .label("dev", next: [.termination, _negative_dev_12chars, _negative_dev_barsy, _negative_dev_bearblog, _negative_dev_botdash, _negative_dev_crm, _negative_dev_deno, _negative_dev_denoHstaging, _negative_dev_deta, _negative_dev_erp, _negative_dev_evervault, _negative_dev_fly, _negative_dev_gateway, _negative_dev_githubpreview, _negative_dev_hrsn, _negative_dev_inbrowser, _negative_dev_isHa, _negative_dev_isHaHfullstack, _negative_dev_isHaHgood, _negative_dev_isHcool, _negative_dev_isHnotHa, _negative_dev_iserv, _negative_dev_lcl, _negative_dev_lclstage, _negative_dev_leapcell, _negative_dev_localcert, _negative_dev_localplayer, _negative_dev_loginline, _negative_dev_lp, _negative_dev_mediatech, _negative_dev_mochaHsandbox, _negative_dev_modx, _negative_dev_myaddr, _negative_dev_ngrok, _negative_dev_ngrokHfree, _negative_dev_pages, _negative_dev_panel, _negative_dev_platterHapp, _negative_dev_r2, _negative_dev_replit, _negative_dev_runcontainers, _negative_dev_stg, _negative_dev_stgstage, _negative_dev_vercel, _negative_dev_webhare, _negative_dev_workers, _negative_dev_xmit])
+  private static let _negative_dev: PublicSuffix.Node = .label("dev", next: [.termination, _negative_dev_12chars, _negative_dev_barsy, _negative_dev_bearblog, _negative_dev_botdash, _negative_dev_crm, _negative_dev_deno, _negative_dev_denoHstaging, _negative_dev_deta, _negative_dev_erp, _negative_dev_evervault, _negative_dev_fly, _negative_dev_gateway, _negative_dev_githubpreview, _negative_dev_grebedoc, _negative_dev_hrsn, _negative_dev_inbrowser, _negative_dev_isHa, _negative_dev_isHaHfullstack, _negative_dev_isHaHgood, _negative_dev_isHcool, _negative_dev_isHnotHa, _negative_dev_iserv, _negative_dev_lcl, _negative_dev_lclstage, _negative_dev_leapcell, _negative_dev_localcert, _negative_dev_localplayer, _negative_dev_loginline, _negative_dev_lp, _negative_dev_mediatech, _negative_dev_mochaHsandbox, _negative_dev_modx, _negative_dev_myaddr, _negative_dev_ngrok, _negative_dev_ngrokHfree, _negative_dev_pages, _negative_dev_panel, _negative_dev_platterHapp, _negative_dev_r2, _negative_dev_replit, _negative_dev_runcontainers, _negative_dev_stg, _negative_dev_stgstage, _negative_dev_vercel, _negative_dev_webhare, _negative_dev_workers, _negative_dev_xmit])
   private static let _negative_dhl: PublicSuffix.Node = .label("dhl", next: [.termination])
   private static let _negative_diamonds: PublicSuffix.Node = .label("diamonds", next: [.termination])
   private static let _negative_diet: PublicSuffix.Node = .label("diet", next: [.termination])
@@ -4199,7 +4200,8 @@ extension PublicSuffix {
   private static let _negative_id_sch: PublicSuffix.Node = .label("sch", next: [.termination])
   private static let _negative_id_web: PublicSuffix.Node = .label("web", next: [.termination])
   private static let _negative_id_zone: PublicSuffix.Node = .label("zone", next: [.termination])
-  private static let _negative_id: PublicSuffix.Node = .label("id", next: [.termination, _negative_id_ac, _negative_id_biz, _negative_id_co, _negative_id_desa, _negative_id_e, _negative_id_go, _negative_id_kop, _negative_id_mil, _negative_id_my, _negative_id_net, _negative_id_or, _negative_id_ponpes, _negative_id_sch, _negative_id_web, _negative_id_zone])
+  private static let _negative_id_ᬩᬮᬶ: PublicSuffix.Node = .label("ᬩᬮᬶ", next: [.termination])
+  private static let _negative_id: PublicSuffix.Node = .label("id", next: [.termination, _negative_id_ac, _negative_id_biz, _negative_id_co, _negative_id_desa, _negative_id_e, _negative_id_go, _negative_id_kop, _negative_id_mil, _negative_id_my, _negative_id_net, _negative_id_or, _negative_id_ponpes, _negative_id_sch, _negative_id_web, _negative_id_zone, _negative_id_ᬩᬮᬶ])
   private static let _negative_ie_gov: PublicSuffix.Node = .label("gov", next: [.termination])
   private static let _negative_ie_myspreadshop: PublicSuffix.Node = .label("myspreadshop", next: [.termination])
   private static let _negative_ie: PublicSuffix.Node = .label("ie", next: [.termination, _negative_ie_gov, _negative_ie_myspreadshop])
