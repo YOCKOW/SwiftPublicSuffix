@@ -61,7 +61,7 @@ jobs:
           declare checksState
           set -xu
           git checkout "${SOURCE_BRANCH}"
-          prURL=$(gh pr create --base "${TARGET_BRANCH}"" --head "${SOURCE_BRANCH}" --title "Update the list." --body "${UPDATE_SUMMARY}")
+          prURL=$(gh pr create --base "${TARGET_BRANCH}" --head "${SOURCE_BRANCH}" --title "Update the list." --body "${UPDATE_SUMMARY}")
           sleep 10
           gh pr checks --watch --fail-fast "$prURL"
           checksState="$(gh pr checks --json state --jq '.[] | .state' "$prURL" | sort -u)"
