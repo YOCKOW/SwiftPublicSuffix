@@ -3,15 +3,19 @@ on:
   schedule:
     - cron: "0 0 * * 0"
   workflow_dispatch: # Enable to run manually
+permissions:
+  contents: write
+  pull-requests: write
+env:
+  GIT_USER_NAME: "github-actions[bot]"
+  GIT_USER_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
 jobs:
-  auto-update:
+  auto-update-main:
+    name: Auto-update (main)
     runs-on: ubuntu-24.04
-    permissions:
-      contents: write
-      pull-requests: write
     env:
-      BASE_BRANCH: main
-      TARGET_BRANCH: auto-update
+      TARGET_BRANCH: main
+      SOURCE_BRANCH: auto-update
     steps:
       - name: Install dependencies
         run: |
@@ -34,23 +38,19 @@ jobs:
           swift-version: "6.2.1"
       - name: Update the list and commit
         id: update-and-commit
-        env:
-          GIT_USER_NAME: "github-actions[bot]"
-          GIT_USER_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
         run: |
           declare updateSummary=""
           set -x
           git config --local user.name "${GIT_USER_NAME}"
           git config --local user.email "${GIT_USER_EMAIL}"
-          git fetch origin "${BASE_BRANCH}:refs/remotes/origin/${BASE_BRANCH}"
           git fetch origin "${TARGET_BRANCH}:refs/remotes/origin/${TARGET_BRANCH}"
-          git checkout "origin/${TARGET_BRANCH}"
-          git checkout -b "${TARGET_BRANCH}"
-          git merge "origin/${BASE_BRANCH}"
+          git fetch origin "${SOURCE_BRANCH}:refs/remotes/origin/${SOURCE_BRANCH}"
+          git checkout "origin/${SOURCE_BRANCH}"
+          git checkout -b "${SOURCE_BRANCH}"
+          git merge "origin/${TARGET_BRANCH}"
           ./utils/update --commit
-          git push --set-upstream origin "${TARGET_BRANCH}:${TARGET_BRANCH}"
-          updateSummary=$(git diff --shortstat "origin/${BASE_BRANCH}..HEAD")
-          echo "update-summary=${updateSummary}" >>"$GITHUB_OUTPUT"
+          git push --set-upstream origin "${SOURCE_BRANCH}:${SOURCE_BRANCH}"
+          echo "update-summary=$(git diff --shortstat "origin/${TARGET_BRANCH}..HEAD")" >>"$GITHUB_OUTPUT"
       - name: Create PR and merge.
         if: ${{ steps.update-and-commit.outputs.update-summary != '' }}
         env:
@@ -60,8 +60,8 @@ jobs:
           declare prURL
           declare checksState
           set -xu
-          git checkout "${TARGET_BRANCH}"
-          prURL=$(gh pr create --base "${BASE_BRANCH}"" --head "${TARGET_BRANCH}" --title "Update the list." --body "${UPDATE_SUMMARY}")
+          git checkout "${SOURCE_BRANCH}"
+          prURL=$(gh pr create --base "${TARGET_BRANCH}"" --head "${SOURCE_BRANCH}" --title "Update the list." --body "${UPDATE_SUMMARY}")
           sleep 10
           gh pr checks --watch --fail-fast "$prURL"
           checksState="$(gh pr checks --json state --jq '.[] | .state' "$prURL" | sort -u)"
@@ -73,3 +73,25 @@ jobs:
           set -x
           gh pr review "$prURL" --approve
           gh pr merge --merge --auto "$prURL"
+  auto-update-v2:
+    name: Auto-update (v2)
+    runs-on: ubuntu-24.04
+    env:
+      TARGET_BRANCH: up-to-date/v2
+      SOURCE_BRANCH: main
+    needs:
+      - auto-update-main
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+      - name: Merge ${{ env.SOURCE_BRANCH }} branch into ${{ env.TARGET_BRANCH }} branch.
+        run: |
+          set -x
+          git config --local user.name "${GIT_USER_NAME}"
+          git config --local user.email "${GIT_USER_EMAIL}"
+          git fetch origin "${TARGET_BRANCH}:refs/remotes/origin/${TARGET_BRANCH}"
+          git fetch origin "${SOURCE_BRANCH}:refs/remotes/origin/${SOURCE_BRANCH}"
+          git checkout "origin/${TARGET_BRANCH}"
+          git checkout -b "${TARGET_BRANCH}"
+          git merge "origin/${SOURCE_BRANCH}"
+          git push --set-upstream origin "${TARGET_BRANCH}:${TARGET_BRANCH}"
