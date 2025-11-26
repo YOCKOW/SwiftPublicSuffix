@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2025-11-24T09:12:52Z
-// ETag: W/"b7e06de735aeb3f850f6c134fe7b648e"
+// Last-Modified: 2025-11-24T21:12:58Z
+// ETag: W/"2ef6f64e989b932017d7a674419e1f4e"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
