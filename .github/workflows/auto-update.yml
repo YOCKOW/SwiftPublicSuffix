@@ -57,9 +57,18 @@ jobs:
           GH_TOKEN: ${{ secrets.AUTO_UPDATE_TOKEN }}
           UPDATE_SUMMARY: ${{ steps.update-and-commit.outputs.update-summary }}
         run: |
+          declare oldPRURL
           declare prURL
           declare checksState
           set -xu
+          oldPRURL=$(gh pr list --head "$SOURCE_BRANCH" --json url --jq '.[].url')
+          { set +x; } 2>/dev/null
+          if [[ -n "$oldPRURL" ]]; then
+            set -x
+            gh pr close "$oldPRURL"
+            { set +x; } 2>/dev/null
+          fi
+          set -x
           git checkout "${SOURCE_BRANCH}"
           prURL=$(gh pr create --base "${TARGET_BRANCH}" --head "${SOURCE_BRANCH}" --title "Update the list." --body "${UPDATE_SUMMARY}")
           sleep 10
@@ -71,7 +80,6 @@ jobs:
             exit 1
           fi
           set -x
-          gh pr review "$prURL" --approve
           gh pr merge --merge --auto "$prURL"
   auto-update-v2:
     name: Auto-update (v2)
