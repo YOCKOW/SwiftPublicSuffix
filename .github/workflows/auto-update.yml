@@ -20,10 +20,11 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get upgrade -y
           sudo apt-get install -y git zsh libcurl4-openssl-dev
       - name: Checkout Repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - name: Use a cache for ".build" directory.
         uses: actions/cache@v4
         with:
@@ -43,10 +44,8 @@ jobs:
           set -x
           git config --local user.name "${GIT_USER_NAME}"
           git config --local user.email "${GIT_USER_EMAIL}"
-          git fetch origin "${TARGET_BRANCH}:refs/remotes/origin/${TARGET_BRANCH}"
-          git fetch origin "${SOURCE_BRANCH}:refs/remotes/origin/${SOURCE_BRANCH}"
           git checkout "origin/${SOURCE_BRANCH}"
-          git checkout -b "${SOURCE_BRANCH}"
+          git switch -c "${SOURCE_BRANCH}"
           git merge "origin/${TARGET_BRANCH}"
           ./utils/update --commit
           git push --set-upstream origin "${SOURCE_BRANCH}:${SOURCE_BRANCH}"
@@ -92,14 +91,14 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - name: Merge ${{ env.SOURCE_BRANCH }} branch into ${{ env.TARGET_BRANCH }} branch.
         run: |
           set -x
           git config --local user.name "${GIT_USER_NAME}"
           git config --local user.email "${GIT_USER_EMAIL}"
-          git fetch origin "${TARGET_BRANCH}:refs/remotes/origin/${TARGET_BRANCH}"
-          git fetch origin "${SOURCE_BRANCH}:refs/remotes/origin/${SOURCE_BRANCH}"
           git checkout "origin/${TARGET_BRANCH}"
-          git checkout -b "${TARGET_BRANCH}"
+          git switch -c "${TARGET_BRANCH}"
           git merge "origin/${SOURCE_BRANCH}"
           git push --set-upstream origin "${TARGET_BRANCH}:${TARGET_BRANCH}"
