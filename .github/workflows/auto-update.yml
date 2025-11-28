@@ -55,6 +55,8 @@ jobs:
         run: |
           declare updateSummary=""
           set -x
+          git fetch origin "${AUTO_UPDATE_BRANCH}"
+          git fetch origin "${BASE_BRANCH}"
           git checkout "origin/${AUTO_UPDATE_BRANCH}"
           git switch -c "${AUTO_UPDATE_BRANCH}"
           git merge "origin/${BASE_BRANCH}"
@@ -101,6 +103,8 @@ jobs:
         if: ${{ steps.update-and-commit.outputs.update-summary != '' }}
         run: |
           set -x
+          git fetch origin "${UP_TO_DATE_BRANCH}"
+          git fetch origin "${BASE_BRANCH}"
           git checkout "origin/${UP_TO_DATE_BRANCH}"
           git switch -c "${UP_TO_DATE_BRANCH}"
           git merge "origin/${BASE_BRANCH}"
