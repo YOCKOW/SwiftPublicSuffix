@@ -55,6 +55,8 @@ jobs:
         run: |
           declare updateSummary=""
           set -x
+          git fetch origin "${AUTO_UPDATE_BRANCH}"
+          git fetch origin "${BASE_BRANCH}"
           git checkout "origin/${AUTO_UPDATE_BRANCH}"
           git switch -c "${AUTO_UPDATE_BRANCH}"
           git merge "origin/${BASE_BRANCH}"
@@ -87,6 +89,7 @@ jobs:
             gh pr comment "$oldPRURL" --body "New PR: $prURL"
             { set +x; set -e; } 2>/dev/null
           fi
+          set -x
           sleep 10
           gh pr checks --watch --fail-fast "$prURL"
           checksState="$(gh pr checks --json state --jq '.[].state' "$prURL" | sort -u)"
@@ -101,6 +104,8 @@ jobs:
         if: ${{ steps.update-and-commit.outputs.update-summary != '' }}
         run: |
           set -x
+          git fetch origin "${UP_TO_DATE_BRANCH}"
+          git fetch origin "${BASE_BRANCH}"
           git checkout "origin/${UP_TO_DATE_BRANCH}"
           git switch -c "${UP_TO_DATE_BRANCH}"
           git merge "origin/${BASE_BRANCH}"
