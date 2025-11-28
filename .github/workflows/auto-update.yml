@@ -89,6 +89,7 @@ jobs:
             gh pr comment "$oldPRURL" --body "New PR: $prURL"
             { set +x; set -e; } 2>/dev/null
           fi
+          set -x
           sleep 10
           gh pr checks --watch --fail-fast "$prURL"
           checksState="$(gh pr checks --json state --jq '.[].state' "$prURL" | sort -u)"
