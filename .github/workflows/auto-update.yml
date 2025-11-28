@@ -6,21 +6,28 @@ on:
 permissions:
   contents: write
   pull-requests: write
-env:
-  GIT_USER_NAME: "github-actions[bot]"
-  GIT_USER_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
 jobs:
-  auto-update-main:
-    name: Auto-update (main)
+  auto-update:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - auto-update-branch: auto-update/v2
+            base-branch: main
+            up-to-date-branch: up-to-date/v2
     runs-on: ubuntu-24.04
     env:
-      TARGET_BRANCH: main
-      SOURCE_BRANCH: auto-update/v2
+      AUTO_UPDATE_BRANCH: ${{ matrix.auto-update-branch }}
+      BASE_BRANCH: ${{ matrix.base-branch }}
+      UP_TO_DATE_BRANCH: ${{ matrix.up-to-date-branch }}
+      GIT_USER_NAME: "github-actions[bot]"
+      GIT_USER_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
+    name: "Auto-update: ${{ matrix.auto-update-branch }} → ${{ matrix.base-branch }} → ${{ matrix.up-to-date-branch }}"
     steps:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y git zsh libcurl4-openssl-dev
+          sudo apt-get install --no-install-recommends -y git zsh libcurl4-openssl-dev
       - name: Checkout Repository
         uses: actions/checkout@v6
         with:
@@ -29,27 +36,31 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .build
-          key: build-${{ github.workspace }}-${{ runner.os }}-auto-update
+          key: build-${{ github.workspace }}-${{ runner.os }}-auto-update-${{ matrix.auto-update-branch }}
           restore-keys: |
-            build-${{ github.workspace }}-${{ runner.os }}-auto-update
+            build-${{ github.workspace }}-${{ runner.os }}-auto-update-${{ matrix.auto-update-branch }}
+            build-${{ github.workspace }}-${{ runner.os }}-auto-update-
             build-${{ github.workspace }}-${{ runner.os }}-
             build-${{ github.workspace }}-
       - uses: YOCKOW/Action-setup-swift@main
         with:
           swift-version: "6.2.1"
-      - name: Update the list and commit
+      - name: Configure git.
+        run: |
+          set -x
+          git config --local user.name "${GIT_USER_NAME}"
+          git config --local user.email "${GIT_USER_EMAIL}"
+      - name: Update the list and commit ${{ env.AUTO_UPDATE_BRANCH }} branch.
         id: update-and-commit
         run: |
           declare updateSummary=""
           set -x
-          git config --local user.name "${GIT_USER_NAME}"
-          git config --local user.email "${GIT_USER_EMAIL}"
-          git checkout "origin/${SOURCE_BRANCH}"
-          git switch -c "${SOURCE_BRANCH}"
-          git merge "origin/${TARGET_BRANCH}"
+          git checkout "origin/${AUTO_UPDATE_BRANCH}"
+          git switch -c "${AUTO_UPDATE_BRANCH}"
+          git merge "origin/${BASE_BRANCH}"
           ./utils/update --commit
-          git push --set-upstream origin "${SOURCE_BRANCH}:${SOURCE_BRANCH}"
-          echo "update-summary=$(git diff --shortstat "origin/${TARGET_BRANCH}..HEAD")" >>"$GITHUB_OUTPUT"
+          git push --set-upstream origin "${AUTO_UPDATE_BRANCH}:${AUTO_UPDATE_BRANCH}"
+          echo "update-summary=$(git diff --shortstat "origin/${BASE_BRANCH}..HEAD")" >>"$GITHUB_OUTPUT"
       - name: Create PR and merge.
         if: ${{ steps.update-and-commit.outputs.update-summary != '' }}
         env:
@@ -60,7 +71,7 @@ jobs:
           declare prURL
           declare checksState
           set -xu
-          oldPRURL=$(gh pr list --head "$SOURCE_BRANCH" --json url --jq '.[].url')
+          oldPRURL=$(gh pr list --head "$AUTO_UPDATE_BRANCH" --json url --jq '.[].url')
           { set +x; } 2>/dev/null
           if [[ -n "$oldPRURL" ]]; then
             set -x
@@ -68,11 +79,17 @@ jobs:
             { set +x; } 2>/dev/null
           fi
           set -x
-          git checkout "${SOURCE_BRANCH}"
-          prURL=$(gh pr create --base "${TARGET_BRANCH}" --head "${SOURCE_BRANCH}" --title "Update the list." --body "${UPDATE_SUMMARY}")
+          git checkout "${AUTO_UPDATE_BRANCH}"
+          prURL=$(gh pr create --base "${BASE_BRANCH}" --head "${AUTO_UPDATE_BRANCH}" --title "Update the list." --body "Auto-update:${UPDATE_SUMMARY}")
+          { set +x; } 2>/dev/null
+          if [[ -n "$oldPRURL" ]]; then
+            set +e; set -x
+            gh pr comment "$oldPRURL" --body "New PR: $prURL"
+            { set +x; set -e; } 2>/dev/null
+          fi
           sleep 10
           gh pr checks --watch --fail-fast "$prURL"
-          checksState="$(gh pr checks --json state --jq '.[] | .state' "$prURL" | sort -u)"
+          checksState="$(gh pr checks --json state --jq '.[].state' "$prURL" | sort -u)"
           { set +x; } 2>/dev/null
           if [[ "$checksState" != "SUCCESS" ]]; then
             echo "::error title=Test(s) Failed::$(gh pr checks "$prURL")"
@@ -80,25 +97,11 @@ jobs:
           fi
           set -x
           gh pr merge --merge --auto "$prURL"
-  auto-update-v2:
-    name: Auto-update (v2)
-    runs-on: ubuntu-24.04
-    env:
-      TARGET_BRANCH: up-to-date/v2
-      SOURCE_BRANCH: main
-    needs:
-      - auto-update-main
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-      - name: Merge ${{ env.SOURCE_BRANCH }} branch into ${{ env.TARGET_BRANCH }} branch.
+      - name: Merge ${{ env.BASE_BRANCH }} branch into ${{ env.UP_TO_DATE_BRANCH }} branch.
+        if: ${{ steps.update-and-commit.outputs.update-summary != '' }}
         run: |
           set -x
-          git config --local user.name "${GIT_USER_NAME}"
-          git config --local user.email "${GIT_USER_EMAIL}"
-          git checkout "origin/${TARGET_BRANCH}"
-          git switch -c "${TARGET_BRANCH}"
-          git merge "origin/${SOURCE_BRANCH}"
-          git push --set-upstream origin "${TARGET_BRANCH}:${TARGET_BRANCH}"
+          git checkout "origin/${UP_TO_DATE_BRANCH}"
+          git switch -c "${UP_TO_DATE_BRANCH}"
+          git merge "origin/${BASE_BRANCH}"
+          git push --set-upstream origin "${UP_TO_DATE_BRANCH}:${UP_TO_DATE_BRANCH}"
