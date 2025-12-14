@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2025-12-06T18:27:22Z
-// ETag: W/"22b66b9203bb78b034c57a0ccdecdd5e"
+// Last-Modified: 2025-12-08T08:06:14Z
+// ETag: W/"578afd7bd7326e47983066d4d1999ed2"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -9439,9 +9439,12 @@ extension PublicSuffix {
   private static let _negative_schule: PublicSuffix.Node = .label("schule", next: [.termination])
   private static let _negative_schwarz: PublicSuffix.Node = .label("schwarz", next: [.termination])
   private static let _negative_science: PublicSuffix.Node = .label("science", next: [.termination])
+  private static let _negative_scot_co: PublicSuffix.Node = .label("co", next: [.termination])
   private static let _negative_scot_gov_service: PublicSuffix.Node = .label("service", next: [.termination])
   private static let _negative_scot_gov: PublicSuffix.Node = .label("gov", next: [.termination, _negative_scot_gov_service])
-  private static let _negative_scot: PublicSuffix.Node = .label("scot", next: [.termination, _negative_scot_gov])
+  private static let _negative_scot_me: PublicSuffix.Node = .label("me", next: [.termination])
+  private static let _negative_scot_org: PublicSuffix.Node = .label("org", next: [.termination])
+  private static let _negative_scot: PublicSuffix.Node = .label("scot", next: [.termination, _negative_scot_co, _negative_scot_gov, _negative_scot_me, _negative_scot_org])
   private static let _negative_sd_com: PublicSuffix.Node = .label("com", next: [.termination])
   private static let _negative_sd_edu: PublicSuffix.Node = .label("edu", next: [.termination])
   private static let _negative_sd_gov: PublicSuffix.Node = .label("gov", next: [.termination])
