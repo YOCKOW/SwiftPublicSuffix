@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2025-12-22T11:45:43Z
-// ETag: W/"6081e17947384145fab04676f9779aca"
+// Last-Modified: 2025-12-28T14:57:57Z
+// ETag: W/"91eaa49573c0d865e13cab5481465acf"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -1638,15 +1638,20 @@ extension PublicSuffix {
   private static let _negative_cc_cloudHip: PublicSuffix.Node = .label("cloud-ip", next: [.termination])
   private static let _negative_cc_cloudns: PublicSuffix.Node = .label("cloudns", next: [.termination])
   private static let _negative_cc_csx: PublicSuffix.Node = .label("csx", next: [.termination])
+  private static let _negative_cc_ec: PublicSuffix.Node = .label("ec", next: [.termination])
+  private static let _negative_cc_eu: PublicSuffix.Node = .label("eu", next: [.termination])
   private static let _negative_cc_fantasyleague: PublicSuffix.Node = .label("fantasyleague", next: [.termination])
   private static let _negative_cc_ftpaccess: PublicSuffix.Node = .label("ftpaccess", next: [.termination])
   private static let _negative_cc_gameHserver: PublicSuffix.Node = .label("game-server", next: [.termination])
+  private static let _negative_cc_gu: PublicSuffix.Node = .label("gu", next: [.termination])
   private static let _negative_cc_myphotos: PublicSuffix.Node = .label("myphotos", next: [.termination])
   private static let _negative_cc_scrapping: PublicSuffix.Node = .label("scrapping", next: [.termination])
   private static let _negative_cc_spawn_instances: PublicSuffix.Node = .label("instances", next: [.termination])
   private static let _negative_cc_spawn: PublicSuffix.Node = .label("spawn", next: [_negative_cc_spawn_instances])
   private static let _negative_cc_twmail: PublicSuffix.Node = .label("twmail", next: [.termination])
-  private static let _negative_cc: PublicSuffix.Node = .label("cc", next: [.termination, _negative_cc_ccwu, _negative_cc_cleverapps, _negative_cc_cloudHip, _negative_cc_cloudns, _negative_cc_csx, _negative_cc_fantasyleague, _negative_cc_ftpaccess, _negative_cc_gameHserver, _negative_cc_myphotos, _negative_cc_scrapping, _negative_cc_spawn, _negative_cc_twmail])
+  private static let _negative_cc_uk: PublicSuffix.Node = .label("uk", next: [.termination])
+  private static let _negative_cc_us: PublicSuffix.Node = .label("us", next: [.termination])
+  private static let _negative_cc: PublicSuffix.Node = .label("cc", next: [.termination, _negative_cc_ccwu, _negative_cc_cleverapps, _negative_cc_cloudHip, _negative_cc_cloudns, _negative_cc_csx, _negative_cc_ec, _negative_cc_eu, _negative_cc_fantasyleague, _negative_cc_ftpaccess, _negative_cc_gameHserver, _negative_cc_gu, _negative_cc_myphotos, _negative_cc_scrapping, _negative_cc_spawn, _negative_cc_twmail, _negative_cc_uk, _negative_cc_us])
   private static let _negative_cd_cc: PublicSuffix.Node = .label("cc", next: [.termination])
   private static let _negative_cd_gov: PublicSuffix.Node = .label("gov", next: [.termination])
   private static let _negative_cd: PublicSuffix.Node = .label("cd", next: [.termination, _negative_cd_cc, _negative_cd_gov])
@@ -10412,10 +10417,11 @@ extension PublicSuffix {
   private static let _negative_uy_com: PublicSuffix.Node = .label("com", next: [.termination])
   private static let _negative_uy_edu: PublicSuffix.Node = .label("edu", next: [.termination])
   private static let _negative_uy_gub: PublicSuffix.Node = .label("gub", next: [.termination])
+  private static let _negative_uy_gv: PublicSuffix.Node = .label("gv", next: [.termination])
   private static let _negative_uy_mil: PublicSuffix.Node = .label("mil", next: [.termination])
   private static let _negative_uy_net: PublicSuffix.Node = .label("net", next: [.termination])
   private static let _negative_uy_org: PublicSuffix.Node = .label("org", next: [.termination])
-  private static let _negative_uy: PublicSuffix.Node = .label("uy", next: [.termination, _negative_uy_com, _negative_uy_edu, _negative_uy_gub, _negative_uy_mil, _negative_uy_net, _negative_uy_org])
+  private static let _negative_uy: PublicSuffix.Node = .label("uy", next: [.termination, _negative_uy_com, _negative_uy_edu, _negative_uy_gub, _negative_uy_gv, _negative_uy_mil, _negative_uy_net, _negative_uy_org])
   private static let _negative_uz_co: PublicSuffix.Node = .label("co", next: [.termination])
   private static let _negative_uz_com: PublicSuffix.Node = .label("com", next: [.termination])
   private static let _negative_uz_net: PublicSuffix.Node = .label("net", next: [.termination])
