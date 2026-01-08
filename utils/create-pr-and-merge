@@ -1,0 +1,117 @@
+#!/usr/bin/env zsh
+
+###############################################################################
+#
+# create-pr-and-merge
+#
+# © 2025 YOCKOW.
+#   Licensed under MIT License.
+#   See "LICENSE.txt" for more information.
+#
+################################################################################
+
+# [NOTE]
+#   This script is intended to be used from GitHub Actions.
+
+set -eu
+
+function fatalError() {
+  echo "::error::${1:-Unexpected Error}"
+  exit 1
+}
+
+function isTrue() {
+  local -r boolValue="${1:-false}"
+  if [[ "${(L)boolValue}" = "true" ]]; then
+    return 0
+  fi
+  return 1
+}
+
+declare -A parsedArguments=()
+zparseopts -D -E -M -A parsedArguments -- \
+  -remote-name: \
+  -base-branch: -head-branch: \
+  -pr-title: -pr-body: \
+  -delete-branch
+
+declare remoteName="origin"
+if [[ -n "${parsedArguments[(i)--remote-name]}" ]]; then
+  remoteName="${parsedArguments[--remote-name]}"
+fi
+
+declare baseBranch=""
+if [[ -n "${parsedArguments[(i)--base-branch]}" ]]; then
+  baseBranch="${parsedArguments[--base-branch]}"
+fi
+[[ -z "$baseBranch" ]] && fatalError "Missing base branch."
+
+declare headBranch=""
+if [[ -n "${parsedArguments[(i)--head-branch]}" ]]; then
+  headBranch="${parsedArguments[--head-branch]}"
+fi
+[[ -z "$headBranch" ]] && fatalError "Missing head branch."
+
+declare prTitle=""
+if [[ -n "${parsedArguments[(i)--pr-title]}" ]]; then
+  prTitle="${parsedArguments[--pr-title]}"
+fi
+[[ -z "$prTitle" ]] && fatalError "Missing PR title."
+
+declare prBody=""
+if [[ -n "${parsedArguments[(i)--pr-body]}" ]]; then
+  prBody="${parsedArguments[--pr-body]}"
+fi
+
+declare deleteBranch="false"
+if [[ -n "${parsedArguments[(i)--delete-branch]}" ]]; then
+  deleteBranch="true"
+fi
+
+declare oldPRURL=""
+oldPRURL="$(gh pr list --head "$headBranch" --json url --jq '.[].url')"
+if [[ -n "$oldPRURL" ]]; then
+  echo "::notice::Closing old PR: ${oldPRURL} ..."
+  gh pr close "$oldPRURL"
+fi
+
+git fetch "$remoteName" "$baseBranch"
+git checkout "$headBranch"
+
+declare updateSummary=""
+updateSummary=$(git diff --shortstat "${remoteName}/${baseBranch}..HEAD")
+if [[ -z "$updateSummary" ]]; then
+  echo "::notice::'${remoteName}/${baseBranch}' is up-to-date."
+  if isTrue "$deleteBranch"; then
+    git push --delete "$remoteName" "$headBranch"
+  fi
+  exit 0
+fi
+if [[ -z "$prBody" ]]; then
+  prBody="This PR was created automatically."$'\n\n'"$updateSummary"
+fi
+
+declare newPRURL=""
+newPRURL="$(gh pr create --base "$baseBranch" --head "$headBranch" --title "$prTitle" --body "$prBody")"
+
+if [[ -n "$oldPRURL" ]]; then
+  set +e
+  gh pr comment "$oldPRURL" --body "New PR: $newPRURL"
+  set -e
+fi
+
+sleep 10
+gh pr checks --watch --fail-fast "$newPRURL"
+
+declare checksState="UNEXPECTED"
+checksState="$(gh pr checks --json state --jq '.[].state' "$newPRURL" | sort -u)"
+
+if [[ "$checksState" != "SUCCESS" ]]; then
+  fatalError "Test(s) Failed."$'\n'"$(gh pr checks "$newPRURL")"
+fi
+
+if isTrue "$deleteBranch"; then
+  gh pr merge --merge --delete-branch "$newPRURL"
+else
+  gh pr merge --merge "$newPRURL"
+fi
