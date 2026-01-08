@@ -125,7 +125,7 @@ jobs:
           git fetch "${GIT_REMOTE_NAME}" "${UP_TO_DATE_BRANCH}"
           git fetch "${GIT_REMOTE_NAME}" "${BASE_BRANCH}"
           git checkout "${GIT_REMOTE_NAME}/${UP_TO_DATE_BRANCH}"
-          git switch -c "${UP_TO_DATE_BRANCH}"
+          git switch -C "${UP_TO_DATE_BRANCH}"
           git merge "${GIT_REMOTE_NAME}/${BASE_BRANCH}"
           git push --set-upstream "${GIT_REMOTE_NAME}" "${UP_TO_DATE_BRANCH}:${UP_TO_DATE_BRANCH}"
           ./utils/create-pr-and-merge \
