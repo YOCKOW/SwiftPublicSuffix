@@ -57,7 +57,7 @@ jobs:
         run: |
           set -eu
 
-          git fetch origin --tags
+          git fetch "${GIT_REMOTE_NAME}" --tags
 
           declare -i latestPatchVersion=0
           declare vTag
@@ -83,12 +83,16 @@ jobs:
         run: |
           set -eu
 
-          git fetch "${GIT_REMOTE_NAME}" "${UP_TO_DATE_BRANCH}"
-          git fetch "${GIT_REMOTE_NAME}" "${BASE_BRANCH}"
           git checkout "${LATEST_VERSION}"
           git switch -c "${TMP_BRANCH}"
+
+          git fetch "${GIT_REMOTE_NAME}" "${UP_TO_DATE_BRANCH}"
           git merge "${GIT_REMOTE_NAME}/${UP_TO_DATE_BRANCH}"
-          git merge "${GIT_REMOTE_NAME}/${BASE_BRANCH}"
+          if [[ -n "${BASE_BRANCH}" ]]; then
+            git fetch "${GIT_REMOTE_NAME}" "${BASE_BRANCH}"
+            git merge "${GIT_REMOTE_NAME}/${BASE_BRANCH}"
+          fi
+
           ./utils/update --commit
           git push --set-upstream "${GIT_REMOTE_NAME}" "${TMP_BRANCH}:${TMP_BRANCH}"
           ./utils/create-pr-and-merge \
@@ -107,8 +111,13 @@ jobs:
           git checkout "${GIT_REMOTE_NAME}/${UP_TO_DATE_BRANCH}"
 
           declare updateSummary=""
+          declare updateSummaryOnBase=""
           updateSummary=$(git diff --shortstat "${LATEST_VERSION}..HEAD")
+          if [[ -n "${BASE_BRANCH}" ]]; then
+            updateSummaryOnBase=$(git diff --shortstat "${GIT_REMOTE_NAME}/${BASE_BRANCH}..HEAD")
+          fi
           echo "update-summary=$updateSummary" >>"$GITHUB_OUTPUT"
+          echo "update-summary-on-base=$updateSummaryOnBase" >>"$GITHUB_OUTPUT"
           if [[ -z "$updateSummary" ]]; then
             echo "::notice::${LATEST_VERSION} is up-to-date."
             exit 0
@@ -116,21 +125,36 @@ jobs:
           git tag "$NEXT_VERSION"
           git push "$GIT_REMOTE_NAME" tag "$NEXT_VERSION"
       - name: Merge updated list into `${{ env.BASE_BRANCH || '- n/a -' }}` branch.
-        if: ${{ env.BASE_BRANCH != '' && steps.new-tag.outputs.update-summary != '' }}
+        if: >-
+          ${{
+            env.BASE_BRANCH != '' &&
+            steps.new-tag.outputs.update-summary-on-base != ''
+          }}
         env:
           GH_TOKEN: ${{ secrets.AUTO_UPDATE_TOKEN }}
+          UPDATE_SUMMARY: ${{ steps.new-tag.outputs.update-summary }}
+          UPDATE_SUMMARY_ON_BASE: ${{ steps.new-tag.outputs.update-summary-on-base }}
+          REPOSITORY: ${{ github.repository }}
         run: |
           set -eu
 
           git fetch "${GIT_REMOTE_NAME}" "${UP_TO_DATE_BRANCH}"
-          git fetch "${GIT_REMOTE_NAME}" "${BASE_BRANCH}"
-          git checkout "${GIT_REMOTE_NAME}/${UP_TO_DATE_BRANCH}"
-          git switch -C "${UP_TO_DATE_BRANCH}"
-          git merge "${GIT_REMOTE_NAME}/${BASE_BRANCH}"
-          git push --set-upstream "${GIT_REMOTE_NAME}" "${UP_TO_DATE_BRANCH}:${UP_TO_DATE_BRANCH}"
+          git checkout "${UP_TO_DATE_BRANCH}"
+          git pull
+
+          declare -r versionCmpURL="https://GitHub.com/${REPOSITORY}/compare/${LATEST_VERSION}...${NEXT_VERSION}"
+          declare -r baseCmpURL="https://GitHub.com/${REPOSITORY}/compare/${BASE_BRANCH}...${NEXT_VERSION}"
+          declare -r prBody="
+          This PR was created automatically.
+
+          - Update Summary (${LATEST_VERSION} to ${NEXT_VERSION}): [${UPDATE_SUMMARY}](${versionCmpURL})
+          - Update Summary (${BASE_BRANCH} to ${NEXT_VERSION}): [${UPDATE_SUMMARY_ON_BASE}](${baseCmpURL})
+          - Job UUID: ${JOB_UUID}
+          - Date: ${JOB_DATE}
+          "
           ./utils/create-pr-and-merge \
             --remote-name "${GIT_REMOTE_NAME}" \
             --base-branch "${BASE_BRANCH}" \
             --head-branch "${UP_TO_DATE_BRANCH}" \
             --pr-title 'Merge updated list into `'"${BASE_BRANCH}"'` branch.' \
-            --pr-body "This PR was created automatically."$'\n\n'"- Job UUID: ${JOB_UUID}"$'\n'"- Date: ${JOB_DATE}"
+            --pr-body "${prBody}"
