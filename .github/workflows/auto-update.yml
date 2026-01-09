@@ -108,7 +108,8 @@ jobs:
           set -eu
 
           git fetch "${GIT_REMOTE_NAME}" "${UP_TO_DATE_BRANCH}"
-          git checkout "${GIT_REMOTE_NAME}/${UP_TO_DATE_BRANCH}"
+          git checkout "${UP_TO_DATE_BRANCH}"
+          git pull
 
           declare updateSummary=""
           declare updateSummaryOnBase=""
@@ -137,10 +138,6 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         run: |
           set -eu
-
-          git fetch "${GIT_REMOTE_NAME}" "${UP_TO_DATE_BRANCH}"
-          git checkout "${UP_TO_DATE_BRANCH}"
-          git pull
 
           declare -r versionCmpURL="https://GitHub.com/${REPOSITORY}/compare/${LATEST_VERSION}...${NEXT_VERSION}"
           declare -r baseCmpURL="https://GitHub.com/${REPOSITORY}/compare/${BASE_BRANCH}...${NEXT_VERSION}"
