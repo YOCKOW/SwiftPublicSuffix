@@ -59,14 +59,32 @@ jobs:
 
           git fetch "${GIT_REMOTE_NAME}" --tags
 
+          declare -r allTags=$(git tag)
+          declare -r grepPattern="^${MAJOR_VERSION}"'\.'"${MINOR_VERSION}"'\.\d+$'
+          echo "::debug::All Tags: ${allTags}"
+          echo "::debug::Pattern for grep: ${grepPattern}"
+
+          declare -i versionCount=0
           declare -i latestPatchVersion=0
+          declare -i currentPatchVersion=0
           declare vTag
           while IFS= read vTag; do
-            declare -i currentPatchVersion=${vTag##*.}
+            versionCount=$(( $versionCount + 1 ))
+            currentPatchVersion=${vTag##*.}
+            echo "::debug::Current found version: ${vTag}"
+            echo "::debug::Current patch number: ${currentPatchVersion}"
             if [[ $latestPatchVersion -lt $currentPatchVersion ]]; then
+              echo "::debug::${vTag} is newer than ${MAJOR_VERSION}.${MINOR_VERSION}.${latestPatchVersion}"
               latestPatchVersion=$currentPatchVersion
+            else
+              echo "::debug::${vTag} is NOT newer than ${MAJOR_VERSION}.${MINOR_VERSION}.${latestPatchVersion}"
             fi
-          done < <(git tag | grep -E "^${MAJOR_VERSION}"'\.'"${MINOR_VERSION}"'\.\d+$')
+          done < <(echo "$allTags" | grep -E "$grepPattern")
+
+          if [[ $versionCount -lt 1 ]]; then
+            echo "::error::No versions for ${MAJOR_VERSION}.${MINOR_VERSION}.* found?!"
+            exit 1
+          fi
 
           declare -r jobUUID=$(uuidgen)
           declare -r -i nextPatchVersion=$(( $latestPatchVersion + 1 ))
