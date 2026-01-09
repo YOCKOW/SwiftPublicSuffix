@@ -54,21 +54,33 @@ jobs:
           git config --local user.email "${GIT_USER_EMAIL}"
       - name: Generate necessary environment variables
         shell: zsh {0}
+        env:
+          REF_NAME: ${{ github.ref_name }}
+          DEBUG_LOGGING: ${{ runner.debug }}
         run: |
           set -eu
 
           git fetch "${GIT_REMOTE_NAME}" --tags
 
-          declare -r allTags=$(git tag)
           declare -r grepPattern="^${MAJOR_VERSION}"'\.'"${MINOR_VERSION}"'\.\d+$'
-          echo "::debug::All Tags: ${allTags}"
           echo "::debug::Pattern for grep: ${grepPattern}"
+          if [[ "${DEBUG_LOGGING}" = "1" ]] || [[ "$REF_NAME" = "development" ]]; then
+            echo "::group::(DEBUG) All Tags"
+            git tag
+            echo "::endgroup::"
+
+            echo "::group::(DEBUG) Version Candidates"
+            set +e
+            git tag | grep -E "$grepPattern"
+            set -e
+            echo "::endgroup::"
+          fi
 
           declare -i versionCount=0
           declare -i latestPatchVersion=0
           declare -i currentPatchVersion=0
           declare vTag
-          while IFS= read vTag; do
+          while IFS= read -r vTag; do
             versionCount=$(( $versionCount + 1 ))
             currentPatchVersion=${vTag##*.}
             echo "::debug::Current found version: ${vTag}"
@@ -79,7 +91,7 @@ jobs:
             else
               echo "::debug::${vTag} is NOT newer than ${MAJOR_VERSION}.${MINOR_VERSION}.${latestPatchVersion}"
             fi
-          done < <(echo "$allTags" | grep -E "$grepPattern")
+          done < <(git tag | grep -E "$grepPattern")
 
           if [[ $versionCount -lt 1 ]]; then
             echo "::error::No versions for ${MAJOR_VERSION}.${MINOR_VERSION}.* found?!"
