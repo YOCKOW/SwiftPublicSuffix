@@ -62,7 +62,8 @@ jobs:
 
           git fetch "${GIT_REMOTE_NAME}" --tags
 
-          declare -r grepPattern="^${MAJOR_VERSION}"'\.'"${MINOR_VERSION}"'\.\d+$'
+          # NOTE: `grep` on Ubuntu (with GitHub Actions) doesn't recognize `\d`.
+          declare -r grepPattern="^${MAJOR_VERSION}"'\.'"${MINOR_VERSION}"'\.[0-9]+$'
           echo "::debug::Pattern for grep: ${grepPattern}"
           if [[ "${DEBUG_LOGGING}" = "1" ]] || [[ "$REF_NAME" = "development" ]]; then
             echo "::group::(DEBUG) All Tags"
