@@ -12,17 +12,19 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - auto-update-branch: auto-update/v2
+          - major-version: 2
+            minor-version: 4
             base-branch: main
-            up-to-date-branch: up-to-date/v2
     runs-on: ubuntu-24.04
     env:
-      AUTO_UPDATE_BRANCH: ${{ matrix.auto-update-branch }}
+      MAJOR_VERSION: ${{ matrix.major-version }}
+      MINOR_VERSION: ${{ matrix.minor-version }}
       BASE_BRANCH: ${{ matrix.base-branch }}
-      UP_TO_DATE_BRANCH: ${{ matrix.up-to-date-branch }}
+      UP_TO_DATE_BRANCH: "up-to-date/v${{ matrix.major-version }}.${{ matrix.minor-version }}"
       GIT_USER_NAME: "github-actions[bot]"
       GIT_USER_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
-    name: "Auto-update: ${{ matrix.auto-update-branch }} → ${{ matrix.base-branch }} → ${{ matrix.up-to-date-branch }}"
+      GIT_REMOTE_NAME: origin
+    name: "Auto-update: v${{ matrix.major-version }}.${{ matrix.minor-version }}.x (Base Branch: ${{ matrix.base-branch }})"
     steps:
       - name: Install dependencies
         run: |
@@ -36,77 +38,123 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .build
-          key: build-${{ github.workspace }}-${{ runner.os }}-auto-update-${{ matrix.auto-update-branch }}
+          key: build-${{ github.workspace }}-${{ runner.os }}-auto-update-${{ env.UP_TO_DATE_BRANCH }}
           restore-keys: |
-            build-${{ github.workspace }}-${{ runner.os }}-auto-update-${{ matrix.auto-update-branch }}
+            build-${{ github.workspace }}-${{ runner.os }}-auto-update-${{ env.UP_TO_DATE_BRANCH }}
             build-${{ github.workspace }}-${{ runner.os }}-auto-update-
             build-${{ github.workspace }}-${{ runner.os }}-
             build-${{ github.workspace }}-
       - uses: YOCKOW/Action-setup-swift@main
         with:
-          swift-version: "6.2.1"
+          swift-version: "6.2.3"
       - name: Configure git.
         run: |
           set -x
           git config --local user.name "${GIT_USER_NAME}"
           git config --local user.email "${GIT_USER_EMAIL}"
-      - name: Update the list and commit ${{ env.AUTO_UPDATE_BRANCH }} branch.
-        id: update-and-commit
+      - name: Generate necessary environment variables
+        shell: zsh {0}
         run: |
-          declare updateSummary=""
-          set -x
-          git fetch origin "${AUTO_UPDATE_BRANCH}"
-          git fetch origin "${BASE_BRANCH}"
-          git checkout "origin/${AUTO_UPDATE_BRANCH}"
-          git switch -c "${AUTO_UPDATE_BRANCH}"
-          git merge "origin/${BASE_BRANCH}"
-          ./utils/update --commit
-          git push --set-upstream origin "${AUTO_UPDATE_BRANCH}:${AUTO_UPDATE_BRANCH}"
-          echo "update-summary=$(git diff --shortstat "origin/${BASE_BRANCH}..HEAD")" >>"$GITHUB_OUTPUT"
-      - name: Create PR and merge.
-        if: ${{ steps.update-and-commit.outputs.update-summary != '' }}
+          set -eu
+
+          git fetch "${GIT_REMOTE_NAME}" --tags
+
+          declare -i latestPatchVersion=0
+          declare vTag
+          while IFS= read vTag; do
+            declare -i currentPatchVersion=${vTag##*.}
+            if [[ $latestPatchVersion -lt $currentPatchVersion ]]; then
+              latestPatchVersion=$currentPatchVersion
+            fi
+          done < <(git tag | grep -E "^${MAJOR_VERSION}"'\.'"${MINOR_VERSION}"'\.\d+$')
+
+          declare -r jobUUID=$(uuidgen)
+          declare -r -i nextPatchVersion=$(( $latestPatchVersion + 1 ))
+          echo "LATEST_PATCH_VERSION=$latestPatchVersion" >>"$GITHUB_ENV"
+          echo "LATEST_VERSION=${MAJOR_VERSION}.${MINOR_VERSION}.${latestPatchVersion}" >>"$GITHUB_ENV"
+          echo "NEXT_PATCH_VERSION=${nextPatchVersion}" >>"$GITHUB_ENV"
+          echo "NEXT_VERSION=${MAJOR_VERSION}.${MINOR_VERSION}.${nextPatchVersion}" >>"$GITHUB_ENV"
+          echo "JOB_UUID=$jobUUID" >>"$GITHUB_ENV"
+          echo "JOB_DATE=$(date '+%Y-%m-%d %H:%M:%S%z')" >>"$GITHUB_ENV"
+          echo "TMP_BRANCH=auto-update-$jobUUID" >>"$GITHUB_ENV"
+      - name: Update the list on `${{ env.UP_TO_DATE_BRANCH }}` branch
         env:
           GH_TOKEN: ${{ secrets.AUTO_UPDATE_TOKEN }}
-          UPDATE_SUMMARY: ${{ steps.update-and-commit.outputs.update-summary }}
         run: |
-          declare oldPRURL
-          declare prURL
-          declare checksState
-          set -xu
-          oldPRURL=$(gh pr list --head "$AUTO_UPDATE_BRANCH" --json url --jq '.[].url')
-          { set +x; } 2>/dev/null
-          if [[ -n "$oldPRURL" ]]; then
-            set -x
-            gh pr close "$oldPRURL"
-            { set +x; } 2>/dev/null
+          set -eu
+
+          git checkout "${LATEST_VERSION}"
+          git switch -c "${TMP_BRANCH}"
+
+          git fetch "${GIT_REMOTE_NAME}" "${UP_TO_DATE_BRANCH}"
+          git merge "${GIT_REMOTE_NAME}/${UP_TO_DATE_BRANCH}"
+          if [[ -n "${BASE_BRANCH}" ]]; then
+            git fetch "${GIT_REMOTE_NAME}" "${BASE_BRANCH}"
+            git merge "${GIT_REMOTE_NAME}/${BASE_BRANCH}"
           fi
-          set -x
-          git checkout "${AUTO_UPDATE_BRANCH}"
-          prURL=$(gh pr create --base "${BASE_BRANCH}" --head "${AUTO_UPDATE_BRANCH}" --title "Update the list." --body "Auto-update:${UPDATE_SUMMARY}")
-          { set +x; } 2>/dev/null
-          if [[ -n "$oldPRURL" ]]; then
-            set +e; set -x
-            gh pr comment "$oldPRURL" --body "New PR: $prURL"
-            { set +x; set -e; } 2>/dev/null
-          fi
-          set -x
-          sleep 10
-          gh pr checks --watch --fail-fast "$prURL"
-          checksState="$(gh pr checks --json state --jq '.[].state' "$prURL" | sort -u)"
-          { set +x; } 2>/dev/null
-          if [[ "$checksState" != "SUCCESS" ]]; then
-            echo "::error title=Test(s) Failed::$(gh pr checks "$prURL")"
-            exit 1
-          fi
-          set -x
-          gh pr merge --merge --auto "$prURL"
-      - name: Merge ${{ env.BASE_BRANCH }} branch into ${{ env.UP_TO_DATE_BRANCH }} branch.
-        if: ${{ steps.update-and-commit.outputs.update-summary != '' }}
+
+          ./utils/update --commit
+          git push --set-upstream "${GIT_REMOTE_NAME}" "${TMP_BRANCH}:${TMP_BRANCH}"
+          ./utils/create-pr-and-merge \
+            --remote-name "${GIT_REMOTE_NAME}" \
+            --base-branch "${UP_TO_DATE_BRANCH}" \
+            --head-branch "${TMP_BRANCH}" \
+            --pr-title "Update the list; Candidate for \`${NEXT_VERSION}\`." \
+            --pr-body "This PR was created automatically."$'\n\n'"- Job UUID: ${JOB_UUID}"$'\n'"- Date: ${JOB_DATE}" \
+            --delete-branch
+      - name: Add a new tag if necessary
+        id: new-tag
         run: |
-          set -x
-          git fetch origin "${UP_TO_DATE_BRANCH}"
-          git fetch origin "${BASE_BRANCH}"
-          git checkout "origin/${UP_TO_DATE_BRANCH}"
-          git switch -c "${UP_TO_DATE_BRANCH}"
-          git merge "origin/${BASE_BRANCH}"
-          git push --set-upstream origin "${UP_TO_DATE_BRANCH}:${UP_TO_DATE_BRANCH}"
+          set -eu
+
+          git fetch "${GIT_REMOTE_NAME}" "${UP_TO_DATE_BRANCH}"
+          git checkout "${GIT_REMOTE_NAME}/${UP_TO_DATE_BRANCH}"
+
+          declare updateSummary=""
+          declare updateSummaryOnBase=""
+          updateSummary=$(git diff --shortstat "${LATEST_VERSION}..HEAD")
+          if [[ -n "${BASE_BRANCH}" ]]; then
+            updateSummaryOnBase=$(git diff --shortstat "${GIT_REMOTE_NAME}/${BASE_BRANCH}..HEAD")
+          fi
+          echo "update-summary=$updateSummary" >>"$GITHUB_OUTPUT"
+          echo "update-summary-on-base=$updateSummaryOnBase" >>"$GITHUB_OUTPUT"
+          if [[ -z "$updateSummary" ]]; then
+            echo "::notice::${LATEST_VERSION} is up-to-date."
+            exit 0
+          fi
+          git tag "$NEXT_VERSION"
+          git push "$GIT_REMOTE_NAME" tag "$NEXT_VERSION"
+      - name: Merge updated list into `${{ env.BASE_BRANCH || '- n/a -' }}` branch.
+        if: >-
+          ${{
+            env.BASE_BRANCH != '' &&
+            steps.new-tag.outputs.update-summary-on-base != ''
+          }}
+        env:
+          GH_TOKEN: ${{ secrets.AUTO_UPDATE_TOKEN }}
+          UPDATE_SUMMARY: ${{ steps.new-tag.outputs.update-summary }}
+          UPDATE_SUMMARY_ON_BASE: ${{ steps.new-tag.outputs.update-summary-on-base }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -eu
+
+          git fetch "${GIT_REMOTE_NAME}" "${UP_TO_DATE_BRANCH}"
+          git checkout "${UP_TO_DATE_BRANCH}"
+          git pull
+
+          declare -r versionCmpURL="https://GitHub.com/${REPOSITORY}/compare/${LATEST_VERSION}...${NEXT_VERSION}"
+          declare -r baseCmpURL="https://GitHub.com/${REPOSITORY}/compare/${BASE_BRANCH}...${NEXT_VERSION}"
+          declare -r prBody="
+          This PR was created automatically.
+
+          - Update Summary (${LATEST_VERSION} to ${NEXT_VERSION}): [${UPDATE_SUMMARY}](${versionCmpURL})
+          - Update Summary (${BASE_BRANCH} to ${NEXT_VERSION}): [${UPDATE_SUMMARY_ON_BASE}](${baseCmpURL})
+          - Job UUID: ${JOB_UUID}
+          - Date: ${JOB_DATE}
+          "
+          ./utils/create-pr-and-merge \
+            --remote-name "${GIT_REMOTE_NAME}" \
+            --base-branch "${BASE_BRANCH}" \
+            --head-branch "${UP_TO_DATE_BRANCH}" \
+            --pr-title 'Merge updated list into `'"${BASE_BRANCH}"'` branch.' \
+            --pr-body "${prBody}"
