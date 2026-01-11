@@ -54,19 +54,50 @@ jobs:
           git config --local user.email "${GIT_USER_EMAIL}"
       - name: Generate necessary environment variables
         shell: zsh {0}
+        env:
+          REF_NAME: ${{ github.ref_name }}
+          DEBUG_LOGGING: ${{ runner.debug }}
         run: |
           set -eu
 
           git fetch "${GIT_REMOTE_NAME}" --tags
 
+          # NOTE: `grep` on Ubuntu (with GitHub Actions) doesn't recognize `\d`.
+          declare -r grepPattern="^${MAJOR_VERSION}"'\.'"${MINOR_VERSION}"'\.[0-9]+$'
+          echo "::debug::Pattern for grep: ${grepPattern}"
+          if [[ "${DEBUG_LOGGING}" = "1" ]] || [[ "$REF_NAME" = "development" ]]; then
+            echo "::group::(DEBUG) All Tags"
+            git tag
+            echo "::endgroup::"
+
+            echo "::group::(DEBUG) Version Candidates"
+            set +e
+            git tag | grep -E "$grepPattern"
+            set -e
+            echo "::endgroup::"
+          fi
+
+          declare -i versionCount=0
           declare -i latestPatchVersion=0
+          declare -i currentPatchVersion=0
           declare vTag
-          while IFS= read vTag; do
-            declare -i currentPatchVersion=${vTag##*.}
+          while IFS= read -r vTag; do
+            versionCount=$(( $versionCount + 1 ))
+            currentPatchVersion=${vTag##*.}
+            echo "::debug::Current found version: ${vTag}"
+            echo "::debug::Current patch number: ${currentPatchVersion}"
             if [[ $latestPatchVersion -lt $currentPatchVersion ]]; then
+              echo "::debug::${vTag} is newer than ${MAJOR_VERSION}.${MINOR_VERSION}.${latestPatchVersion}"
               latestPatchVersion=$currentPatchVersion
+            else
+              echo "::debug::${vTag} is NOT newer than ${MAJOR_VERSION}.${MINOR_VERSION}.${latestPatchVersion}"
             fi
-          done < <(git tag | grep -E "^${MAJOR_VERSION}"'\.'"${MINOR_VERSION}"'\.\d+$')
+          done < <(git tag | grep -E "$grepPattern")
+
+          if [[ $versionCount -lt 1 ]]; then
+            echo "::error::No versions for ${MAJOR_VERSION}.${MINOR_VERSION}.* found?!"
+            exit 1
+          fi
 
           declare -r jobUUID=$(uuidgen)
           declare -r -i nextPatchVersion=$(( $latestPatchVersion + 1 ))
@@ -108,7 +139,8 @@ jobs:
           set -eu
 
           git fetch "${GIT_REMOTE_NAME}" "${UP_TO_DATE_BRANCH}"
-          git checkout "${GIT_REMOTE_NAME}/${UP_TO_DATE_BRANCH}"
+          git checkout "${UP_TO_DATE_BRANCH}"
+          git pull
 
           declare updateSummary=""
           declare updateSummaryOnBase=""
@@ -137,10 +169,6 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         run: |
           set -eu
-
-          git fetch "${GIT_REMOTE_NAME}" "${UP_TO_DATE_BRANCH}"
-          git checkout "${UP_TO_DATE_BRANCH}"
-          git pull
 
           declare -r versionCmpURL="https://GitHub.com/${REPOSITORY}/compare/${LATEST_VERSION}...${NEXT_VERSION}"
           declare -r baseCmpURL="https://GitHub.com/${REPOSITORY}/compare/${BASE_BRANCH}...${NEXT_VERSION}"
