@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-01-16T13:12:00Z
-// ETag: W/"bb332cb2322bdc6e786615a6bfa1e3ef"
+// Last-Modified: 2026-01-20T07:55:55Z
+// ETag: W/"2bacad5d69812bed51b8ac9eb53b9d00"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -672,6 +672,7 @@ extension PublicSuffix {
   private static let _negative_app_run: PublicSuffix.Node = .label("run", next: [.any, _negative_app_run_mtls])
   private static let _negative_app_snowflake_privatelink: PublicSuffix.Node = .label("privatelink", next: [.any])
   private static let _negative_app_snowflake: PublicSuffix.Node = .label("snowflake", next: [.any, _negative_app_snowflake_privatelink])
+  private static let _negative_app_spawnbase: PublicSuffix.Node = .label("spawnbase", next: [.termination])
   private static let _negative_app_sprites: PublicSuffix.Node = .label("sprites", next: [.termination])
   private static let _negative_app_streamlit: PublicSuffix.Node = .label("streamlit", next: [.termination])
   private static let _negative_app_telebit: PublicSuffix.Node = .label("telebit", next: [.termination])
@@ -685,7 +686,7 @@ extension PublicSuffix {
   private static let _negative_app_wnext: PublicSuffix.Node = .label("wnext", next: [.termination])
   private static let _negative_app_zeabur: PublicSuffix.Node = .label("zeabur", next: [.termination])
   private static let _negative_app_zerops: PublicSuffix.Node = .label("zerops", next: [.any])
-  private static let _negative_app: PublicSuffix.Node = .label("app", next: [.termination, _negative_app_adaptable, _negative_app_aiven, _negative_app_base44, _negative_app_beget, _negative_app_bookonline, _negative_app_botdash, _negative_app_brave, _negative_app_clerk, _negative_app_clerkstage, _negative_app_cloudflare, _negative_app_convex, _negative_app_csb, _negative_app_deta, _negative_app_developer, _negative_app_e2b, _negative_app_easypanel, _negative_app_edgecompute, _negative_app_encr, _negative_app_evervault, _negative_app_expo, _negative_app_flutterflow, _negative_app_framer, _negative_app_gadget, _negative_app_github, _negative_app_hackclub, _negative_app_hasura, _negative_app_hosted, _negative_app_leapcell, _negative_app_loginline, _negative_app_lovable, _negative_app_luyani, _negative_app_magicpatterns, _negative_app_medusajs, _negative_app_messerli, _negative_app_mocha, _negative_app_netlify, _negative_app_ngrok, _negative_app_ngrokHfree, _negative_app_noop, _negative_app_northflank, _negative_app_nyat, _negative_app_onHfleek, _negative_app_ondigitalocean, _negative_app_onhercules, _negative_app_railway, _negative_app_replit, _negative_app_run, _negative_app_snowflake, _negative_app_sprites, _negative_app_streamlit, _negative_app_telebit, _negative_app_typedream, _negative_app_upsun, _negative_app_vercel, _negative_app_wal, _negative_app_wasmer, _negative_app_web, _negative_app_windsurf, _negative_app_wnext, _negative_app_zeabur, _negative_app_zerops])
+  private static let _negative_app: PublicSuffix.Node = .label("app", next: [.termination, _negative_app_adaptable, _negative_app_aiven, _negative_app_base44, _negative_app_beget, _negative_app_bookonline, _negative_app_botdash, _negative_app_brave, _negative_app_clerk, _negative_app_clerkstage, _negative_app_cloudflare, _negative_app_convex, _negative_app_csb, _negative_app_deta, _negative_app_developer, _negative_app_e2b, _negative_app_easypanel, _negative_app_edgecompute, _negative_app_encr, _negative_app_evervault, _negative_app_expo, _negative_app_flutterflow, _negative_app_framer, _negative_app_gadget, _negative_app_github, _negative_app_hackclub, _negative_app_hasura, _negative_app_hosted, _negative_app_leapcell, _negative_app_loginline, _negative_app_lovable, _negative_app_luyani, _negative_app_magicpatterns, _negative_app_medusajs, _negative_app_messerli, _negative_app_mocha, _negative_app_netlify, _negative_app_ngrok, _negative_app_ngrokHfree, _negative_app_noop, _negative_app_northflank, _negative_app_nyat, _negative_app_onHfleek, _negative_app_ondigitalocean, _negative_app_onhercules, _negative_app_railway, _negative_app_replit, _negative_app_run, _negative_app_snowflake, _negative_app_spawnbase, _negative_app_sprites, _negative_app_streamlit, _negative_app_telebit, _negative_app_typedream, _negative_app_upsun, _negative_app_vercel, _negative_app_wal, _negative_app_wasmer, _negative_app_web, _negative_app_windsurf, _negative_app_wnext, _negative_app_zeabur, _negative_app_zerops])
   private static let _negative_apple_int_cloud_r_apHnorthH1: PublicSuffix.Node = .label("ap-north-1", next: [.any])
   private static let _negative_apple_int_cloud_r_apHsouthH1: PublicSuffix.Node = .label("ap-south-1", next: [.any])
   private static let _negative_apple_int_cloud_r_apHsouthH2: PublicSuffix.Node = .label("ap-south-2", next: [.any])
