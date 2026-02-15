@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-02-06T07:37:00Z
-// ETag: W/"408f4d04d52ae35dc914f139a81bdbbc"
+// Last-Modified: 2026-02-12T09:48:03Z
+// ETag: W/"c7b5b315d90a53bcefa78df6a90ff0e7"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -1748,7 +1748,9 @@ extension PublicSuffix {
   private static let _negative_cloud_antagonist: PublicSuffix.Node = .label("antagonist", next: [.termination])
   private static let _negative_cloud_axarnet_esH1: PublicSuffix.Node = .label("es-1", next: [.termination])
   private static let _negative_cloud_axarnet: PublicSuffix.Node = .label("axarnet", next: [_negative_cloud_axarnet_esH1])
-  private static let _negative_cloud_convex: PublicSuffix.Node = .label("convex", next: [.termination])
+  private static let _negative_cloud_convex_euHwestH1: PublicSuffix.Node = .label("eu-west-1", next: [.termination])
+  private static let _negative_cloud_convex_usHeastH1: PublicSuffix.Node = .label("us-east-1", next: [.termination])
+  private static let _negative_cloud_convex: PublicSuffix.Node = .label("convex", next: [.termination, _negative_cloud_convex_euHwestH1, _negative_cloud_convex_usHeastH1])
   private static let _negative_cloud_diadem: PublicSuffix.Node = .label("diadem", next: [.termination])
   private static let _negative_cloud_elementor: PublicSuffix.Node = .label("elementor", next: [.termination])
   private static let _negative_cloud_emergent: PublicSuffix.Node = .label("emergent", next: [.termination])
@@ -3610,7 +3612,8 @@ extension PublicSuffix {
   private static let _negative_discover: PublicSuffix.Node = .label("discover", next: [.termination])
   private static let _negative_dish: PublicSuffix.Node = .label("dish", next: [.termination])
   private static let _negative_diy_discourse: PublicSuffix.Node = .label("discourse", next: [.termination])
-  private static let _negative_diy: PublicSuffix.Node = .label("diy", next: [.termination, _negative_diy_discourse])
+  private static let _negative_diy_imagine: PublicSuffix.Node = .label("imagine", next: [.termination])
+  private static let _negative_diy: PublicSuffix.Node = .label("diy", next: [.termination, _negative_diy_discourse, _negative_diy_imagine])
   private static let _negative_dj: PublicSuffix.Node = .label("dj", next: [.termination])
   private static let _negative_dk_123hjemmeside: PublicSuffix.Node = .label("123hjemmeside", next: [.termination])
   private static let _negative_dk_biz: PublicSuffix.Node = .label("biz", next: [.termination])
@@ -4033,7 +4036,6 @@ extension PublicSuffix {
   private static let _negative_gold: PublicSuffix.Node = .label("gold", next: [.termination])
   private static let _negative_goldpoint: PublicSuffix.Node = .label("goldpoint", next: [.termination])
   private static let _negative_golf: PublicSuffix.Node = .label("golf", next: [.termination])
-  private static let _negative_goo: PublicSuffix.Node = .label("goo", next: [.termination])
   private static let _negative_goodyear: PublicSuffix.Node = .label("goodyear", next: [.termination])
   private static let _negative_goog_cloud: PublicSuffix.Node = .label("cloud", next: [.termination])
   private static let _negative_goog_translate: PublicSuffix.Node = .label("translate", next: [.termination])
@@ -7559,7 +7561,8 @@ extension PublicSuffix {
   private static let _negative_net_de5: PublicSuffix.Node = .label("de5", next: [.termination])
   private static let _negative_net_debian: PublicSuffix.Node = .label("debian", next: [.termination])
   private static let _negative_net_definima: PublicSuffix.Node = .label("definima", next: [.termination])
-  private static let _negative_net_deno: PublicSuffix.Node = .label("deno", next: [.termination])
+  private static let _negative_net_deno_sandbox: PublicSuffix.Node = .label("sandbox", next: [.termination])
+  private static let _negative_net_deno: PublicSuffix.Node = .label("deno", next: [.termination, _negative_net_deno_sandbox])
   private static let _negative_net_dnsHcloud: PublicSuffix.Node = .label("dns-cloud", next: [.termination])
   private static let _negative_net_dnsHdynamic: PublicSuffix.Node = .label("dns-dynamic", next: [.termination])
   private static let _negative_net_dnsalias: PublicSuffix.Node = .label("dnsalias", next: [.termination])
@@ -9634,7 +9637,9 @@ extension PublicSuffix {
   private static let _negative_site_canva: PublicSuffix.Node = .label("canva", next: [_negative_site_canva_my])
   private static let _negative_site_cloudera: PublicSuffix.Node = .label("cloudera", next: [.any])
   private static let _negative_site_co: PublicSuffix.Node = .label("co", next: [.termination])
-  private static let _negative_site_convex: PublicSuffix.Node = .label("convex", next: [.termination])
+  private static let _negative_site_convex_euHwestH1: PublicSuffix.Node = .label("eu-west-1", next: [.termination])
+  private static let _negative_site_convex_usHeastH1: PublicSuffix.Node = .label("us-east-1", next: [.termination])
+  private static let _negative_site_convex: PublicSuffix.Node = .label("convex", next: [.termination, _negative_site_convex_euHwestH1, _negative_site_convex_usHeastH1])
   private static let _negative_site_cpanel: PublicSuffix.Node = .label("cpanel", next: [.termination])
   private static let _negative_site_cyon: PublicSuffix.Node = .label("cyon", next: [.termination])
   private static let _negative_site_fastvps: PublicSuffix.Node = .label("fastvps", next: [.termination])
@@ -10571,6 +10576,7 @@ extension PublicSuffix {
   private static let _negative_vn_haugiang: PublicSuffix.Node = .label("haugiang", next: [.termination])
   private static let _negative_vn_health: PublicSuffix.Node = .label("health", next: [.termination])
   private static let _negative_vn_hoabinh: PublicSuffix.Node = .label("hoabinh", next: [.termination])
+  private static let _negative_vn_hue: PublicSuffix.Node = .label("hue", next: [.termination])
   private static let _negative_vn_hungyen: PublicSuffix.Node = .label("hungyen", next: [.termination])
   private static let _negative_vn_id: PublicSuffix.Node = .label("id", next: [.termination])
   private static let _negative_vn_info: PublicSuffix.Node = .label("info", next: [.termination])
@@ -10613,7 +10619,7 @@ extension PublicSuffix {
   private static let _negative_vn_vinhlong: PublicSuffix.Node = .label("vinhlong", next: [.termination])
   private static let _negative_vn_vinhphuc: PublicSuffix.Node = .label("vinhphuc", next: [.termination])
   private static let _negative_vn_yenbai: PublicSuffix.Node = .label("yenbai", next: [.termination])
-  private static let _negative_vn: PublicSuffix.Node = .label("vn", next: [.termination, _negative_vn_ac, _negative_vn_ai, _negative_vn_angiang, _negative_vn_bacgiang, _negative_vn_backan, _negative_vn_baclieu, _negative_vn_bacninh, _negative_vn_bariaHvungtau, _negative_vn_bentre, _negative_vn_binhdinh, _negative_vn_binhduong, _negative_vn_binhphuoc, _negative_vn_binhthuan, _negative_vn_biz, _negative_vn_camau, _negative_vn_cantho, _negative_vn_caobang, _negative_vn_com, _negative_vn_daklak, _negative_vn_daknong, _negative_vn_danang, _negative_vn_dienbien, _negative_vn_dongnai, _negative_vn_dongthap, _negative_vn_edu, _negative_vn_gialai, _negative_vn_gov, _negative_vn_hagiang, _negative_vn_haiduong, _negative_vn_haiphong, _negative_vn_hanam, _negative_vn_hanoi, _negative_vn_hatinh, _negative_vn_haugiang, _negative_vn_health, _negative_vn_hoabinh, _negative_vn_hungyen, _negative_vn_id, _negative_vn_info, _negative_vn_int, _negative_vn_io, _negative_vn_khanhhoa, _negative_vn_kiengiang, _negative_vn_kontum, _negative_vn_laichau, _negative_vn_lamdong, _negative_vn_langson, _negative_vn_laocai, _negative_vn_longan, _negative_vn_namdinh, _negative_vn_name, _negative_vn_net, _negative_vn_nghean, _negative_vn_ninhbinh, _negative_vn_ninhthuan, _negative_vn_org, _negative_vn_phutho, _negative_vn_phuyen, _negative_vn_pro, _negative_vn_quangbinh, _negative_vn_quangnam, _negative_vn_quangngai, _negative_vn_quangninh, _negative_vn_quangtri, _negative_vn_soctrang, _negative_vn_sonla, _negative_vn_tayninh, _negative_vn_thaibinh, _negative_vn_thainguyen, _negative_vn_thanhhoa, _negative_vn_thanhphohochiminh, _negative_vn_thuathienhue, _negative_vn_tiengiang, _negative_vn_travinh, _negative_vn_tuyenquang, _negative_vn_vinhlong, _negative_vn_vinhphuc, _negative_vn_yenbai])
+  private static let _negative_vn: PublicSuffix.Node = .label("vn", next: [.termination, _negative_vn_ac, _negative_vn_ai, _negative_vn_angiang, _negative_vn_bacgiang, _negative_vn_backan, _negative_vn_baclieu, _negative_vn_bacninh, _negative_vn_bariaHvungtau, _negative_vn_bentre, _negative_vn_binhdinh, _negative_vn_binhduong, _negative_vn_binhphuoc, _negative_vn_binhthuan, _negative_vn_biz, _negative_vn_camau, _negative_vn_cantho, _negative_vn_caobang, _negative_vn_com, _negative_vn_daklak, _negative_vn_daknong, _negative_vn_danang, _negative_vn_dienbien, _negative_vn_dongnai, _negative_vn_dongthap, _negative_vn_edu, _negative_vn_gialai, _negative_vn_gov, _negative_vn_hagiang, _negative_vn_haiduong, _negative_vn_haiphong, _negative_vn_hanam, _negative_vn_hanoi, _negative_vn_hatinh, _negative_vn_haugiang, _negative_vn_health, _negative_vn_hoabinh, _negative_vn_hue, _negative_vn_hungyen, _negative_vn_id, _negative_vn_info, _negative_vn_int, _negative_vn_io, _negative_vn_khanhhoa, _negative_vn_kiengiang, _negative_vn_kontum, _negative_vn_laichau, _negative_vn_lamdong, _negative_vn_langson, _negative_vn_laocai, _negative_vn_longan, _negative_vn_namdinh, _negative_vn_name, _negative_vn_net, _negative_vn_nghean, _negative_vn_ninhbinh, _negative_vn_ninhthuan, _negative_vn_org, _negative_vn_phutho, _negative_vn_phuyen, _negative_vn_pro, _negative_vn_quangbinh, _negative_vn_quangnam, _negative_vn_quangngai, _negative_vn_quangninh, _negative_vn_quangtri, _negative_vn_soctrang, _negative_vn_sonla, _negative_vn_tayninh, _negative_vn_thaibinh, _negative_vn_thainguyen, _negative_vn_thanhhoa, _negative_vn_thanhphohochiminh, _negative_vn_thuathienhue, _negative_vn_tiengiang, _negative_vn_travinh, _negative_vn_tuyenquang, _negative_vn_vinhlong, _negative_vn_vinhphuc, _negative_vn_yenbai])
   private static let _negative_vodka: PublicSuffix.Node = .label("vodka", next: [.termination])
   private static let _negative_volvo: PublicSuffix.Node = .label("volvo", next: [.termination])
   private static let _negative_vote: PublicSuffix.Node = .label("vote", next: [.termination])
@@ -11426,7 +11432,6 @@ extension PublicSuffix {
     _negative_gold,
     _negative_goldpoint,
     _negative_golf,
-    _negative_goo,
     _negative_goodyear,
     _negative_goog,
     _negative_google,
