@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-02-12T09:48:03Z
-// ETag: W/"c7b5b315d90a53bcefa78df6a90ff0e7"
+// Last-Modified: 2026-02-18T20:59:29Z
+// ETag: W/"8cf7bb9f2c0911a124cc6daa41f60092"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -3920,6 +3920,7 @@ extension PublicSuffix {
   private static let _negative_fr_gouv: PublicSuffix.Node = .label("gouv", next: [.termination])
   private static let _negative_fr_greta: PublicSuffix.Node = .label("greta", next: [.termination])
   private static let _negative_fr_huissierHjustice: PublicSuffix.Node = .label("huissier-justice", next: [.termination])
+  private static let _negative_fr_kdns: PublicSuffix.Node = .label("kdns", next: [.termination])
   private static let _negative_fr_medecin: PublicSuffix.Node = .label("medecin", next: [.termination])
   private static let _negative_fr_myspreadshop: PublicSuffix.Node = .label("myspreadshop", next: [.termination])
   private static let _negative_fr_nom: PublicSuffix.Node = .label("nom", next: [.termination])
@@ -3931,7 +3932,7 @@ extension PublicSuffix {
   private static let _negative_fr_tm: PublicSuffix.Node = .label("tm", next: [.termination])
   private static let _negative_fr_veterinaire: PublicSuffix.Node = .label("veterinaire", next: [.termination])
   private static let _negative_fr_ynh: PublicSuffix.Node = .label("ynh", next: [.termination])
-  private static let _negative_fr: PublicSuffix.Node = .label("fr", next: [.termination, _negative_fr_123siteweb, _negative_fr_aeroport, _negative_fr_asso, _negative_fr_avocat, _negative_fr_avoues, _negative_fr_cci, _negative_fr_chambagri, _negative_fr_chirurgiensHdentistes, _negative_fr_chirurgiensHdentistesHenHfrance, _negative_fr_com, _negative_fr_dedibox, _negative_fr_expertsHcomptables, _negative_fr_fbxHos, _negative_fr_fbxos, _negative_fr_freeboxHos, _negative_fr_freeboxos, _negative_fr_goupile, _negative_fr_gouv, _negative_fr_greta, _negative_fr_huissierHjustice, _negative_fr_medecin, _negative_fr_myspreadshop, _negative_fr_nom, _negative_fr_notaires, _negative_fr_onHweb, _negative_fr_pharmacien, _negative_fr_port, _negative_fr_prd, _negative_fr_tm, _negative_fr_veterinaire, _negative_fr_ynh])
+  private static let _negative_fr: PublicSuffix.Node = .label("fr", next: [.termination, _negative_fr_123siteweb, _negative_fr_aeroport, _negative_fr_asso, _negative_fr_avocat, _negative_fr_avoues, _negative_fr_cci, _negative_fr_chambagri, _negative_fr_chirurgiensHdentistes, _negative_fr_chirurgiensHdentistesHenHfrance, _negative_fr_com, _negative_fr_dedibox, _negative_fr_expertsHcomptables, _negative_fr_fbxHos, _negative_fr_fbxos, _negative_fr_freeboxHos, _negative_fr_freeboxos, _negative_fr_goupile, _negative_fr_gouv, _negative_fr_greta, _negative_fr_huissierHjustice, _negative_fr_kdns, _negative_fr_medecin, _negative_fr_myspreadshop, _negative_fr_nom, _negative_fr_notaires, _negative_fr_onHweb, _negative_fr_pharmacien, _negative_fr_port, _negative_fr_prd, _negative_fr_tm, _negative_fr_veterinaire, _negative_fr_ynh])
   private static let _negative_free: PublicSuffix.Node = .label("free", next: [.termination])
   private static let _negative_fresenius: PublicSuffix.Node = .label("fresenius", next: [.termination])
   private static let _negative_frl: PublicSuffix.Node = .label("frl", next: [.termination])
@@ -10661,7 +10662,6 @@ extension PublicSuffix {
   private static let _negative_wine: PublicSuffix.Node = .label("wine", next: [.termination])
   private static let _negative_winners: PublicSuffix.Node = .label("winners", next: [.termination])
   private static let _negative_wme: PublicSuffix.Node = .label("wme", next: [.termination])
-  private static let _negative_wolterskluwer: PublicSuffix.Node = .label("wolterskluwer", next: [.termination])
   private static let _negative_woodside: PublicSuffix.Node = .label("woodside", next: [.termination])
   private static let _negative_work_imagineHproxy: PublicSuffix.Node = .label("imagine-proxy", next: [.termination])
   private static let _negative_work: PublicSuffix.Node = .label("work", next: [.termination, _negative_work_imagineHproxy])
@@ -12200,7 +12200,6 @@ extension PublicSuffix {
     _negative_wine,
     _negative_winners,
     _negative_wme,
-    _negative_wolterskluwer,
     _negative_woodside,
     _negative_work,
     _negative_works,
