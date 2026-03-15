@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-03-06T02:20:51Z
-// ETag: W/"472f93795572bf9a3559f8e4129cae76"
+// Last-Modified: 2026-03-09T08:24:23Z
+// ETag: W/"307faf399112ae0ca2ae9e6479ff175b"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -639,8 +639,10 @@ extension PublicSuffix {
   private static let _negative_app_encr: PublicSuffix.Node = .label("encr", next: [.termination, _negative_app_encr_frontend])
   private static let _negative_app_evervault_relay: PublicSuffix.Node = .label("relay", next: [.termination])
   private static let _negative_app_evervault: PublicSuffix.Node = .label("evervault", next: [_negative_app_evervault_relay])
-  private static let _negative_app_expo_staging: PublicSuffix.Node = .label("staging", next: [.termination])
-  private static let _negative_app_expo: PublicSuffix.Node = .label("expo", next: [.termination, _negative_app_expo_staging])
+  private static let _negative_app_expo_on: PublicSuffix.Node = .label("on", next: [.termination])
+  private static let _negative_app_expo_staging_on: PublicSuffix.Node = .label("on", next: [.termination])
+  private static let _negative_app_expo_staging: PublicSuffix.Node = .label("staging", next: [.termination, _negative_app_expo_staging_on])
+  private static let _negative_app_expo: PublicSuffix.Node = .label("expo", next: [.termination, _negative_app_expo_on, _negative_app_expo_staging])
   private static let _negative_app_flutterflow: PublicSuffix.Node = .label("flutterflow", next: [.termination])
   private static let _negative_app_framer: PublicSuffix.Node = .label("framer", next: [.termination])
   private static let _negative_app_gadget: PublicSuffix.Node = .label("gadget", next: [.termination])
