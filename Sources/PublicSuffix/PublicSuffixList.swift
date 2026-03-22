@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-03-09T08:24:23Z
-// ETag: W/"307faf399112ae0ca2ae9e6479ff175b"
+// Last-Modified: 2026-03-17T08:50:56Z
+// ETag: W/"a8647aee50dc827b44129c15c6757596"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -10703,8 +10703,9 @@ extension PublicSuffix {
   private static let _negative_xxx: PublicSuffix.Node = .label("xxx", next: [.termination])
   private static let _negative_xyz_botdash: PublicSuffix.Node = .label("botdash", next: [.termination])
   private static let _negative_xyz_caffeine: PublicSuffix.Node = .label("caffeine", next: [.termination])
+  private static let _negative_xyz_exe: PublicSuffix.Node = .label("exe", next: [.termination])
   private static let _negative_xyz_telebit: PublicSuffix.Node = .label("telebit", next: [.any])
-  private static let _negative_xyz: PublicSuffix.Node = .label("xyz", next: [.termination, _negative_xyz_botdash, _negative_xyz_caffeine, _negative_xyz_telebit])
+  private static let _negative_xyz: PublicSuffix.Node = .label("xyz", next: [.termination, _negative_xyz_botdash, _negative_xyz_caffeine, _negative_xyz_exe, _negative_xyz_telebit])
   private static let _negative_yachts: PublicSuffix.Node = .label("yachts", next: [.termination])
   private static let _negative_yahoo: PublicSuffix.Node = .label("yahoo", next: [.termination])
   private static let _negative_yamaxun: PublicSuffix.Node = .label("yamaxun", next: [.termination])
