@@ -1,6 +1,6 @@
 /* *************************************************************************************************
  PublicSuffixUpdater.swift
-  © 2020,2022 YOCKOW.
+  © 2020,2022,2026 YOCKOW.
     Licensed under MIT License.
     See "LICENSE.txt" for more information.
  ************************************************************************************************ */
@@ -29,7 +29,7 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
     return url
   }
   
-  public func convert<S>(_ intermediates: S) throws -> StringLines where S: Sequence, S.Element == IntermediateDataContainer<IntermediateDataType> {
+  public func convert<S>(_ intermediates: S) async throws -> StringLines where S: Sequence, S.Element == IntermediateDataContainer<IntermediateDataType> {
     var result = StringLines()
     
     do { // License
@@ -42,7 +42,12 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
       result.appendEmptyLine()
       
       let licenseURL = URL(string: "https://www.mozilla.org/media/MPL/2.0/index.txt")!
-      guard var license = String(data: content(of: licenseURL), encoding: .utf8).map({ StringLines($0, detectIndent: false) }) else {
+      guard var license = String(
+        data: try await content(of: licenseURL, jobID: self.identifier),
+        encoding: .utf8
+      ).map({
+        StringLines($0, detectIndent: false)
+      }) else {
         throw NSError(domain: "Failed to fetch Mozilla Public License Version 2.0.", code: -1)
       }
       result.append("/*")

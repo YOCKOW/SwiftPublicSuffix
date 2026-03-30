@@ -1,18 +1,24 @@
 /* *************************************************************************************************
  PublicSuffixUpdaterTests.swift
-  © 2020 YOCKOW.
+  © 2020,2026 YOCKOW.
     Licensed under MIT License.
     See "LICENSE.txt" for more information.
  ************************************************************************************************ */
 
-import XCTest
 @testable import PublicSuffixUpdaterLibrary
+import StringComposition
+import Testing
+import yCodeUpdater
 
-final class PublicSuffixUpdaterTests: XCTestCase {
-  func test_delegate() throws {
+@Suite struct PublicSuffixUpdaterTests {
+  @Test func test_delegate() async throws {
     let delegate = PublicSuffixList()
-    let lines = try delegate.convert(delegate.sourceURLs.map({ try delegate.prepare(sourceURL: $0) }))
-    XCTAssertTrue(lines.contains(String.Line("public static let positiveList: PublicSuffix.Node.Set = [", indentLevel: 1)!))
-    XCTAssertTrue(lines.contains(String.Line("public static let negativeList: PublicSuffix.Node.Set = [", indentLevel: 1)!))
+    var interms: [IntermediateDataContainer<StringLines>] = []
+    for url in delegate.sourceURLs {
+      interms.append(try await delegate.prepare(sourceURL: url))
+    }
+    let lines: StringLines = try await delegate.convert(interms)
+    #expect(lines.contains(try #require(String.Line("public static let positiveList: PublicSuffix.Node.Set = [", indentLevel: 1))))
+    #expect(lines.contains(try #require(String.Line("public static let negativeList: PublicSuffix.Node.Set = [", indentLevel: 1))))
   }
 }
