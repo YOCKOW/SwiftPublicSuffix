@@ -1,6 +1,6 @@
 /* *************************************************************************************************
  main.swift
-  © 2020 YOCKOW.
+  © 2020,2026 YOCKOW.
     Licensed under MIT License.
     See "LICENSE.txt" for more information.
  ************************************************************************************************ */
@@ -13,4 +13,4 @@ manager.updaters = [
   .init(delegate: PublicSuffixList())
 ]
 
-manager.run()
+await manager.run()

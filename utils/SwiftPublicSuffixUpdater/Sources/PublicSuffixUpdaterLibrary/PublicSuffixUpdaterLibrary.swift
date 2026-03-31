@@ -1,6 +1,6 @@
 /* *************************************************************************************************
  PublicSuffixUpdater.swift
-  © 2020,2022 YOCKOW.
+  © 2020,2022,2026 YOCKOW.
     Licensed under MIT License.
     See "LICENSE.txt" for more information.
  ************************************************************************************************ */
@@ -29,7 +29,7 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
     return url
   }
   
-  public func convert<S>(_ intermediates: S) throws -> StringLines where S: Sequence, S.Element == IntermediateDataContainer<IntermediateDataType> {
+  public func convert<S>(_ intermediates: S) async throws -> StringLines where S: Sequence, S.Element == IntermediateDataContainer<IntermediateDataType> {
     var result = StringLines()
     
     do { // License
@@ -42,7 +42,12 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
       result.appendEmptyLine()
       
       let licenseURL = URL(string: "https://www.mozilla.org/media/MPL/2.0/index.txt")!
-      guard var license = String(data: content(of: licenseURL), encoding: .utf8).map({ StringLines($0, detectIndent: false) }) else {
+      guard var license = String(
+        data: try await content(of: licenseURL, jobID: self.identifier),
+        encoding: .utf8
+      ).map({
+        StringLines($0, detectIndent: false)
+      }) else {
         throw NSError(domain: "Failed to fetch Mozilla Public License Version 2.0.", code: -1)
       }
       result.append("/*")
@@ -158,9 +163,15 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
       let linkRoots = links.keys.sorted(by: __sorter)
       generate_code: for reversedDomain in linkRoots {
         precondition(reversedDomain.last! != "*")
-        let next = links[reversedDomain]!.sorted(by: __sorter)
-        let nextString = "[" + next.map({ __id($0) }).joined(separator: ", ")  + "]"
-        result.append("private static let \(__id(reversedDomain)): PublicSuffix.Node = .label(\(reversedDomain.last!.debugDescription), next: \(nextString))")
+        let nextDomains = links[reversedDomain]!.sorted(by: __sorter)
+        result.append("private static let \(__id(reversedDomain)): PublicSuffix.Node = .label(")
+        result.append("\(reversedDomain.last!.debugDescription),", indentLevel: 1)
+        result.append("next: [", indentLevel: 1)
+        for next in nextDomains {
+          result.append("\(__id(next)),", indentLevel: 2)
+        }
+        result.append("]", indentLevel: 1)
+        result.append(")")
       }
       
       result.append("public static let \(prefix)List: PublicSuffix.Node.Set = [")

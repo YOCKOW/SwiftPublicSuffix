@@ -21,6 +21,9 @@ declare -r updaterPackageDir="${utilsDir}/SwiftPublicSuffixUpdater"
 declare -r repoDir="$(cd "${utilsDir}/.." && pwd -P)"
 declare -r targetRelativePath="Sources/PublicSuffix/PublicSuffixList.swift"
 declare scratchPath="${repoDir}/.build"
+if [[ -v YOCKOW_USE_LOCAL_PACKAGES ]] && ! __isFalse "$YOCKOW_USE_LOCAL_PACKAGES"; then
+  scratchPath="$HOME/.yswift-build"
+fi
 declare -a swiftCommandArguments=(--package-path "$updaterPackageDir" --scratch-path "$scratchPath")
 declare -A parsedArguments=()
 zparseopts -D -E -M -A parsedArguments -- \
@@ -28,9 +31,6 @@ zparseopts -D -E -M -A parsedArguments -- \
   t -test=t \
   -commit
 
-if [[ -v YOCKOW_USE_LOCAL_PACKAGES ]] && ! __isFalse "$YOCKOW_USE_LOCAL_PACKAGES"; then
-  scratchPath="$HOME/.yswift-build"
-fi
 
 declare doBuild="false"
 if [[ -n "${parsedArguments[(i)-b]}" ]]; then
