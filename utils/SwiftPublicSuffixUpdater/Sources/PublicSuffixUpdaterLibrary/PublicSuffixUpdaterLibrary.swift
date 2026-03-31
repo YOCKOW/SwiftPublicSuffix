@@ -163,9 +163,15 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
       let linkRoots = links.keys.sorted(by: __sorter)
       generate_code: for reversedDomain in linkRoots {
         precondition(reversedDomain.last! != "*")
-        let next = links[reversedDomain]!.sorted(by: __sorter)
-        let nextString = "[" + next.map({ __id($0) }).joined(separator: ", ")  + "]"
-        result.append("private static let \(__id(reversedDomain)): PublicSuffix.Node = .label(\(reversedDomain.last!.debugDescription), next: \(nextString))")
+        let nextDomains = links[reversedDomain]!.sorted(by: __sorter)
+        result.append("private static let \(__id(reversedDomain)): PublicSuffix.Node = .label(")
+        result.append("\(reversedDomain.last!.debugDescription),", indentLevel: 1)
+        result.append("next: [", indentLevel: 1)
+        for next in nextDomains {
+          result.append("\(__id(next)),", indentLevel: 2)
+        }
+        result.append("]", indentLevel: 1)
+        result.append(")")
       }
       
       result.append("public static let \(prefix)List: PublicSuffix.Node.Set = [")
