@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-03-26T14:47:58Z
-// ETag: "4d5baca3cd598ec358e3c0372c1d1b34"
+// Last-Modified: 2026-04-02T06:25:29Z
+// ETag: "e2939cbfbae38cf65f3e16f8764b3179"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -2184,6 +2184,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_app_pplx: PublicSuffix.Node = .label(
+    "pplx",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_app_railway_up: PublicSuffix.Node = .label(
     "up",
     next: [
@@ -2375,6 +2381,7 @@ extension PublicSuffix {
       _negative_app_onHfleek,
       _negative_app_ondigitalocean,
       _negative_app_onhercules,
+      _negative_app_pplx,
       _negative_app_railway,
       _negative_app_replit,
       _negative_app_run,
@@ -21919,6 +21926,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_dev_payload: PublicSuffix.Node = .label(
+    "payload",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_dev_platterHapp: PublicSuffix.Node = .label(
     "platter-app",
     next: [
@@ -22202,6 +22215,7 @@ extension PublicSuffix {
       _negative_dev_ngrokHfree,
       _negative_dev_pages,
       _negative_dev_panel,
+      _negative_dev_payload,
       _negative_dev_platterHapp,
       _negative_dev_r2,
       _negative_dev_replit,
