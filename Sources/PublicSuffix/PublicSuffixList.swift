@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-04-02T06:25:29Z
-// ETag: "e2939cbfbae38cf65f3e16f8764b3179"
+// Last-Modified: 2026-04-10T20:27:59Z
+// ETag: "46a694acde3fb28527ad1da05fd89e3e"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -8949,6 +8949,12 @@ extension PublicSuffix {
       _negative_cc_spawn_instances,
     ]
   )
+  private static let _negative_cc_sryze: PublicSuffix.Node = .label(
+    "sryze",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_cc_twmail: PublicSuffix.Node = .label(
     "twmail",
     next: [
@@ -8985,6 +8991,7 @@ extension PublicSuffix {
       _negative_cc_myphotos,
       _negative_cc_scrapping,
       _negative_cc_spawn,
+      _negative_cc_sryze,
       _negative_cc_twmail,
       _negative_cc_uk,
       _negative_cc_us,
@@ -9658,6 +9665,86 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_cloud_k2_elastic: PublicSuffix.Node = .label(
+    "elastic",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_cloud_k2_ruHmsk_lb: PublicSuffix.Node = .label(
+    "lb",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_cloud_k2_ruHmsk_s3: PublicSuffix.Node = .label(
+    "s3",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_cloud_k2_ruHmsk_website: PublicSuffix.Node = .label(
+    "website",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_cloud_k2_ruHmsk: PublicSuffix.Node = .label(
+    "ru-msk",
+    next: [
+      _negative_cloud_k2_ruHmsk_lb,
+      _negative_cloud_k2_ruHmsk_s3,
+      _negative_cloud_k2_ruHmsk_website,
+    ]
+  )
+  private static let _negative_cloud_k2_ruHspb_lb: PublicSuffix.Node = .label(
+    "lb",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_cloud_k2_ruHspb_s3: PublicSuffix.Node = .label(
+    "s3",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_cloud_k2_ruHspb_website: PublicSuffix.Node = .label(
+    "website",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_cloud_k2_ruHspb: PublicSuffix.Node = .label(
+    "ru-spb",
+    next: [
+      _negative_cloud_k2_ruHspb_lb,
+      _negative_cloud_k2_ruHspb_s3,
+      _negative_cloud_k2_ruHspb_website,
+    ]
+  )
+  private static let _negative_cloud_k2_s3: PublicSuffix.Node = .label(
+    "s3",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_cloud_k2_website: PublicSuffix.Node = .label(
+    "website",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_cloud_k2: PublicSuffix.Node = .label(
+    "k2",
+    next: [
+      _negative_cloud_k2_elastic,
+      _negative_cloud_k2_ruHmsk,
+      _negative_cloud_k2_ruHspb,
+      _negative_cloud_k2_s3,
+      _negative_cloud_k2_website,
+    ]
+  )
   private static let _negative_cloud_keliweb_cs: PublicSuffix.Node = .label(
     "cs",
     next: [
@@ -10251,6 +10338,7 @@ extension PublicSuffix {
       _negative_cloud_jenvHaruba,
       _negative_cloud_jote,
       _negative_cloud_jotelulu,
+      _negative_cloud_k2,
       _negative_cloud_keliweb,
       _negative_cloud_kuleuven,
       _negative_cloud_laravel,
@@ -16828,6 +16916,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_com_deployagent: PublicSuffix.Node = .label(
+    "deployagent",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_com_deusHcanvas: PublicSuffix.Node = .label(
     "deus-canvas",
     next: [
@@ -18859,12 +18953,6 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_com_pagexl: PublicSuffix.Node = .label(
-    "pagexl",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_com_paywhirl: PublicSuffix.Node = .label(
     "paywhirl",
     next: [
@@ -19473,6 +19561,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_com_vivenushop: PublicSuffix.Node = .label(
+    "vivenushop",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_com_vultrobjects: PublicSuffix.Node = .label(
     "vultrobjects",
     next: [
@@ -19742,6 +19836,7 @@ extension PublicSuffix {
       _negative_com_ddnsguru,
       _negative_com_ddnsking,
       _negative_com_de,
+      _negative_com_deployagent,
       _negative_com_deusHcanvas,
       _negative_com_devHmyqnapcloud,
       _negative_com_devinapps,
@@ -20008,7 +20103,6 @@ extension PublicSuffix {
       _negative_com_outsystemscloud,
       _negative_com_ownprovider,
       _negative_com_pagespeedmobilizer,
-      _negative_com_pagexl,
       _negative_com_paywhirl,
       _negative_com_pgfog,
       _negative_com_pivohosting,
@@ -20098,6 +20192,7 @@ extension PublicSuffix {
       _negative_com_us,
       _negative_com_us1Hplenit,
       _negative_com_vipsinaapp,
+      _negative_com_vivenushop,
       _negative_com_vultrobjects,
       _negative_com_wHcorpHstaticblitz,
       _negative_com_wHcredentiallessHstaticblitz,
@@ -22156,6 +22251,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_dev_vivenushop: PublicSuffix.Node = .label(
+    "vivenushop",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_dev_webhare: PublicSuffix.Node = .label(
     "webhare",
     next: [
@@ -22223,6 +22324,7 @@ extension PublicSuffix {
       _negative_dev_stg,
       _negative_dev_stgstage,
       _negative_dev_vercel,
+      _negative_dev_vivenushop,
       _negative_dev_webhare,
       _negative_dev_workers,
       _negative_dev_xmit,
@@ -47535,6 +47637,18 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_me_hooc_seprox: PublicSuffix.Node = .label(
+    "seprox",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_me_hooc: PublicSuffix.Node = .label(
+    "hooc",
+    next: [
+      _negative_me_hooc_seprox,
+    ]
+  )
   private static let _negative_me_hopto: PublicSuffix.Node = .label(
     "hopto",
     next: [
@@ -47674,6 +47788,7 @@ extension PublicSuffix {
       _negative_me_filegear,
       _negative_me_filegearHsg,
       _negative_me_gov,
+      _negative_me_hooc,
       _negative_me_hopto,
       _negative_me_i234,
       _negative_me_its,
@@ -69202,8 +69317,62 @@ extension PublicSuffix {
       _negative_us_vt_lib,
     ]
   )
+  private static let _negative_us_wa_aberdeen: PublicSuffix.Node = .label(
+    "aberdeen",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_bainbridgeHisl: PublicSuffix.Node = .label(
+    "bainbridge-isl",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_bellevue: PublicSuffix.Node = .label(
+    "bellevue",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_bremerton: PublicSuffix.Node = .label(
+    "bremerton",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_us_wa_cc: PublicSuffix.Node = .label(
     "cc",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_centralia: PublicSuffix.Node = .label(
+    "centralia",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_chehalis: PublicSuffix.Node = .label(
+    "chehalis",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_forks: PublicSuffix.Node = .label(
+    "forks",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_gigHharbor: PublicSuffix.Node = .label(
+    "gig-harbor",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_hoquiam: PublicSuffix.Node = .label(
+    "hoquiam",
     next: [
       .termination,
     ]
@@ -69214,8 +69383,104 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_us_wa_keyport: PublicSuffix.Node = .label(
+    "keyport",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_kingston: PublicSuffix.Node = .label(
+    "kingston",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_us_wa_lib: PublicSuffix.Node = .label(
     "lib",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_olympia: PublicSuffix.Node = .label(
+    "olympia",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_portHangeles: PublicSuffix.Node = .label(
+    "port-angeles",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_portHludlow: PublicSuffix.Node = .label(
+    "port-ludlow",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_portHorchard: PublicSuffix.Node = .label(
+    "port-orchard",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_portHtownsend: PublicSuffix.Node = .label(
+    "port-townsend",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_poulsbo: PublicSuffix.Node = .label(
+    "poulsbo",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_redmond: PublicSuffix.Node = .label(
+    "redmond",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_renton: PublicSuffix.Node = .label(
+    "renton",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_sea: PublicSuffix.Node = .label(
+    "sea",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_seattle: PublicSuffix.Node = .label(
+    "seattle",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_sequim: PublicSuffix.Node = .label(
+    "sequim",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_shelton: PublicSuffix.Node = .label(
+    "shelton",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_silverdale: PublicSuffix.Node = .label(
+    "silverdale",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_wa_yarrowHpoint: PublicSuffix.Node = .label(
+    "yarrow-point",
     next: [
       .termination,
     ]
@@ -69224,9 +69489,34 @@ extension PublicSuffix {
     "wa",
     next: [
       .termination,
+      _negative_us_wa_aberdeen,
+      _negative_us_wa_bainbridgeHisl,
+      _negative_us_wa_bellevue,
+      _negative_us_wa_bremerton,
       _negative_us_wa_cc,
+      _negative_us_wa_centralia,
+      _negative_us_wa_chehalis,
+      _negative_us_wa_forks,
+      _negative_us_wa_gigHharbor,
+      _negative_us_wa_hoquiam,
       _negative_us_wa_k12,
+      _negative_us_wa_keyport,
+      _negative_us_wa_kingston,
       _negative_us_wa_lib,
+      _negative_us_wa_olympia,
+      _negative_us_wa_portHangeles,
+      _negative_us_wa_portHludlow,
+      _negative_us_wa_portHorchard,
+      _negative_us_wa_portHtownsend,
+      _negative_us_wa_poulsbo,
+      _negative_us_wa_redmond,
+      _negative_us_wa_renton,
+      _negative_us_wa_sea,
+      _negative_us_wa_seattle,
+      _negative_us_wa_sequim,
+      _negative_us_wa_shelton,
+      _negative_us_wa_silverdale,
+      _negative_us_wa_yarrowHpoint,
     ]
   )
   private static let _negative_us_wi_cc: PublicSuffix.Node = .label(
@@ -70885,6 +71175,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_xyz_opentunnel: PublicSuffix.Node = .label(
+    "opentunnel",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_xyz_telebit: PublicSuffix.Node = .label(
     "telebit",
     next: [
@@ -70898,6 +71194,7 @@ extension PublicSuffix {
       _negative_xyz_botdash,
       _negative_xyz_caffeine,
       _negative_xyz_exe,
+      _negative_xyz_opentunnel,
       _negative_xyz_telebit,
     ]
   )
