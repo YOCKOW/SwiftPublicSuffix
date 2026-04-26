@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-04-16T05:57:06Z
-// ETag: "e5fadd6e909efbc9675279352d438789"
+// Last-Modified: 2026-04-24T06:48:25Z
+// ETag: "d95bc1b00ca718c90ebb90895cf69a5b"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -1909,6 +1909,12 @@ extension PublicSuffix {
       _negative_app_brave_s,
     ]
   )
+  private static let _negative_app_claude: PublicSuffix.Node = .label(
+    "claude",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_app_clerk: PublicSuffix.Node = .label(
     "clerk",
     next: [
@@ -2342,6 +2348,7 @@ extension PublicSuffix {
       _negative_app_bookonline,
       _negative_app_botdash,
       _negative_app_brave,
+      _negative_app_claude,
       _negative_app_clerk,
       _negative_app_clerkstage,
       _negative_app_cloudflare,
@@ -16580,6 +16587,24 @@ extension PublicSuffix {
       _negative_com_appspot_r,
     ]
   )
+  private static let _negative_com_atlassianH3p: PublicSuffix.Node = .label(
+    "atlassian-3p",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_atlassianH3pHusHgovHmod: PublicSuffix.Node = .label(
+    "atlassian-3p-us-gov-mod",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_atlassianHisolatedH3p: PublicSuffix.Node = .label(
+    "atlassian-isolated-3p",
+    next: [
+      .any,
+    ]
+  )
   private static let _negative_com_atmeta: PublicSuffix.Node = .label(
     "atmeta",
     next: [
@@ -18593,6 +18618,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_com_metaaiusercontent: PublicSuffix.Node = .label(
+    "metaaiusercontent",
+    next: [
+      .any,
+    ]
+  )
   private static let _negative_com_meteorapp_eu: PublicSuffix.Node = .label(
     "eu",
     next: [
@@ -19790,6 +19821,9 @@ extension PublicSuffix {
       _negative_com_appspacehosted,
       _negative_com_appspaceusercontent,
       _negative_com_appspot,
+      _negative_com_atlassianH3p,
+      _negative_com_atlassianH3pHusHgovHmod,
+      _negative_com_atlassianHisolatedH3p,
       _negative_com_atmeta,
       _negative_com_auiusercontent,
       _negative_com_authgearHstaging,
@@ -20060,6 +20094,7 @@ extension PublicSuffix {
       _negative_com_magicpatternsapp,
       _negative_com_massivegrid,
       _negative_com_messwithdns,
+      _negative_com_metaaiusercontent,
       _negative_com_meteorapp,
       _negative_com_mex,
       _negative_com_miniserver,
@@ -22348,24 +22383,10 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_digital_cloudapps_london: PublicSuffix.Node = .label(
-    "london",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_digital_cloudapps: PublicSuffix.Node = .label(
-    "cloudapps",
-    next: [
-      .termination,
-      _negative_digital_cloudapps_london,
-    ]
-  )
   private static let _negative_digital: PublicSuffix.Node = .label(
     "digital",
     next: [
       .termination,
-      _negative_digital_cloudapps,
     ]
   )
   private static let _negative_direct_libp2p: PublicSuffix.Node = .label(
@@ -57995,6 +58016,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_org_fspages: PublicSuffix.Node = .label(
+    "fspages",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_org_gameHhost: PublicSuffix.Node = .label(
     "game-host",
     next: [
@@ -58524,6 +58551,7 @@ extension PublicSuffix {
       _negative_org_freeddns,
       _negative_org_freedesktop,
       _negative_org_fromHme,
+      _negative_org_fspages,
       _negative_org_gameHhost,
       _negative_org_gotdns,
       _negative_org_hatenadiary,
@@ -63980,6 +64008,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_site_piebox: PublicSuffix.Node = .label(
+    "piebox",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_site_platformsh: PublicSuffix.Node = .label(
     "platformsh",
     next: [
@@ -64059,6 +64093,7 @@ extension PublicSuffix {
       _negative_site_novecore,
       _negative_site_omniwe,
       _negative_site_opensocial,
+      _negative_site_piebox,
       _negative_site_platformsh,
       _negative_site_preview,
       _negative_site_sol,
@@ -64359,6 +64394,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_space_deployagent: PublicSuffix.Node = .label(
+    "deployagent",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_space_heiyu: PublicSuffix.Node = .label(
     "heiyu",
     next: [
@@ -64407,6 +64448,7 @@ extension PublicSuffix {
     next: [
       .termination,
       _negative_space_appHionos,
+      _negative_space_deployagent,
       _negative_space_heiyu,
       _negative_space_hf,
       _negative_space_myfast,
