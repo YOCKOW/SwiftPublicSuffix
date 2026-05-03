@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-04-24T06:48:25Z
-// ETag: "d95bc1b00ca718c90ebb90895cf69a5b"
+// Last-Modified: 2026-05-01T02:51:41Z
+// ETag: "d2563776a8f240befe37688a30342058"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -24621,11 +24621,32 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_fun_vicp: PublicSuffix.Node = .label(
+    "vicp",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_fun_yicp: PublicSuffix.Node = .label(
+    "yicp",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_fun_zicp: PublicSuffix.Node = .label(
+    "zicp",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_fun: PublicSuffix.Node = .label(
     "fun",
     next: [
       .termination,
       _negative_fun_ms,
+      _negative_fun_vicp,
+      _negative_fun_yicp,
+      _negative_fun_zicp,
     ]
   )
   private static let _negative_fund: PublicSuffix.Node = .label(
