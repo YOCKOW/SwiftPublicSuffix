@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-05-01T02:51:41Z
-// ETag: "d2563776a8f240befe37688a30342058"
+// Last-Modified: 2026-05-07T00:57:41Z
+// ETag: "03a454a4dc4a6bce970fb304dcddb85b"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -23404,18 +23404,6 @@ extension PublicSuffix {
       _negative_eg_tv,
     ]
   )
-  private static let _negative_email_crisp_on: PublicSuffix.Node = .label(
-    "on",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_email_crisp: PublicSuffix.Node = .label(
-    "crisp",
-    next: [
-      _negative_email_crisp_on,
-    ]
-  )
   private static let _negative_email_intouch: PublicSuffix.Node = .label(
     "intouch",
     next: [
@@ -23450,7 +23438,6 @@ extension PublicSuffix {
     "email",
     next: [
       .termination,
-      _negative_email_crisp,
       _negative_email_intouch,
       _negative_email_tawk,
       _negative_email_tawkto,
@@ -71626,6 +71613,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_zone_prg1Hzerops: PublicSuffix.Node = .label(
+    "prg1-zerops",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_zone_stackit: PublicSuffix.Node = .label(
     "stackit",
     next: [
@@ -71638,13 +71631,21 @@ extension PublicSuffix {
       .any,
     ]
   )
+  private static let _negative_zone_zerops: PublicSuffix.Node = .label(
+    "zerops",
+    next: [
+      .any,
+    ]
+  )
   private static let _negative_zone: PublicSuffix.Node = .label(
     "zone",
     next: [
       .termination,
       _negative_zone_lima,
+      _negative_zone_prg1Hzerops,
       _negative_zone_stackit,
       _negative_zone_triton,
+      _negative_zone_zerops,
     ]
   )
   private static let _negative_zuerich: PublicSuffix.Node = .label(
