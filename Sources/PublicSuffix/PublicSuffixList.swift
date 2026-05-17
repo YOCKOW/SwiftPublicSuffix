@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-05-07T00:57:41Z
-// ETag: "03a454a4dc4a6bce970fb304dcddb85b"
+// Last-Modified: 2026-05-14T08:35:42Z
+// ETag: "71e1ddfa3aa78e7e688e17c3ac04665a"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -9611,6 +9611,12 @@ extension PublicSuffix {
       _negative_cloud_encoway_eu,
     ]
   )
+  private static let _negative_cloud_hstgr: PublicSuffix.Node = .label(
+    "hstgr",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_cloud_jelastic_vip: PublicSuffix.Node = .label(
     "vip",
     next: [
@@ -10340,6 +10346,7 @@ extension PublicSuffix {
       _negative_cloud_elementor,
       _negative_cloud_emergent,
       _negative_cloud_encoway,
+      _negative_cloud_hstgr,
       _negative_cloud_jelastic,
       _negative_cloud_jele,
       _negative_cloud_jenvHaruba,
@@ -22280,6 +22287,30 @@ extension PublicSuffix {
       .any,
     ]
   )
+  private static let _negative_dev_storage_t3: PublicSuffix.Node = .label(
+    "t3",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_dev_storage: PublicSuffix.Node = .label(
+    "storage",
+    next: [
+      _negative_dev_storage_t3,
+    ]
+  )
+  private static let _negative_dev_storageapi_t3: PublicSuffix.Node = .label(
+    "t3",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_dev_storageapi: PublicSuffix.Node = .label(
+    "storageapi",
+    next: [
+      _negative_dev_storageapi_t3,
+    ]
+  )
   private static let _negative_dev_vercel: PublicSuffix.Node = .label(
     "vercel",
     next: [
@@ -22358,6 +22389,8 @@ extension PublicSuffix {
       _negative_dev_runcontainers,
       _negative_dev_stg,
       _negative_dev_stgstage,
+      _negative_dev_storage,
+      _negative_dev_storageapi,
       _negative_dev_vercel,
       _negative_dev_vivenushop,
       _negative_dev_webhare,
@@ -68765,24 +68798,10 @@ extension PublicSuffix {
       _negative_us_nc_lib,
     ]
   )
-  private static let _negative_us_nd_cc: PublicSuffix.Node = .label(
-    "cc",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_us_nd_lib: PublicSuffix.Node = .label(
-    "lib",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_us_nd: PublicSuffix.Node = .label(
     "nd",
     next: [
       .termination,
-      _negative_us_nd_cc,
-      _negative_us_nd_lib,
     ]
   )
   private static let _negative_us_ne_cc: PublicSuffix.Node = .label(
