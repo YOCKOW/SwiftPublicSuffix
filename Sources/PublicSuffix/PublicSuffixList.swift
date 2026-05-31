@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-05-14T08:35:42Z
-// ETag: "71e1ddfa3aa78e7e688e17c3ac04665a"
+// Last-Modified: 2026-05-28T06:26:10Z
+// ETag: "f92f924deeec2e1a4f6421b4c509d893"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -1884,12 +1884,6 @@ extension PublicSuffix {
       .any,
     ]
   )
-  private static let _negative_app_bookonline: PublicSuffix.Node = .label(
-    "bookonline",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_app_botdash: PublicSuffix.Node = .label(
     "botdash",
     next: [
@@ -2345,7 +2339,6 @@ extension PublicSuffix {
       _negative_app_aiven,
       _negative_app_base44,
       _negative_app_beget,
-      _negative_app_bookonline,
       _negative_app_botdash,
       _negative_app_brave,
       _negative_app_claude,
@@ -10946,6 +10939,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_cn_khsj: PublicSuffix.Node = .label(
+    "khsj",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_cn_ln: PublicSuffix.Node = .label(
     "ln",
     next: [
@@ -11131,6 +11130,7 @@ extension PublicSuffix {
       _negative_cn_jl,
       _negative_cn_js,
       _negative_cn_jx,
+      _negative_cn_khsj,
       _negative_cn_ln,
       _negative_cn_mil,
       _negative_cn_mo,
@@ -19160,12 +19160,6 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_com_reserveHonline: PublicSuffix.Node = .label(
-    "reserve-online",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_com_rhcloud: PublicSuffix.Node = .label(
     "rhcloud",
     next: [
@@ -20169,7 +20163,6 @@ extension PublicSuffix {
       _negative_com_remotewd,
       _negative_com_render,
       _negative_com_reservd,
-      _negative_com_reserveHonline,
       _negative_com_rhcloud,
       _negative_com_riceHlabs,
       _negative_com_routingthecloud,
@@ -26734,6 +26727,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_id_ai: PublicSuffix.Node = .label(
+    "ai",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_id_biz: PublicSuffix.Node = .label(
     "biz",
     next: [
@@ -26829,6 +26828,7 @@ extension PublicSuffix {
     next: [
       .termination,
       _negative_id_ac,
+      _negative_id_ai,
       _negative_id_biz,
       _negative_id_co,
       _negative_id_desa,
@@ -46805,6 +46805,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_link_canva: PublicSuffix.Node = .label(
+    "canva",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_link_cyon: PublicSuffix.Node = .label(
     "cyon",
     next: [
@@ -46887,6 +46893,7 @@ extension PublicSuffix {
     "link",
     next: [
       .termination,
+      _negative_link_canva,
       _negative_link_cyon,
       _negative_link_dweb,
       _negative_link_inbrowser,
@@ -57322,6 +57329,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_online_book: PublicSuffix.Node = .label(
+    "book",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_online_eero: PublicSuffix.Node = .label(
     "eero",
     next: [
@@ -57351,6 +57364,7 @@ extension PublicSuffix {
     next: [
       .termination,
       _negative_online_barsy,
+      _negative_online_book,
       _negative_online_eero,
       _negative_online_eeroHstage,
       _negative_online_leapcell,
