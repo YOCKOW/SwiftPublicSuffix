@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-05-28T06:26:10Z
-// ETag: "f92f924deeec2e1a4f6421b4c509d893"
+// Last-Modified: 2026-06-10T05:34:37Z
+// ETag: "0aa06cdfdd9b6f1482ba94133e705ec9"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -63947,6 +63947,12 @@ extension PublicSuffix {
       _negative_site_canva_my,
     ]
   )
+  private static let _negative_site_chatgpt: PublicSuffix.Node = .label(
+    "chatgpt",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_site_cloudera: PublicSuffix.Node = .label(
     "cloudera",
     next: [
@@ -64131,6 +64137,7 @@ extension PublicSuffix {
       _negative_site_byen,
       _negative_site_caffeine,
       _negative_site_canva,
+      _negative_site_chatgpt,
       _negative_site_cloudera,
       _negative_site_co,
       _negative_site_convex,
@@ -64492,6 +64499,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_space_vibehost: PublicSuffix.Node = .label(
+    "vibehost",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_space_xs4all: PublicSuffix.Node = .label(
     "xs4all",
     next: [
@@ -64509,6 +64522,7 @@ extension PublicSuffix {
       _negative_space_myfast,
       _negative_space_project,
       _negative_space_uber,
+      _negative_space_vibehost,
       _negative_space_xs4all,
     ]
   )
