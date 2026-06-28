@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-06-13T21:47:30Z
-// ETag: "d662e4e44b6f83aa7f08a6791542a4b2"
+// Last-Modified: 2026-06-24T06:18:20Z
+// ETag: "ad1df4ad683a15aa3fb1dff900b6ef08"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -2190,6 +2190,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_app_puter: PublicSuffix.Node = .label(
+    "puter",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_app_railway_up: PublicSuffix.Node = .label(
     "up",
     next: [
@@ -2382,6 +2388,7 @@ extension PublicSuffix {
       _negative_app_ondigitalocean,
       _negative_app_onhercules,
       _negative_app_pplx,
+      _negative_app_puter,
       _negative_app_railway,
       _negative_app_replit,
       _negative_app_run,
@@ -2835,6 +2842,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_at_dnshome: PublicSuffix.Node = .label(
+    "dnshome",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_at_funkfeuer_wien: PublicSuffix.Node = .label(
     "wien",
     next: [
@@ -2952,6 +2965,7 @@ extension PublicSuffix {
       _negative_at_ac,
       _negative_at_biz,
       _negative_at_co,
+      _negative_at_dnshome,
       _negative_at_funkfeuer,
       _negative_at_futurecms,
       _negative_at_futurehosting,
@@ -5119,10 +5133,17 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_bar_resolve: PublicSuffix.Node = .label(
+    "resolve",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_bar: PublicSuffix.Node = .label(
     "bar",
     next: [
       .termination,
+      _negative_bar_resolve,
     ]
   )
   private static let _negative_barcelona: PublicSuffix.Node = .label(
@@ -5502,10 +5523,17 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_berlin_ddns: PublicSuffix.Node = .label(
+    "ddns",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_berlin: PublicSuffix.Node = .label(
     "berlin",
     next: [
       .termination,
+      _negative_berlin_ddns,
     ]
   )
   private static let _negative_best: PublicSuffix.Node = .label(
@@ -9580,6 +9608,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_cloud_dnshome: PublicSuffix.Node = .label(
+    "dnshome",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_cloud_elementor: PublicSuffix.Node = .label(
     "elementor",
     next: [
@@ -10336,6 +10370,7 @@ extension PublicSuffix {
       _negative_cloud_begetcdn,
       _negative_cloud_convex,
       _negative_cloud_diadem,
+      _negative_cloud_dnshome,
       _negative_cloud_elementor,
       _negative_cloud_emergent,
       _negative_cloud_encoway,
@@ -21115,6 +21150,12 @@ extension PublicSuffix {
       _negative_de_ddnss_dyndns,
     ]
   )
+  private static let _negative_de_ddnssec: PublicSuffix.Node = .label(
+    "ddnssec",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_de_diskussionsbereich: PublicSuffix.Node = .label(
     "diskussionsbereich",
     next: [
@@ -21157,6 +21198,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_de_dyndnssec: PublicSuffix.Node = .label(
+    "dyndnssec",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_de_firewallHgateway: PublicSuffix.Node = .label(
     "firewall-gateway",
     next: [
@@ -21195,6 +21242,12 @@ extension PublicSuffix {
   )
   private static let _negative_de_günstigliefern: PublicSuffix.Node = .label(
     "günstigliefern",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_de_heimdns: PublicSuffix.Node = .label(
+    "heimdns",
     next: [
       .termination,
     ]
@@ -21436,6 +21489,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_de_srvdns: PublicSuffix.Node = .label(
+    "srvdns",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_de_svnHrepos: PublicSuffix.Node = .label(
     "svn-repos",
     next: [
@@ -21500,6 +21559,7 @@ extension PublicSuffix {
       _negative_de_communityHpro,
       _negative_de_cosidns,
       _negative_de_ddnss,
+      _negative_de_ddnssec,
       _negative_de_diskussionsbereich,
       _negative_de_dnshome,
       _negative_de_dnsupdater,
@@ -21507,6 +21567,7 @@ extension PublicSuffix {
       _negative_de_dynHip24,
       _negative_de_dynamischesHdns,
       _negative_de_dyndns1,
+      _negative_de_dyndnssec,
       _negative_de_firewallHgateway,
       _negative_de_frusky,
       _negative_de_fuettertdasnetz,
@@ -21514,6 +21575,7 @@ extension PublicSuffix {
       _negative_de_goip,
       _negative_de_günstigbestellen,
       _negative_de_günstigliefern,
+      _negative_de_heimdns,
       _negative_de_homeHwebserver,
       _negative_de_hsHheilbronn,
       _negative_de_inHberlin,
@@ -21546,6 +21608,7 @@ extension PublicSuffix {
       _negative_de_spdns,
       _negative_de_speedpartner,
       _negative_de_square7,
+      _negative_de_srvdns,
       _negative_de_svnHrepos,
       _negative_de_taifunHdns,
       _negative_de_testHiserv,
@@ -23719,6 +23782,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_eu_dnshome: PublicSuffix.Node = .label(
+    "dnshome",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_eu_dogado_jelastic: PublicSuffix.Node = .label(
     "jelastic",
     next: [
@@ -23764,6 +23833,7 @@ extension PublicSuffix {
       _negative_eu_cloudns,
       _negative_eu_deuxfleurs,
       _negative_eu_directwp,
+      _negative_eu_dnshome,
       _negative_eu_dogado,
       _negative_eu_nxa,
       _negative_eu_prvw,
@@ -23876,10 +23946,17 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_fan_mkm: PublicSuffix.Node = .label(
+    "mkm",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_fan: PublicSuffix.Node = .label(
     "fan",
     next: [
       .termination,
+      _negative_fan_mkm,
     ]
   )
   private static let _negative_fans: PublicSuffix.Node = .label(
@@ -29298,6 +29375,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_it_dnshome: PublicSuffix.Node = .label(
+    "dnshome",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_it_edu: PublicSuffix.Node = .label(
     "edu",
     next: [
@@ -31248,6 +31331,7 @@ extension PublicSuffix {
       _negative_it_cz,
       _negative_it_dellHogliastra,
       _negative_it_dellogliastra,
+      _negative_it_dnshome,
       _negative_it_edu,
       _negative_it_emiliaHromagna,
       _negative_it_emiliaromagna,
@@ -56899,10 +56983,17 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_now_dyn: PublicSuffix.Node = .label(
+    "dyn",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_now: PublicSuffix.Node = .label(
     "now",
     next: [
       .termination,
+      _negative_now_dyn,
     ]
   )
   private static let _negative_nowruz: PublicSuffix.Node = .label(
@@ -57347,6 +57438,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_online_heimdns: PublicSuffix.Node = .label(
+    "heimdns",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_online_leapcell: PublicSuffix.Node = .label(
     "leapcell",
     next: [
@@ -57367,6 +57464,7 @@ extension PublicSuffix {
       _negative_online_book,
       _negative_online_eero,
       _negative_online_eeroHstage,
+      _negative_online_heimdns,
       _negative_online_leapcell,
       _negative_online_websitebuilder,
     ]
@@ -64087,6 +64185,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_site_puter: PublicSuffix.Node = .label(
+    "puter",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_site_sol: PublicSuffix.Node = .label(
     "sol",
     next: [
@@ -64158,6 +64262,7 @@ extension PublicSuffix {
       _negative_site_piebox,
       _negative_site_platformsh,
       _negative_site_preview,
+      _negative_site_puter,
       _negative_site_sol,
       _negative_site_sourcecraft,
       _negative_site_square,
@@ -71118,11 +71223,18 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_work_puter: PublicSuffix.Node = .label(
+    "puter",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_work: PublicSuffix.Node = .label(
     "work",
     next: [
       .termination,
       _negative_work_imagineHproxy,
+      _negative_work_puter,
     ]
   )
   private static let _negative_works: PublicSuffix.Node = .label(
@@ -71218,10 +71330,17 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_wtf_ddns: PublicSuffix.Node = .label(
+    "ddns",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_wtf: PublicSuffix.Node = .label(
     "wtf",
     next: [
       .termination,
+      _negative_wtf_ddns,
     ]
   )
   private static let _negative_xbox: PublicSuffix.Node = .label(
