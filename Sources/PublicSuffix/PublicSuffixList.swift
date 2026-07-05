@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-06-24T06:18:20Z
-// ETag: "ad1df4ad683a15aa3fb1dff900b6ef08"
+// Last-Modified: 2026-07-02T09:58:26Z
+// ETag: "6d776f28c6276d6f93f019d6c29a11d1"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -58397,12 +58397,6 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_org_mayfirst: PublicSuffix.Node = .label(
-    "mayfirst",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_org_misconfused: PublicSuffix.Node = .label(
     "misconfused",
     next: [
@@ -58742,7 +58736,6 @@ extension PublicSuffix {
       _negative_org_jpn,
       _negative_org_js,
       _negative_org_kicksHass,
-      _negative_org_mayfirst,
       _negative_org_misconfused,
       _negative_org_mlbfan,
       _negative_org_myHfirewall,
