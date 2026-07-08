@@ -30,9 +30,8 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
   }
   
   public func convert<S>(_ intermediates: S) async throws -> StringLines where S: Sequence, S.Element == IntermediateDataContainer<IntermediateDataType> {
-    var result = StringLines()
-    
-    do { // License
+    var result: StringLines = try await JobManager.default.do("", jobID: "") { ctx in // License
+      var result = StringLines()
       result.append(contentsOf: [
         "// NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)",
         "//         and, this file contains the source converted to Swift language.",
@@ -43,7 +42,7 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
       
       let licenseURL = URL(string: "https://www.mozilla.org/media/MPL/2.0/index.txt")!
       guard var license = String(
-        data: try await content(of: licenseURL, jobID: self.identifier),
+        data: try await ctx.content(of: licenseURL),
         encoding: .utf8
       ).map({
         StringLines($0, detectIndent: false)
@@ -55,6 +54,7 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
       result.append(contentsOf: license)
       result.append("*/")
       result.appendEmptyLine()
+      return result
     }
     
     // - MARK: Derive domains
