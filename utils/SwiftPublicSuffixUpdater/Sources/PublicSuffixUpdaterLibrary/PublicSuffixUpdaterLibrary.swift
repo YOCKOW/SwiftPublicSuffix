@@ -30,7 +30,7 @@ public final class PublicSuffixList: StringLinesCodeUpdaterDelegate {
   }
   
   public func convert<S>(_ intermediates: S) async throws -> StringLines where S: Sequence, S.Element == IntermediateDataContainer<IntermediateDataType> {
-    var result: StringLines = try await JobManager.default.do("", jobID: "") { ctx in // License
+    var result: StringLines = try await JobManager.default.do("Fetching the license.", jobID: self.identifier) { ctx in // License
       var result = StringLines()
       result.append(contentsOf: [
         "// NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)",
