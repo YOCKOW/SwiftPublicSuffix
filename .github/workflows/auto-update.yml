@@ -44,9 +44,9 @@ jobs:
             build-${{ github.workspace }}-${{ runner.os }}-auto-update-
             build-${{ github.workspace }}-${{ runner.os }}-
             build-${{ github.workspace }}-
-      - uses: YOCKOW/Action-setup-swift@main
+      - uses: YOCKOW/Action-setup-swift@v1
         with:
-          swift-version: "6.2.3"
+          swift-version: "6.3.3"
       - name: Configure git.
         run: |
           set -x
