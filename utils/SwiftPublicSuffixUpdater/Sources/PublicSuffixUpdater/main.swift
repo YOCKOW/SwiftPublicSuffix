@@ -8,9 +8,10 @@
 import PublicSuffixUpdaterLibrary
 import yCodeUpdater
 
-let manager = CodeUpdaterManager()
-manager.updaters = [
+let manager = CodeUpdaterManager(
+  updaters: [
   .init(delegate: PublicSuffixList())
-]
+  ]
+)
 
 await manager.run()
