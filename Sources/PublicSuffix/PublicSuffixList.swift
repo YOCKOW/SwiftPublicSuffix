@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-07-02T09:58:26Z
-// ETag: "6d776f28c6276d6f93f019d6c29a11d1"
+// Last-Modified: 2026-07-07T22:48:02Z
+// ETag: "c9a2d8bbcfcd1c58470edf66002c97a1"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -612,6 +612,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_ac_sch: PublicSuffix.Node = .label(
+    "sch",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_ac: PublicSuffix.Node = .label(
     "ac",
     next: [
@@ -625,6 +631,7 @@ extension PublicSuffix {
       _negative_ac_mil,
       _negative_ac_net,
       _negative_ac_org,
+      _negative_ac_sch,
     ]
   )
   private static let _negative_academy_official: PublicSuffix.Node = .label(
@@ -2830,12 +2837,6 @@ extension PublicSuffix {
       _negative_at_ac_sth,
     ]
   )
-  private static let _negative_at_biz: PublicSuffix.Node = .label(
-    "biz",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_at_co: PublicSuffix.Node = .label(
     "co",
     next: [
@@ -2894,12 +2895,6 @@ extension PublicSuffix {
   )
   private static let _negative_at_gv: PublicSuffix.Node = .label(
     "gv",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_at_info: PublicSuffix.Node = .label(
-    "info",
     next: [
       .termination,
     ]
@@ -2963,7 +2958,6 @@ extension PublicSuffix {
       _negative_at_4,
       _negative_at_4lima,
       _negative_at_ac,
-      _negative_at_biz,
       _negative_at_co,
       _negative_at_dnshome,
       _negative_at_funkfeuer,
@@ -2971,7 +2965,6 @@ extension PublicSuffix {
       _negative_at_futurehosting,
       _negative_at_futuremailing,
       _negative_at_gv,
-      _negative_at_info,
       _negative_at_limaHcity,
       _negative_at_my,
       _negative_at_myspreadshop,
@@ -20623,6 +20616,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_cv_dev: PublicSuffix.Node = .label(
+    "dev",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_cv_edu: PublicSuffix.Node = .label(
     "edu",
     next: [
@@ -20665,11 +20664,18 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_cv_store: PublicSuffix.Node = .label(
+    "store",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_cv: PublicSuffix.Node = .label(
     "cv",
     next: [
       .termination,
       _negative_cv_com,
+      _negative_cv_dev,
       _negative_cv_edu,
       _negative_cv_id,
       _negative_cv_int,
@@ -20677,6 +20683,7 @@ extension PublicSuffix {
       _negative_cv_nome,
       _negative_cv_org,
       _negative_cv_publ,
+      _negative_cv_store,
     ]
   )
   private static let _negative_cw_com: PublicSuffix.Node = .label(
@@ -47790,6 +47797,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_me_grok: PublicSuffix.Node = .label(
+    "grok",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_me_hooc_seprox: PublicSuffix.Node = .label(
     "seprox",
     next: [
@@ -47941,6 +47954,7 @@ extension PublicSuffix {
       _negative_me_filegear,
       _negative_me_filegearHsg,
       _negative_me_gov,
+      _negative_me_grok,
       _negative_me_hooc,
       _negative_me_hopto,
       _negative_me_i234,
