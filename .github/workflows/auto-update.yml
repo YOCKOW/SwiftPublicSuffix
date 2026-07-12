@@ -2,7 +2,7 @@ name: Auto-update
 on:
   schedule:
     - cron: "0 0 * * 0"
-  workflow_dispatch: # Enable to run manually
+  workflow_dispatch: {} # Enable to run manually
 permissions:
   contents: write
   pull-requests: write
@@ -31,11 +31,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install --no-install-recommends -y git zsh libcurl4-openssl-dev
       - name: Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Use a cache for ".build" directory.
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: .build
           key: build-${{ github.workspace }}-${{ runner.os }}-auto-update-${{ env.UP_TO_DATE_BRANCH }}
@@ -135,6 +135,8 @@ jobs:
             --delete-branch
       - name: Add a new tag if necessary
         id: new-tag
+        env:
+          GH_TOKEN: ${{ secrets.AUTO_UPDATE_TOKEN }}
         run: |
           set -eu
 
@@ -156,6 +158,9 @@ jobs:
           fi
           git tag "$NEXT_VERSION"
           git push "$GIT_REMOTE_NAME" tag "$NEXT_VERSION"
+          gh release create "$NEXT_VERSION" \
+            --generate-notes \
+            --title "Release v${NEXT_VERSION}."
       - name: Merge updated list into `${{ env.BASE_BRANCH || '- n/a -' }}` branch.
         if: >-
           ${{
