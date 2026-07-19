@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-07-09T11:59:33Z
-// ETag: "b9adec53464970382cf3d060c0e9a5b7"
+// Last-Modified: 2026-07-15T18:14:13Z
+// ETag: "3105eca697c1d2a127394c455438a489"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -21272,6 +21272,12 @@ extension PublicSuffix {
       _negative_de_homeHwebserver_dyn,
     ]
   )
+  private static let _negative_de_home64: PublicSuffix.Node = .label(
+    "home64",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_de_hsHheilbronn_it_pages: PublicSuffix.Node = .label(
     "pages",
     next: [
@@ -21329,6 +21335,12 @@ extension PublicSuffix {
   )
   private static let _negative_de_internetHdns: PublicSuffix.Node = .label(
     "internet-dns",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_de_ipv64: PublicSuffix.Node = .label(
+    "ipv64",
     next: [
       .termination,
     ]
@@ -21584,6 +21596,7 @@ extension PublicSuffix {
       _negative_de_günstigliefern,
       _negative_de_heimdns,
       _negative_de_homeHwebserver,
+      _negative_de_home64,
       _negative_de_hsHheilbronn,
       _negative_de_inHberlin,
       _negative_de_inHbrb,
@@ -21591,6 +21604,7 @@ extension PublicSuffix {
       _negative_de_inHdsl,
       _negative_de_inHvpn,
       _negative_de_internetHdns,
+      _negative_de_ipv64,
       _negative_de_iservschule,
       _negative_de_isteingeek,
       _negative_de_istmein,
@@ -24902,6 +24916,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_ge_cyb: PublicSuffix.Node = .label(
+    "cyb",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_ge_edu: PublicSuffix.Node = .label(
     "edu",
     next: [
@@ -24914,8 +24934,20 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_ge_llc: PublicSuffix.Node = .label(
+    "llc",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_ge_net: PublicSuffix.Node = .label(
     "net",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_ge_online: PublicSuffix.Node = .label(
+    "online",
     next: [
       .termination,
     ]
@@ -24938,17 +24970,27 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_ge_tnx: PublicSuffix.Node = .label(
+    "tnx",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_ge: PublicSuffix.Node = .label(
     "ge",
     next: [
       .termination,
       _negative_ge_com,
+      _negative_ge_cyb,
       _negative_ge_edu,
       _negative_ge_gov,
+      _negative_ge_llc,
       _negative_ge_net,
+      _negative_ge_online,
       _negative_ge_org,
       _negative_ge_pvt,
       _negative_ge_school,
+      _negative_ge_tnx,
     ]
   )
   private static let _negative_gea: PublicSuffix.Node = .label(
@@ -27162,8 +27204,20 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_in_aero: PublicSuffix.Node = .label(
+    "aero",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_in_ai: PublicSuffix.Node = .label(
     "ai",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_in_alumni: PublicSuffix.Node = .label(
+    "alumni",
     next: [
       .termination,
     ]
@@ -27390,6 +27444,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_in_school: PublicSuffix.Node = .label(
+    "school",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_in_supabase: PublicSuffix.Node = .label(
     "supabase",
     next: [
@@ -27404,6 +27464,12 @@ extension PublicSuffix {
   )
   private static let _negative_in_tv: PublicSuffix.Node = .label(
     "tv",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_in_ub: PublicSuffix.Node = .label(
+    "ub",
     next: [
       .termination,
     ]
@@ -27439,7 +27505,9 @@ extension PublicSuffix {
       _negative_in_5g,
       _negative_in_6g,
       _negative_in_ac,
+      _negative_in_aero,
       _negative_in_ai,
+      _negative_in_alumni,
       _negative_in_am,
       _negative_in_bank,
       _negative_in_barsy,
@@ -27477,9 +27545,11 @@ extension PublicSuffix {
       _negative_in_post,
       _negative_in_pro,
       _negative_in_res,
+      _negative_in_school,
       _negative_in_supabase,
       _negative_in_travel,
       _negative_in_tv,
+      _negative_in_ub,
       _negative_in_uk,
       _negative_in_up,
       _negative_in_us,
@@ -50113,6 +50183,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_net_ipv64: PublicSuffix.Node = .label(
+    "ipv64",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_net_isHaHchef: PublicSuffix.Node = .label(
     "is-a-chef",
     next: [
@@ -50978,6 +51054,7 @@ extension PublicSuffix {
       _negative_net_inHvpn,
       _negative_net_iobb,
       _negative_net_ipifony,
+      _negative_net_ipv64,
       _negative_net_isHaHchef,
       _negative_net_isHaHgeek,
       _negative_net_isaHgeek,
@@ -51866,8 +51943,8 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_no_audnedaln: PublicSuffix.Node = .label(
-    "audnedaln",
+  private static let _negative_no_audnedal: PublicSuffix.Node = .label(
+    "audnedal",
     next: [
       .termination,
     ]
@@ -52636,12 +52713,6 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_no_frei: PublicSuffix.Node = .label(
-    "frei",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_no_frogn: PublicSuffix.Node = .label(
     "frogn",
     next: [
@@ -52752,6 +52823,12 @@ extension PublicSuffix {
   )
   private static let _negative_no_giehtavuoatna: PublicSuffix.Node = .label(
     "giehtavuoatna",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_no_gielda: PublicSuffix.Node = .label(
+    "gielda",
     next: [
       .termination,
     ]
@@ -52938,6 +53015,12 @@ extension PublicSuffix {
   )
   private static let _negative_no_hamaroy: PublicSuffix.Node = .label(
     "hamaroy",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_no_hamarøy: PublicSuffix.Node = .label(
+    "hamarøy",
     next: [
       .termination,
     ]
@@ -53369,6 +53452,12 @@ extension PublicSuffix {
   )
   private static let _negative_no_karlsoy: PublicSuffix.Node = .label(
     "karlsoy",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_no_karlsøy: PublicSuffix.Node = .label(
+    "karlsøy",
     next: [
       .termination,
     ]
@@ -54662,6 +54751,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_no_re: PublicSuffix.Node = .label(
+    "re",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_no_rendalen: PublicSuffix.Node = .label(
     "rendalen",
     next: [
@@ -55427,6 +55522,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_no_suohkan: PublicSuffix.Node = .label(
+    "suohkan",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_no_surnadal: PublicSuffix.Node = .label(
     "surnadal",
     next: [
@@ -55587,6 +55688,12 @@ extension PublicSuffix {
   )
   private static let _negative_no_tjeldsund: PublicSuffix.Node = .label(
     "tjeldsund",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_no_tjielte: PublicSuffix.Node = .label(
+    "tjielte",
     next: [
       .termination,
     ]
@@ -55779,6 +55886,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_no_uenorge: PublicSuffix.Node = .label(
+    "uenorge",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_no_ullensaker: PublicSuffix.Node = .label(
     "ullensaker",
     next: [
@@ -55787,6 +55900,12 @@ extension PublicSuffix {
   )
   private static let _negative_no_ullensvang: PublicSuffix.Node = .label(
     "ullensvang",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_no_ulstein: PublicSuffix.Node = .label(
+    "ulstein",
     next: [
       .termination,
     ]
@@ -56293,7 +56412,7 @@ extension PublicSuffix {
       _negative_no_askvoll,
       _negative_no_askøy,
       _negative_no_asnes,
-      _negative_no_audnedaln,
+      _negative_no_audnedal,
       _negative_no_aukra,
       _negative_no_aure,
       _negative_no_aurland,
@@ -56418,7 +56537,6 @@ extension PublicSuffix {
       _negative_no_fosnes,
       _negative_no_frana,
       _negative_no_fredrikstad,
-      _negative_no_frei,
       _negative_no_frogn,
       _negative_no_froland,
       _negative_no_frosta,
@@ -56438,6 +56556,7 @@ extension PublicSuffix {
       _negative_no_gaular,
       _negative_no_gausdal,
       _negative_no_giehtavuoatna,
+      _negative_no_gielda,
       _negative_no_gildeskal,
       _negative_no_gildeskål,
       _negative_no_giske,
@@ -56469,6 +56588,7 @@ extension PublicSuffix {
       _negative_no_halsa,
       _negative_no_hamar,
       _negative_no_hamaroy,
+      _negative_no_hamarøy,
       _negative_no_hammarfeasta,
       _negative_no_hammerfest,
       _negative_no_hapmir,
@@ -56533,6 +56653,7 @@ extension PublicSuffix {
       _negative_no_karasjohka,
       _negative_no_karasjok,
       _negative_no_karlsoy,
+      _negative_no_karlsøy,
       _negative_no_karmoy,
       _negative_no_karmøy,
       _negative_no_kautokeino,
@@ -56731,6 +56852,7 @@ extension PublicSuffix {
       _negative_no_rana,
       _negative_no_randaberg,
       _negative_no_rauma,
+      _negative_no_re,
       _negative_no_rendalen,
       _negative_no_rennebu,
       _negative_no_rennesoy,
@@ -56855,6 +56977,7 @@ extension PublicSuffix {
       _negative_no_suldal,
       _negative_no_sund,
       _negative_no_sunndal,
+      _negative_no_suohkan,
       _negative_no_surnadal,
       _negative_no_svalbard,
       _negative_no_sveio,
@@ -56879,6 +57002,7 @@ extension PublicSuffix {
       _negative_no_tingvoll,
       _negative_no_tinn,
       _negative_no_tjeldsund,
+      _negative_no_tjielte,
       _negative_no_tjome,
       _negative_no_tjøme,
       _negative_no_tm,
@@ -56908,8 +57032,10 @@ extension PublicSuffix {
       _negative_no_tysvar,
       _negative_no_tysvær,
       _negative_no_tønsberg,
+      _negative_no_uenorge,
       _negative_no_ullensaker,
       _negative_no_ullensvang,
+      _negative_no_ulstein,
       _negative_no_ulvik,
       _negative_no_unjarga,
       _negative_no_unjárga,
@@ -63247,6 +63373,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_scot_mygov: PublicSuffix.Node = .label(
+    "mygov",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_scot_org: PublicSuffix.Node = .label(
     "org",
     next: [
@@ -63260,6 +63392,7 @@ extension PublicSuffix {
       _negative_scot_co,
       _negative_scot_gov,
       _negative_scot_me,
+      _negative_scot_mygov,
       _negative_scot_org,
     ]
   )
@@ -65836,12 +65969,6 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_tj_ac: PublicSuffix.Node = .label(
-    "ac",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_tj_biz: PublicSuffix.Node = .label(
     "biz",
     next: [
@@ -65930,7 +66057,6 @@ extension PublicSuffix {
     "tj",
     next: [
       .termination,
-      _negative_tj_ac,
       _negative_tj_biz,
       _negative_tj_co,
       _negative_tj_com,
