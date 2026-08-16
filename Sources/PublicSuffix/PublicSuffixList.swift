@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-07-25T14:20:16Z
-// ETag: "fe72420e646faa807e082d0ee15edfc3"
+// Last-Modified: 2026-08-14T20:16:01Z
+// ETag: "25c64367368a63586111f6fb7de4c86d"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -3132,18 +3132,6 @@ extension PublicSuffix {
       _negative_au_gov_wa,
     ]
   )
-  private static let _negative_au_hrsn_vps: PublicSuffix.Node = .label(
-    "vps",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_au_hrsn: PublicSuffix.Node = .label(
-    "hrsn",
-    next: [
-      _negative_au_hrsn_vps,
-    ]
-  )
   private static let _negative_au_id: PublicSuffix.Node = .label(
     "id",
     next: [
@@ -3220,7 +3208,6 @@ extension PublicSuffix {
       _negative_au_conf,
       _negative_au_edu,
       _negative_au_gov,
-      _negative_au_hrsn,
       _negative_au_id,
       _negative_au_net,
       _negative_au_nsw,
@@ -50061,6 +50048,18 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_net_hrsn_vps: PublicSuffix.Node = .label(
+    "vps",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_hrsn: PublicSuffix.Node = .label(
+    "hrsn",
+    next: [
+      _negative_net_hrsn_vps,
+    ]
+  )
   private static let _negative_net_hu: PublicSuffix.Node = .label(
     "hu",
     next: [
@@ -50971,6 +50970,7 @@ extension PublicSuffix {
       _negative_net_homeip,
       _negative_net_homelinux,
       _negative_net_homeunix,
+      _negative_net_hrsn,
       _negative_net_hu,
       _negative_net_icp,
       _negative_net_in,
