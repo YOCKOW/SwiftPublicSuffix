@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-08-14T20:16:01Z
-// ETag: "25c64367368a63586111f6fb7de4c86d"
+// Last-Modified: 2026-08-19T19:18:59Z
+// ETag: "349b23716f099df6ac363318e1be2f5d"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -1867,12 +1867,6 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_app_adaptable: PublicSuffix.Node = .label(
-    "adaptable",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_app_aiven: PublicSuffix.Node = .label(
     "aiven",
     next: [
@@ -1930,6 +1924,12 @@ extension PublicSuffix {
   )
   private static let _negative_app_cloudflare: PublicSuffix.Node = .label(
     "cloudflare",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_app_codepen: PublicSuffix.Node = .label(
+    "codepen",
     next: [
       .termination,
     ]
@@ -2342,7 +2342,6 @@ extension PublicSuffix {
     "app",
     next: [
       .termination,
-      _negative_app_adaptable,
       _negative_app_aiven,
       _negative_app_base44,
       _negative_app_beget,
@@ -2352,6 +2351,7 @@ extension PublicSuffix {
       _negative_app_clerk,
       _negative_app_clerkstage,
       _negative_app_cloudflare,
+      _negative_app_codepen,
       _negative_app_convex,
       _negative_app_corespeed,
       _negative_app_csb,
@@ -9813,6 +9813,12 @@ extension PublicSuffix {
       .any,
     ]
   )
+  private static let _negative_cloud_onlineHserver: PublicSuffix.Node = .label(
+    "online-server",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_cloud_onstackit_runs: PublicSuffix.Node = .label(
     "runs",
     next: [
@@ -10362,6 +10368,7 @@ extension PublicSuffix {
       _negative_cloud_matlab,
       _negative_cloud_observablehq,
       _negative_cloud_onHrancher,
+      _negative_cloud_onlineHserver,
       _negative_cloud_onstackit,
       _negative_cloud_oxa,
       _negative_cloud_perspecta,
@@ -11459,7 +11466,7 @@ extension PublicSuffix {
   private static let _negative_com_aivencloud: PublicSuffix.Node = .label(
     "aivencloud",
     next: [
-      .termination,
+      .any,
     ]
   )
   private static let _negative_com_aliases121: PublicSuffix.Node = .label(
@@ -16782,6 +16789,19 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_com_claudeusercontent_frame: PublicSuffix.Node = .label(
+    "frame",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_claudeusercontent: PublicSuffix.Node = .label(
+    "claudeusercontent",
+    next: [
+      .termination,
+      _negative_com_claudeusercontent_frame,
+    ]
+  )
   private static let _negative_com_cleverHcloud_services: PublicSuffix.Node = .label(
     "services",
     next: [
@@ -16854,6 +16874,12 @@ extension PublicSuffix {
     "cpserver",
     next: [
       .termination,
+    ]
+  )
+  private static let _negative_com_cursorusercontent: PublicSuffix.Node = .label(
+    "cursorusercontent",
+    next: [
+      .any,
     ]
   )
   private static let _negative_com_customerHoci_oci: PublicSuffix.Node = .label(
@@ -19842,6 +19868,7 @@ extension PublicSuffix {
       _negative_com_cechire,
       _negative_com_cfHipfs,
       _negative_com_ciscofreak,
+      _negative_com_claudeusercontent,
       _negative_com_cleverHcloud,
       _negative_com_cloudflareHipfs,
       _negative_com_cn,
@@ -19850,6 +19877,7 @@ extension PublicSuffix {
       _negative_com_codespot,
       _negative_com_cprapid,
       _negative_com_cpserver,
+      _negative_com_cursorusercontent,
       _negative_com_customerHoci,
       _negative_com_damnserver,
       _negative_com_datadetect,
@@ -21723,6 +21751,12 @@ extension PublicSuffix {
       _negative_dev_brave_s,
     ]
   )
+  private static let _negative_dev_codepen: PublicSuffix.Node = .label(
+    "codepen",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_dev_crm_aa: PublicSuffix.Node = .label(
     "aa",
     next: [
@@ -22380,6 +22414,7 @@ extension PublicSuffix {
       _negative_dev_bearblog,
       _negative_dev_botdash,
       _negative_dev_brave,
+      _negative_dev_codepen,
       _negative_dev_crm,
       _negative_dev_deno,
       _negative_dev_denoHstaging,
@@ -57054,11 +57089,18 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_now_here: PublicSuffix.Node = .label(
+    "here",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_now: PublicSuffix.Node = .label(
     "now",
     next: [
       .termination,
       _negative_now_dyn,
+      _negative_now_here,
     ]
   )
   private static let _negative_nowruz: PublicSuffix.Node = .label(
@@ -64262,6 +64304,26 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_site_scw_ams: PublicSuffix.Node = .label(
+    "ams",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_site_scw_waw: PublicSuffix.Node = .label(
+    "waw",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_site_scw: PublicSuffix.Node = .label(
+    "scw",
+    next: [
+      .termination,
+      _negative_site_scw_ams,
+      _negative_site_scw_waw,
+    ]
+  )
   private static let _negative_site_sol: PublicSuffix.Node = .label(
     "sol",
     next: [
@@ -64335,6 +64397,7 @@ extension PublicSuffix {
       _negative_site_playcode,
       _negative_site_preview,
       _negative_site_puter,
+      _negative_site_scw,
       _negative_site_sol,
       _negative_site_sourcecraft,
       _negative_site_square,
