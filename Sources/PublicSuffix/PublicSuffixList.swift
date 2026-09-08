@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-08-29T12:33:17Z
-// ETag: "f0805aaf745df0df237b40592434d1b3"
+// Last-Modified: 2026-09-05T21:00:00Z
+// ETag: "341b3445f83851e1432a36ab0fac3c88"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -2222,6 +2222,12 @@ extension PublicSuffix {
       _negative_app_replit_id,
     ]
   )
+  private static let _negative_app_rocketpreview: PublicSuffix.Node = .label(
+    "rocketpreview",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_app_run_mtls: PublicSuffix.Node = .label(
     "mtls",
     next: [
@@ -2391,6 +2397,7 @@ extension PublicSuffix {
       _negative_app_puter,
       _negative_app_railway,
       _negative_app_replit,
+      _negative_app_rocketpreview,
       _negative_app_run,
       _negative_app_shiptoday,
       _negative_app_snowflake,
@@ -6426,6 +6433,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_bo_ia: PublicSuffix.Node = .label(
+    "ia",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_bo_indigena: PublicSuffix.Node = .label(
     "indigena",
     next: [
@@ -6601,6 +6614,7 @@ extension PublicSuffix {
       _negative_bo_edu,
       _negative_bo_empresa,
       _negative_bo_gob,
+      _negative_bo_ia,
       _negative_bo_indigena,
       _negative_bo_industria,
       _negative_bo_info,
@@ -10478,6 +10492,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_cn_canvaHcode: PublicSuffix.Node = .label(
+    "canva-code",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_cn_canvasite_my: PublicSuffix.Node = .label(
     "my",
     next: [
@@ -11125,6 +11145,7 @@ extension PublicSuffix {
       _negative_cn_ah,
       _negative_cn_bj,
       _negative_cn_canvaHapps,
+      _negative_cn_canvaHcode,
       _negative_cn_canvasite,
       _negative_cn_com,
       _negative_cn_cq,
@@ -19773,26 +19794,6 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_com_xnbay_u2: PublicSuffix.Node = .label(
-    "u2",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_com_xnbay_u2Hlocal: PublicSuffix.Node = .label(
-    "u2-local",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_com_xnbay: PublicSuffix.Node = .label(
-    "xnbay",
-    next: [
-      .termination,
-      _negative_com_xnbay_u2,
-      _negative_com_xnbay_u2Hlocal,
-    ]
-  )
   private static let _negative_com_xtooldevice: PublicSuffix.Node = .label(
     "xtooldevice",
     next: [
@@ -20266,7 +20267,6 @@ extension PublicSuffix {
       _negative_com_wpmucdn,
       _negative_com_writesthisblog,
       _negative_com_x0,
-      _negative_com_xnbay,
       _negative_com_xtooldevice,
       _negative_com_yolasite,
       _negative_com_za,
@@ -24046,25 +24046,6 @@ extension PublicSuffix {
       _negative_fi_cloudplatform_fi,
     ]
   )
-  private static let _negative_fi_datacenter_demo: PublicSuffix.Node = .label(
-    "demo",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_fi_datacenter_paas: PublicSuffix.Node = .label(
-    "paas",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_fi_datacenter: PublicSuffix.Node = .label(
-    "datacenter",
-    next: [
-      _negative_fi_datacenter_demo,
-      _negative_fi_datacenter_paas,
-    ]
-  )
   private static let _negative_fi_dy: PublicSuffix.Node = .label(
     "dy",
     next: [
@@ -24102,7 +24083,6 @@ extension PublicSuffix {
       _negative_fi_123kotisivu,
       _negative_fi_aland,
       _negative_fi_cloudplatform,
-      _negative_fi_datacenter,
       _negative_fi_dy,
       _negative_fi_häkkinen,
       _negative_fi_iki,
@@ -46908,10 +46888,17 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_limo_eth: PublicSuffix.Node = .label(
+    "eth",
+    next: [
+      .any,
+    ]
+  )
   private static let _negative_limo: PublicSuffix.Node = .label(
     "limo",
     next: [
       .termination,
+      _negative_limo_eth,
     ]
   )
   private static let _negative_lincoln: PublicSuffix.Node = .label(
@@ -46934,6 +46921,12 @@ extension PublicSuffix {
   )
   private static let _negative_link_dweb: PublicSuffix.Node = .label(
     "dweb",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_link_eth: PublicSuffix.Node = .label(
+    "eth",
     next: [
       .any,
     ]
@@ -47011,6 +47004,7 @@ extension PublicSuffix {
       _negative_link_canva,
       _negative_link_cyon,
       _negative_link_dweb,
+      _negative_link_eth,
       _negative_link_inbrowser,
       _negative_link_joinmc,
       _negative_link_keenetic,
@@ -47905,6 +47899,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_me_opencloud: PublicSuffix.Node = .label(
+    "opencloud",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_me_org: PublicSuffix.Node = .label(
     "org",
     next: [
@@ -47991,6 +47991,7 @@ extension PublicSuffix {
       _negative_me_net,
       _negative_me_nohost,
       _negative_me_noip,
+      _negative_me_opencloud,
       _negative_me_org,
       _negative_me_priv,
       _negative_me_soundcast,
@@ -49487,10 +49488,514 @@ extension PublicSuffix {
       _negative_net_azurestaticapps_westus2,
     ]
   )
+  private static let _negative_net_azurewebsites_australiacentralH01: PublicSuffix.Node = .label(
+    "australiacentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_australiacentral2H01: PublicSuffix.Node = .label(
+    "australiacentral2-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_australiaeastH01: PublicSuffix.Node = .label(
+    "australiaeast-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_australiasoutheastH01: PublicSuffix.Node = .label(
+    "australiasoutheast-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_austriaeastH01: PublicSuffix.Node = .label(
+    "austriaeast-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_belgiumcentralH01: PublicSuffix.Node = .label(
+    "belgiumcentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_brazilsouthH01: PublicSuffix.Node = .label(
+    "brazilsouth-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_brazilsoutheastH01: PublicSuffix.Node = .label(
+    "brazilsoutheast-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_canadacentralH01: PublicSuffix.Node = .label(
+    "canadacentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_canadaeastH01: PublicSuffix.Node = .label(
+    "canadaeast-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_centralindiaH01: PublicSuffix.Node = .label(
+    "centralindia-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_centralusH01: PublicSuffix.Node = .label(
+    "centralus-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_centraluseuapH01: PublicSuffix.Node = .label(
+    "centraluseuap-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_chilecentralH01: PublicSuffix.Node = .label(
+    "chilecentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_denmarkeastH01: PublicSuffix.Node = .label(
+    "denmarkeast-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_eastasiaH01: PublicSuffix.Node = .label(
+    "eastasia-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_eastasiastageH01: PublicSuffix.Node = .label(
+    "eastasiastage-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_eastusH01: PublicSuffix.Node = .label(
+    "eastus-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_eastus2H01: PublicSuffix.Node = .label(
+    "eastus2-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_eastus2euapH01: PublicSuffix.Node = .label(
+    "eastus2euap-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_eastus3H01: PublicSuffix.Node = .label(
+    "eastus3-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_francecentralH01: PublicSuffix.Node = .label(
+    "francecentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_francesouthH01: PublicSuffix.Node = .label(
+    "francesouth-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_germanynorthH01: PublicSuffix.Node = .label(
+    "germanynorth-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_germanywestcentralH01: PublicSuffix.Node = .label(
+    "germanywestcentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_indiasouthcentralH01: PublicSuffix.Node = .label(
+    "indiasouthcentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_indonesiacentralH01: PublicSuffix.Node = .label(
+    "indonesiacentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_israelcentralH01: PublicSuffix.Node = .label(
+    "israelcentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_israelnorthwestH01: PublicSuffix.Node = .label(
+    "israelnorthwest-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_italynorthH01: PublicSuffix.Node = .label(
+    "italynorth-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_japaneastH01: PublicSuffix.Node = .label(
+    "japaneast-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_japanwestH01: PublicSuffix.Node = .label(
+    "japanwest-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_jioindiacentralH01: PublicSuffix.Node = .label(
+    "jioindiacentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_jioindiawestH01: PublicSuffix.Node = .label(
+    "jioindiawest-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_koreacentralH01: PublicSuffix.Node = .label(
+    "koreacentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_koreasouthH01: PublicSuffix.Node = .label(
+    "koreasouth-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_malaysiawestH01: PublicSuffix.Node = .label(
+    "malaysiawest-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_mexicocentralH01: PublicSuffix.Node = .label(
+    "mexicocentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_newzealandnorthH01: PublicSuffix.Node = .label(
+    "newzealandnorth-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_northcentralusH01: PublicSuffix.Node = .label(
+    "northcentralus-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_northcentralusstageH01: PublicSuffix.Node = .label(
+    "northcentralusstage-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_northeastus5H01: PublicSuffix.Node = .label(
+    "northeastus5-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_northeuropeH01: PublicSuffix.Node = .label(
+    "northeurope-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_norwayeastH01: PublicSuffix.Node = .label(
+    "norwayeast-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_norwaywestH01: PublicSuffix.Node = .label(
+    "norwaywest-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_p: PublicSuffix.Node = .label(
+    "p",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_net_azurewebsites_polandcentralH01: PublicSuffix.Node = .label(
+    "polandcentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_qatarcentralH01: PublicSuffix.Node = .label(
+    "qatarcentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_southafricanorthH01: PublicSuffix.Node = .label(
+    "southafricanorth-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_southafricawestH01: PublicSuffix.Node = .label(
+    "southafricawest-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_southcentralusH01: PublicSuffix.Node = .label(
+    "southcentralus-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_southcentralus2H01: PublicSuffix.Node = .label(
+    "southcentralus2-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_southeastasiaH01: PublicSuffix.Node = .label(
+    "southeastasia-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_southeastus5H01: PublicSuffix.Node = .label(
+    "southeastus5-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_southindiaH01: PublicSuffix.Node = .label(
+    "southindia-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_spaincentralH01: PublicSuffix.Node = .label(
+    "spaincentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_swedencentralH01: PublicSuffix.Node = .label(
+    "swedencentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_swedensouthH01: PublicSuffix.Node = .label(
+    "swedensouth-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_switzerlandnorthH01: PublicSuffix.Node = .label(
+    "switzerlandnorth-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_switzerlandwestH01: PublicSuffix.Node = .label(
+    "switzerlandwest-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_taiwannorthH01: PublicSuffix.Node = .label(
+    "taiwannorth-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_taiwannorthwestH01: PublicSuffix.Node = .label(
+    "taiwannorthwest-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_uaecentralH01: PublicSuffix.Node = .label(
+    "uaecentral-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_uaenorthH01: PublicSuffix.Node = .label(
+    "uaenorth-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_uksouthH01: PublicSuffix.Node = .label(
+    "uksouth-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_ukwestH01: PublicSuffix.Node = .label(
+    "ukwest-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_westcentralusH01: PublicSuffix.Node = .label(
+    "westcentralus-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_westeuropeH01: PublicSuffix.Node = .label(
+    "westeurope-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_westindiaH01: PublicSuffix.Node = .label(
+    "westindia-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_westusH01: PublicSuffix.Node = .label(
+    "westus-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_westus2H01: PublicSuffix.Node = .label(
+    "westus2-01",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_net_azurewebsites_westus3H01: PublicSuffix.Node = .label(
+    "westus3-01",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_net_azurewebsites: PublicSuffix.Node = .label(
     "azurewebsites",
     next: [
       .termination,
+      _negative_net_azurewebsites_australiacentralH01,
+      _negative_net_azurewebsites_australiacentral2H01,
+      _negative_net_azurewebsites_australiaeastH01,
+      _negative_net_azurewebsites_australiasoutheastH01,
+      _negative_net_azurewebsites_austriaeastH01,
+      _negative_net_azurewebsites_belgiumcentralH01,
+      _negative_net_azurewebsites_brazilsouthH01,
+      _negative_net_azurewebsites_brazilsoutheastH01,
+      _negative_net_azurewebsites_canadacentralH01,
+      _negative_net_azurewebsites_canadaeastH01,
+      _negative_net_azurewebsites_centralindiaH01,
+      _negative_net_azurewebsites_centralusH01,
+      _negative_net_azurewebsites_centraluseuapH01,
+      _negative_net_azurewebsites_chilecentralH01,
+      _negative_net_azurewebsites_denmarkeastH01,
+      _negative_net_azurewebsites_eastasiaH01,
+      _negative_net_azurewebsites_eastasiastageH01,
+      _negative_net_azurewebsites_eastusH01,
+      _negative_net_azurewebsites_eastus2H01,
+      _negative_net_azurewebsites_eastus2euapH01,
+      _negative_net_azurewebsites_eastus3H01,
+      _negative_net_azurewebsites_francecentralH01,
+      _negative_net_azurewebsites_francesouthH01,
+      _negative_net_azurewebsites_germanynorthH01,
+      _negative_net_azurewebsites_germanywestcentralH01,
+      _negative_net_azurewebsites_indiasouthcentralH01,
+      _negative_net_azurewebsites_indonesiacentralH01,
+      _negative_net_azurewebsites_israelcentralH01,
+      _negative_net_azurewebsites_israelnorthwestH01,
+      _negative_net_azurewebsites_italynorthH01,
+      _negative_net_azurewebsites_japaneastH01,
+      _negative_net_azurewebsites_japanwestH01,
+      _negative_net_azurewebsites_jioindiacentralH01,
+      _negative_net_azurewebsites_jioindiawestH01,
+      _negative_net_azurewebsites_koreacentralH01,
+      _negative_net_azurewebsites_koreasouthH01,
+      _negative_net_azurewebsites_malaysiawestH01,
+      _negative_net_azurewebsites_mexicocentralH01,
+      _negative_net_azurewebsites_newzealandnorthH01,
+      _negative_net_azurewebsites_northcentralusH01,
+      _negative_net_azurewebsites_northcentralusstageH01,
+      _negative_net_azurewebsites_northeastus5H01,
+      _negative_net_azurewebsites_northeuropeH01,
+      _negative_net_azurewebsites_norwayeastH01,
+      _negative_net_azurewebsites_norwaywestH01,
+      _negative_net_azurewebsites_p,
+      _negative_net_azurewebsites_polandcentralH01,
+      _negative_net_azurewebsites_qatarcentralH01,
+      _negative_net_azurewebsites_southafricanorthH01,
+      _negative_net_azurewebsites_southafricawestH01,
+      _negative_net_azurewebsites_southcentralusH01,
+      _negative_net_azurewebsites_southcentralus2H01,
+      _negative_net_azurewebsites_southeastasiaH01,
+      _negative_net_azurewebsites_southeastus5H01,
+      _negative_net_azurewebsites_southindiaH01,
+      _negative_net_azurewebsites_spaincentralH01,
+      _negative_net_azurewebsites_swedencentralH01,
+      _negative_net_azurewebsites_swedensouthH01,
+      _negative_net_azurewebsites_switzerlandnorthH01,
+      _negative_net_azurewebsites_switzerlandwestH01,
+      _negative_net_azurewebsites_taiwannorthH01,
+      _negative_net_azurewebsites_taiwannorthwestH01,
+      _negative_net_azurewebsites_uaecentralH01,
+      _negative_net_azurewebsites_uaenorthH01,
+      _negative_net_azurewebsites_uksouthH01,
+      _negative_net_azurewebsites_ukwestH01,
+      _negative_net_azurewebsites_westcentralusH01,
+      _negative_net_azurewebsites_westeuropeH01,
+      _negative_net_azurewebsites_westindiaH01,
+      _negative_net_azurewebsites_westusH01,
+      _negative_net_azurewebsites_westus2H01,
+      _negative_net_azurewebsites_westus3H01,
     ]
   )
   private static let _negative_net_barsy: PublicSuffix.Node = .label(
@@ -51179,10 +51684,17 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_new_builtwithrocket: PublicSuffix.Node = .label(
+    "builtwithrocket",
+    next: [
+      .any,
+    ]
+  )
   private static let _negative_new: PublicSuffix.Node = .label(
     "new",
     next: [
       .termination,
+      _negative_new_builtwithrocket,
     ]
   )
   private static let _negative_news_noticeable: PublicSuffix.Node = .label(
@@ -57095,12 +57607,19 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_now_tmp: PublicSuffix.Node = .label(
+    "tmp",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_now: PublicSuffix.Node = .label(
     "now",
     next: [
       .termination,
       _negative_now_dyn,
       _negative_now_here,
+      _negative_now_tmp,
     ]
   )
   private static let _negative_nowruz: PublicSuffix.Node = .label(
