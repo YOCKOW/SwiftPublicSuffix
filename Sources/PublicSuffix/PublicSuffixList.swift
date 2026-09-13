@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-09-05T21:00:00Z
-// ETag: "341b3445f83851e1432a36ab0fac3c88"
+// Last-Modified: 2026-09-08T12:18:49Z
+// ETag: "b94fa38a81ea719fc3692c35f0b29675"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -63346,6 +63346,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_run_cloud: PublicSuffix.Node = .label(
+    "cloud",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_run_code: PublicSuffix.Node = .label(
     "code",
     next: [
@@ -63451,6 +63457,7 @@ extension PublicSuffix {
       _negative_run_appwrite,
       _negative_run_build,
       _negative_run_canva,
+      _negative_run_cloud,
       _negative_run_code,
       _negative_run_database,
       _negative_run_development,
@@ -65583,10 +65590,17 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_studio_ai: PublicSuffix.Node = .label(
+    "ai",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_studio: PublicSuffix.Node = .label(
     "studio",
     next: [
       .termination,
+      _negative_studio_ai,
     ]
   )
   private static let _negative_study: PublicSuffix.Node = .label(
