@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-09-08T12:18:49Z
-// ETag: "b94fa38a81ea719fc3692c35f0b29675"
+// Last-Modified: 2026-09-18T18:43:05Z
+// ETag: "31b8702b97361f5995b1c5adab4d8d48"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -11502,12 +11502,6 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_com_alphaHmyqnapcloud: PublicSuffix.Node = .label(
-    "alpha-myqnapcloud",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_com_amazonaws_afHsouthH1_awsHcloud9_webviewHassets: PublicSuffix.Node = .label(
     "webview-assets",
     next: [
@@ -17015,12 +17009,6 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_com_devHmyqnapcloud: PublicSuffix.Node = .label(
-    "dev-myqnapcloud",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_com_devinapps: PublicSuffix.Node = .label(
     "devinapps",
     next: [
@@ -18047,10 +18035,17 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_com_herokuapp_compute: PublicSuffix.Node = .label(
+    "compute",
+    next: [
+      .any,
+    ]
+  )
   private static let _negative_com_herokuapp: PublicSuffix.Node = .label(
     "herokuapp",
     next: [
       .termination,
+      _negative_com_herokuapp_compute,
     ]
   )
   private static let _negative_com_hk: PublicSuffix.Node = .label(
@@ -18085,6 +18080,12 @@ extension PublicSuffix {
   )
   private static let _negative_com_homeunix: PublicSuffix.Node = .label(
     "homeunix",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_hostedHbyHfiles: PublicSuffix.Node = .label(
+    "hosted-by-files",
     next: [
       .termination,
     ]
@@ -19829,7 +19830,6 @@ extension PublicSuffix {
       _negative_com_aivencloud,
       _negative_com_aliases121,
       _negative_com_alibabacloudcs,
-      _negative_com_alphaHmyqnapcloud,
       _negative_com_amazonaws,
       _negative_com_amazoncognito,
       _negative_com_amplifyapp,
@@ -19892,7 +19892,6 @@ extension PublicSuffix {
       _negative_com_de,
       _negative_com_deployagent,
       _negative_com_deusHcanvas,
-      _negative_com_devHmyqnapcloud,
       _negative_com_devinapps,
       _negative_com_digitaloceanspaces,
       _negative_com_discordsays,
@@ -20026,6 +20025,7 @@ extension PublicSuffix {
       _negative_com_homesecuritymac,
       _negative_com_homesecuritypc,
       _negative_com_homeunix,
+      _negative_com_hostedHbyHfiles,
       _negative_com_hostedHbyHprevider,
       _negative_com_hostedpi,
       _negative_com_hosteur,
