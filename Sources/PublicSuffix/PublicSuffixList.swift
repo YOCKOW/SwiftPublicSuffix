@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-09-18T18:43:05Z
-// ETag: "31b8702b97361f5995b1c5adab4d8d48"
+// Last-Modified: 2026-09-24T13:26:44Z
+// ETag: "68fdfa477789df593de7e62e5f33333a"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -2059,6 +2059,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_app_glideos: PublicSuffix.Node = .label(
+    "glideos",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_app_hackclub: PublicSuffix.Node = .label(
     "hackclub",
     next: [
@@ -2372,6 +2378,7 @@ extension PublicSuffix {
       _negative_app_framer,
       _negative_app_gadget,
       _negative_app_github,
+      _negative_app_glideos,
       _negative_app_hackclub,
       _negative_app_hasura,
       _negative_app_hosted,
@@ -5464,10 +5471,17 @@ extension PublicSuffix {
       .any,
     ]
   )
+  private static let _negative_be_webhosting_site: PublicSuffix.Node = .label(
+    "site",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_be_webhosting: PublicSuffix.Node = .label(
     "webhosting",
     next: [
       .termination,
+      _negative_be_webhosting_site,
     ]
   )
   private static let _negative_be: PublicSuffix.Node = .label(
@@ -16930,6 +16944,32 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_com_databricksapps_aws: PublicSuffix.Node = .label(
+    "aws",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_databricksapps_azure: PublicSuffix.Node = .label(
+    "azure",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_databricksapps_gcp: PublicSuffix.Node = .label(
+    "gcp",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_databricksapps: PublicSuffix.Node = .label(
+    "databricksapps",
+    next: [
+      _negative_com_databricksapps_aws,
+      _negative_com_databricksapps_azure,
+      _negative_com_databricksapps_gcp,
+    ]
+  )
   private static let _negative_com_datadetect_demo: PublicSuffix.Node = .label(
     "demo",
     next: [
@@ -19881,6 +19921,7 @@ extension PublicSuffix {
       _negative_com_cursorusercontent,
       _negative_com_customerHoci,
       _negative_com_damnserver,
+      _negative_com_databricksapps,
       _negative_com_datadetect,
       _negative_com_dattolocal,
       _negative_com_dattorelay,
@@ -52152,10 +52193,17 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_nl_hostingHcluster_site: PublicSuffix.Node = .label(
+    "site",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_nl_hostingHcluster: PublicSuffix.Node = .label(
     "hosting-cluster",
     next: [
       .termination,
+      _negative_nl_hostingHcluster_site,
     ]
   )
   private static let _negative_nl_khplay: PublicSuffix.Node = .label(
@@ -60726,6 +60774,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_pl_iqhs: PublicSuffix.Node = .label(
+    "iqhs",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_pl_jaworzno: PublicSuffix.Node = .label(
     "jaworzno",
     next: [
@@ -61646,6 +61700,7 @@ extension PublicSuffix {
       _negative_pl_homesklep,
       _negative_pl_ilawa,
       _negative_pl_info,
+      _negative_pl_iqhs,
       _negative_pl_jaworzno,
       _negative_pl_jeleniaHgora,
       _negative_pl_jgora,
@@ -64478,6 +64533,12 @@ extension PublicSuffix {
       _negative_sh_platform_us,
     ]
   )
+  private static let _negative_sh_surge: PublicSuffix.Node = .label(
+    "surge",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_sh_teleport: PublicSuffix.Node = .label(
     "teleport",
     next: [
@@ -64498,6 +64559,7 @@ extension PublicSuffix {
       _negative_sh_now,
       _negative_sh_org,
       _negative_sh_platform,
+      _negative_sh_surge,
       _negative_sh_teleport,
     ]
   )
@@ -68869,6 +68931,18 @@ extension PublicSuffix {
       _negative_us_ct_lib,
     ]
   )
+  private static let _negative_us_databricksapps_awsHgov: PublicSuffix.Node = .label(
+    "aws-gov",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_us_databricksapps: PublicSuffix.Node = .label(
+    "databricksapps",
+    next: [
+      _negative_us_databricksapps_awsHgov,
+    ]
+  )
   private static let _negative_us_dc_cc: PublicSuffix.Node = .label(
     "cc",
     next: [
@@ -70444,6 +70518,7 @@ extension PublicSuffix {
       _negative_us_cloudns,
       _negative_us_co,
       _negative_us_ct,
+      _negative_us_databricksapps,
       _negative_us_dc,
       _negative_us_de,
       _negative_us_dni,
