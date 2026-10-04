@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-09-24T13:26:44Z
-// ETag: "68fdfa477789df593de7e62e5f33333a"
+// Last-Modified: 2026-10-01T23:03:02Z
+// ETag: "8753d8ab021fc5a1d7b74e7d6c668a54"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -45586,12 +45586,6 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_juniper: PublicSuffix.Node = .label(
-    "juniper",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_kaufen: PublicSuffix.Node = .label(
     "kaufen",
     next: [
@@ -74377,7 +74371,6 @@ extension PublicSuffix {
     _negative_jpmorgan,
     _negative_jprs,
     _negative_juegos,
-    _negative_juniper,
     _negative_kaufen,
     _negative_kddi,
     _negative_ke,
