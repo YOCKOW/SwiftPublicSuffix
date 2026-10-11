@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-10-01T23:03:02Z
-// ETag: "8753d8ab021fc5a1d7b74e7d6c668a54"
+// Last-Modified: 2026-10-07T07:28:30Z
+// ETag: "7ba6fb3902bb3cd40f456e283f9182dc"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -2228,6 +2228,12 @@ extension PublicSuffix {
       _negative_app_replit_id,
     ]
   )
+  private static let _negative_app_retool: PublicSuffix.Node = .label(
+    "retool",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_app_rocketpreview: PublicSuffix.Node = .label(
     "rocketpreview",
     next: [
@@ -2404,6 +2410,7 @@ extension PublicSuffix {
       _negative_app_puter,
       _negative_app_railway,
       _negative_app_replit,
+      _negative_app_retool,
       _negative_app_rocketpreview,
       _negative_app_run,
       _negative_app_shiptoday,
@@ -16138,6 +16145,18 @@ extension PublicSuffix {
       _negative_com_amazoncognito_apHeastH1_auth,
     ]
   )
+  private static let _negative_com_amazoncognito_apHeastH2_auth: PublicSuffix.Node = .label(
+    "auth",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazoncognito_apHeastH2: PublicSuffix.Node = .label(
+    "ap-east-2",
+    next: [
+      _negative_com_amazoncognito_apHeastH2_auth,
+    ]
+  )
   private static let _negative_com_amazoncognito_apHnortheastH1_auth: PublicSuffix.Node = .label(
     "auth",
     next: [
@@ -16256,6 +16275,18 @@ extension PublicSuffix {
     "ap-southeast-5",
     next: [
       _negative_com_amazoncognito_apHsoutheastH5_auth,
+    ]
+  )
+  private static let _negative_com_amazoncognito_apHsoutheastH6_auth: PublicSuffix.Node = .label(
+    "auth",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazoncognito_apHsoutheastH6: PublicSuffix.Node = .label(
+    "ap-southeast-6",
+    next: [
+      _negative_com_amazoncognito_apHsoutheastH6_auth,
     ]
   )
   private static let _negative_com_amazoncognito_apHsoutheastH7_auth: PublicSuffix.Node = .label(
@@ -16555,6 +16586,7 @@ extension PublicSuffix {
     next: [
       _negative_com_amazoncognito_afHsouthH1,
       _negative_com_amazoncognito_apHeastH1,
+      _negative_com_amazoncognito_apHeastH2,
       _negative_com_amazoncognito_apHnortheastH1,
       _negative_com_amazoncognito_apHnortheastH2,
       _negative_com_amazoncognito_apHnortheastH3,
@@ -16565,6 +16597,7 @@ extension PublicSuffix {
       _negative_com_amazoncognito_apHsoutheastH3,
       _negative_com_amazoncognito_apHsoutheastH4,
       _negative_com_amazoncognito_apHsoutheastH5,
+      _negative_com_amazoncognito_apHsoutheastH6,
       _negative_com_amazoncognito_apHsoutheastH7,
       _negative_com_amazoncognito_caHcentralH1,
       _negative_com_amazoncognito_caHwestH1,
@@ -16587,6 +16620,151 @@ extension PublicSuffix {
       _negative_com_amazoncognito_usHgovHwestH1,
       _negative_com_amazoncognito_usHwestH1,
       _negative_com_amazoncognito_usHwestH2,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_apHeastH1: PublicSuffix.Node = .label(
+    "ap-east-1",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_apHnortheastH1: PublicSuffix.Node = .label(
+    "ap-northeast-1",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_apHnortheastH2: PublicSuffix.Node = .label(
+    "ap-northeast-2",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_apHsouthH1: PublicSuffix.Node = .label(
+    "ap-south-1",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_apHsoutheastH1: PublicSuffix.Node = .label(
+    "ap-southeast-1",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_apHsoutheastH2: PublicSuffix.Node = .label(
+    "ap-southeast-2",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_apHsoutheastH3: PublicSuffix.Node = .label(
+    "ap-southeast-3",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_apHsoutheastH5: PublicSuffix.Node = .label(
+    "ap-southeast-5",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_caHcentralH1: PublicSuffix.Node = .label(
+    "ca-central-1",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_euHcentralH1: PublicSuffix.Node = .label(
+    "eu-central-1",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_euHnorthH1: PublicSuffix.Node = .label(
+    "eu-north-1",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_euHsouthH2: PublicSuffix.Node = .label(
+    "eu-south-2",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_euHwestH1: PublicSuffix.Node = .label(
+    "eu-west-1",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_euHwestH2: PublicSuffix.Node = .label(
+    "eu-west-2",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_euHwestH3: PublicSuffix.Node = .label(
+    "eu-west-3",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_saHeastH1: PublicSuffix.Node = .label(
+    "sa-east-1",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_usHeastH1: PublicSuffix.Node = .label(
+    "us-east-1",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_usHeastH2: PublicSuffix.Node = .label(
+    "us-east-2",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs_usHwestH2: PublicSuffix.Node = .label(
+    "us-west-2",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_com_amazonlightsail_cs: PublicSuffix.Node = .label(
+    "cs",
+    next: [
+      _negative_com_amazonlightsail_cs_apHeastH1,
+      _negative_com_amazonlightsail_cs_apHnortheastH1,
+      _negative_com_amazonlightsail_cs_apHnortheastH2,
+      _negative_com_amazonlightsail_cs_apHsouthH1,
+      _negative_com_amazonlightsail_cs_apHsoutheastH1,
+      _negative_com_amazonlightsail_cs_apHsoutheastH2,
+      _negative_com_amazonlightsail_cs_apHsoutheastH3,
+      _negative_com_amazonlightsail_cs_apHsoutheastH5,
+      _negative_com_amazonlightsail_cs_caHcentralH1,
+      _negative_com_amazonlightsail_cs_euHcentralH1,
+      _negative_com_amazonlightsail_cs_euHnorthH1,
+      _negative_com_amazonlightsail_cs_euHsouthH2,
+      _negative_com_amazonlightsail_cs_euHwestH1,
+      _negative_com_amazonlightsail_cs_euHwestH2,
+      _negative_com_amazonlightsail_cs_euHwestH3,
+      _negative_com_amazonlightsail_cs_saHeastH1,
+      _negative_com_amazonlightsail_cs_usHeastH1,
+      _negative_com_amazonlightsail_cs_usHeastH2,
+      _negative_com_amazonlightsail_cs_usHwestH2,
+    ]
+  )
+  private static let _negative_com_amazonlightsail: PublicSuffix.Node = .label(
+    "amazonlightsail",
+    next: [
+      .termination,
+      _negative_com_amazonlightsail_cs,
     ]
   )
   private static let _negative_com_amplifyapp: PublicSuffix.Node = .label(
@@ -17313,6 +17491,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_com_elasticbeanstalk_apHsouthH2: PublicSuffix.Node = .label(
+    "ap-south-2",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_com_elasticbeanstalk_apHsoutheastH1: PublicSuffix.Node = .label(
     "ap-southeast-1",
     next: [
@@ -17331,8 +17515,20 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_com_elasticbeanstalk_apHsoutheastH4: PublicSuffix.Node = .label(
+    "ap-southeast-4",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_com_elasticbeanstalk_apHsoutheastH5: PublicSuffix.Node = .label(
     "ap-southeast-5",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_elasticbeanstalk_apHsoutheastH6: PublicSuffix.Node = .label(
+    "ap-southeast-6",
     next: [
       .termination,
     ]
@@ -17349,8 +17545,20 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_com_elasticbeanstalk_caHwestH1: PublicSuffix.Node = .label(
+    "ca-west-1",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_com_elasticbeanstalk_euHcentralH1: PublicSuffix.Node = .label(
     "eu-central-1",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_elasticbeanstalk_euHcentralH2: PublicSuffix.Node = .label(
+    "eu-central-2",
     next: [
       .termination,
     ]
@@ -17461,13 +17669,18 @@ extension PublicSuffix {
       _negative_com_elasticbeanstalk_apHnortheastH2,
       _negative_com_elasticbeanstalk_apHnortheastH3,
       _negative_com_elasticbeanstalk_apHsouthH1,
+      _negative_com_elasticbeanstalk_apHsouthH2,
       _negative_com_elasticbeanstalk_apHsoutheastH1,
       _negative_com_elasticbeanstalk_apHsoutheastH2,
       _negative_com_elasticbeanstalk_apHsoutheastH3,
+      _negative_com_elasticbeanstalk_apHsoutheastH4,
       _negative_com_elasticbeanstalk_apHsoutheastH5,
+      _negative_com_elasticbeanstalk_apHsoutheastH6,
       _negative_com_elasticbeanstalk_apHsoutheastH7,
       _negative_com_elasticbeanstalk_caHcentralH1,
+      _negative_com_elasticbeanstalk_caHwestH1,
       _negative_com_elasticbeanstalk_euHcentralH1,
+      _negative_com_elasticbeanstalk_euHcentralH2,
       _negative_com_elasticbeanstalk_euHnorthH1,
       _negative_com_elasticbeanstalk_euHsouthH1,
       _negative_com_elasticbeanstalk_euHsouthH2,
@@ -19872,6 +20085,7 @@ extension PublicSuffix {
       _negative_com_alibabacloudcs,
       _negative_com_amazonaws,
       _negative_com_amazoncognito,
+      _negative_com_amazonlightsail,
       _negative_com_amplifyapp,
       _negative_com_appchizi,
       _negative_com_applinzi,
@@ -22187,192 +22401,17 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_dev_replit_archer: PublicSuffix.Node = .label(
-    "archer",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_bones: PublicSuffix.Node = .label(
-    "bones",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_canary: PublicSuffix.Node = .label(
-    "canary",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_global: PublicSuffix.Node = .label(
-    "global",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_hacker: PublicSuffix.Node = .label(
-    "hacker",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_id: PublicSuffix.Node = .label(
-    "id",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_janeway: PublicSuffix.Node = .label(
-    "janeway",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_kim: PublicSuffix.Node = .label(
-    "kim",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_kira: PublicSuffix.Node = .label(
-    "kira",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_kirk: PublicSuffix.Node = .label(
-    "kirk",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_odo: PublicSuffix.Node = .label(
-    "odo",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_paris: PublicSuffix.Node = .label(
-    "paris",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_picard: PublicSuffix.Node = .label(
-    "picard",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_pike: PublicSuffix.Node = .label(
-    "pike",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_prerelease: PublicSuffix.Node = .label(
-    "prerelease",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_reed: PublicSuffix.Node = .label(
-    "reed",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_riker: PublicSuffix.Node = .label(
-    "riker",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_sisko: PublicSuffix.Node = .label(
-    "sisko",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_spock: PublicSuffix.Node = .label(
-    "spock",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_staging: PublicSuffix.Node = .label(
-    "staging",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_sulu: PublicSuffix.Node = .label(
-    "sulu",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_tarpit: PublicSuffix.Node = .label(
-    "tarpit",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_dev_replit_teams: PublicSuffix.Node = .label(
     "teams",
     next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_tucker: PublicSuffix.Node = .label(
-    "tucker",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_wesley: PublicSuffix.Node = .label(
-    "wesley",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_dev_replit_worf: PublicSuffix.Node = .label(
-    "worf",
-    next: [
-      .termination,
+      .any,
     ]
   )
   private static let _negative_dev_replit: PublicSuffix.Node = .label(
     "replit",
     next: [
-      .termination,
-      _negative_dev_replit_archer,
-      _negative_dev_replit_bones,
-      _negative_dev_replit_canary,
-      _negative_dev_replit_global,
-      _negative_dev_replit_hacker,
-      _negative_dev_replit_id,
-      _negative_dev_replit_janeway,
-      _negative_dev_replit_kim,
-      _negative_dev_replit_kira,
-      _negative_dev_replit_kirk,
-      _negative_dev_replit_odo,
-      _negative_dev_replit_paris,
-      _negative_dev_replit_picard,
-      _negative_dev_replit_pike,
-      _negative_dev_replit_prerelease,
-      _negative_dev_replit_reed,
-      _negative_dev_replit_riker,
-      _negative_dev_replit_sisko,
-      _negative_dev_replit_spock,
-      _negative_dev_replit_staging,
-      _negative_dev_replit_sulu,
-      _negative_dev_replit_tarpit,
+      .any,
       _negative_dev_replit_teams,
-      _negative_dev_replit_tucker,
-      _negative_dev_replit_wesley,
-      _negative_dev_replit_worf,
     ]
   )
   private static let _negative_dev_runcontainers: PublicSuffix.Node = .label(
