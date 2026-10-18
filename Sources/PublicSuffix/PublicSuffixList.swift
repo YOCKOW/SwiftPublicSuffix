@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-10-07T07:28:30Z
-// ETag: "7ba6fb3902bb3cd40f456e283f9182dc"
+// Last-Modified: 2026-10-17T18:52:18Z
+// ETag: "462064fbdf82514299400f5176ff8ade"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -3355,6 +3355,18 @@ extension PublicSuffix {
       _negative_aws_on_apHeastH1_transferHwebapp,
     ]
   )
+  private static let _negative_aws_on_apHeastH2_transferHwebapp: PublicSuffix.Node = .label(
+    "transfer-webapp",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_aws_on_apHeastH2: PublicSuffix.Node = .label(
+    "ap-east-2",
+    next: [
+      _negative_aws_on_apHeastH2_transferHwebapp,
+    ]
+  )
   private static let _negative_aws_on_apHnortheastH1_airflow: PublicSuffix.Node = .label(
     "airflow",
     next: [
@@ -3594,6 +3606,24 @@ extension PublicSuffix {
       _negative_aws_on_apHsoutheastH5_transferHwebapp,
     ]
   )
+  private static let _negative_aws_on_apHsoutheastH6_transferHwebapp: PublicSuffix.Node = .label(
+    "transfer-webapp",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_aws_on_apHsoutheastH6: PublicSuffix.Node = .label(
+    "ap-southeast-6",
+    next: [
+      _negative_aws_on_apHsoutheastH6_transferHwebapp,
+    ]
+  )
+  private static let _negative_aws_on_apHsoutheastH7_airflow: PublicSuffix.Node = .label(
+    "airflow",
+    next: [
+      .any,
+    ]
+  )
   private static let _negative_aws_on_apHsoutheastH7_transferHwebapp: PublicSuffix.Node = .label(
     "transfer-webapp",
     next: [
@@ -3603,6 +3633,7 @@ extension PublicSuffix {
   private static let _negative_aws_on_apHsoutheastH7: PublicSuffix.Node = .label(
     "ap-southeast-7",
     next: [
+      _negative_aws_on_apHsoutheastH7_airflow,
       _negative_aws_on_apHsoutheastH7_transferHwebapp,
     ]
   )
@@ -4094,6 +4125,7 @@ extension PublicSuffix {
     next: [
       _negative_aws_on_afHsouthH1,
       _negative_aws_on_apHeastH1,
+      _negative_aws_on_apHeastH2,
       _negative_aws_on_apHnortheastH1,
       _negative_aws_on_apHnortheastH2,
       _negative_aws_on_apHnortheastH3,
@@ -4104,6 +4136,7 @@ extension PublicSuffix {
       _negative_aws_on_apHsoutheastH3,
       _negative_aws_on_apHsoutheastH4,
       _negative_aws_on_apHsoutheastH5,
+      _negative_aws_on_apHsoutheastH6,
       _negative_aws_on_apHsoutheastH7,
       _negative_aws_on_caHcentralH1,
       _negative_aws_on_caHwestH1,
@@ -9886,12 +9919,6 @@ extension PublicSuffix {
       _negative_cloud_oxa_uk,
     ]
   )
-  private static let _negative_cloud_perspecta: PublicSuffix.Node = .label(
-    "perspecta",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_cloud_primetel_uk: PublicSuffix.Node = .label(
     "uk",
     next: [
@@ -10406,7 +10433,6 @@ extension PublicSuffix {
       _negative_cloud_onlineHserver,
       _negative_cloud_onstackit,
       _negative_cloud_oxa,
-      _negative_cloud_perspecta,
       _negative_cloud_primetel,
       _negative_cloud_ravendb,
       _negative_cloud_reclaim,
@@ -11998,6 +12024,18 @@ extension PublicSuffix {
       _negative_com_amazonaws_apHnortheastH1_awsHcloud9_webviewHassets,
     ]
   )
+  private static let _negative_com_amazonaws_apHnortheastH1_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_apHnortheastH1_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_apHnortheastH1_bedrockHagentcore_consentHportal,
+    ]
+  )
   private static let _negative_com_amazonaws_apHnortheastH1_cloud9_vfs: PublicSuffix.Node = .label(
     "vfs",
     next: [
@@ -12096,6 +12134,7 @@ extension PublicSuffix {
     next: [
       _negative_com_amazonaws_apHnortheastH1_analyticsHgateway,
       _negative_com_amazonaws_apHnortheastH1_awsHcloud9,
+      _negative_com_amazonaws_apHnortheastH1_bedrockHagentcore,
       _negative_com_amazonaws_apHnortheastH1_cloud9,
       _negative_com_amazonaws_apHnortheastH1_dualstack,
       _negative_com_amazonaws_apHnortheastH1_emrappuiHprod,
@@ -12124,6 +12163,18 @@ extension PublicSuffix {
     "aws-cloud9",
     next: [
       _negative_com_amazonaws_apHnortheastH2_awsHcloud9_webviewHassets,
+    ]
+  )
+  private static let _negative_com_amazonaws_apHnortheastH2_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_apHnortheastH2_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_apHnortheastH2_bedrockHagentcore_consentHportal,
     ]
   )
   private static let _negative_com_amazonaws_apHnortheastH2_cloud9_vfs: PublicSuffix.Node = .label(
@@ -12224,6 +12275,7 @@ extension PublicSuffix {
     next: [
       _negative_com_amazonaws_apHnortheastH2_analyticsHgateway,
       _negative_com_amazonaws_apHnortheastH2_awsHcloud9,
+      _negative_com_amazonaws_apHnortheastH2_bedrockHagentcore,
       _negative_com_amazonaws_apHnortheastH2_cloud9,
       _negative_com_amazonaws_apHnortheastH2_dualstack,
       _negative_com_amazonaws_apHnortheastH2_emrappuiHprod,
@@ -12375,6 +12427,18 @@ extension PublicSuffix {
       _negative_com_amazonaws_apHsouthH1_awsHcloud9_webviewHassets,
     ]
   )
+  private static let _negative_com_amazonaws_apHsouthH1_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_apHsouthH1_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_apHsouthH1_bedrockHagentcore_consentHportal,
+    ]
+  )
   private static let _negative_com_amazonaws_apHsouthH1_cloud9_vfs: PublicSuffix.Node = .label(
     "vfs",
     next: [
@@ -12473,6 +12537,7 @@ extension PublicSuffix {
     next: [
       _negative_com_amazonaws_apHsouthH1_analyticsHgateway,
       _negative_com_amazonaws_apHsouthH1_awsHcloud9,
+      _negative_com_amazonaws_apHsouthH1_bedrockHagentcore,
       _negative_com_amazonaws_apHsouthH1_cloud9,
       _negative_com_amazonaws_apHsouthH1_dualstack,
       _negative_com_amazonaws_apHsouthH1_emrappuiHprod,
@@ -12483,6 +12548,18 @@ extension PublicSuffix {
       _negative_com_amazonaws_apHsouthH1_s3Haccesspoint,
       _negative_com_amazonaws_apHsouthH1_s3HobjectHlambda,
       _negative_com_amazonaws_apHsouthH1_s3Hwebsite,
+    ]
+  )
+  private static let _negative_com_amazonaws_apHsouthH2_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_apHsouthH2_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_apHsouthH2_bedrockHagentcore_consentHportal,
     ]
   )
   private static let _negative_com_amazonaws_apHsouthH2_dualstack_s3: PublicSuffix.Node = .label(
@@ -12562,6 +12639,7 @@ extension PublicSuffix {
   private static let _negative_com_amazonaws_apHsouthH2: PublicSuffix.Node = .label(
     "ap-south-2",
     next: [
+      _negative_com_amazonaws_apHsouthH2_bedrockHagentcore,
       _negative_com_amazonaws_apHsouthH2_dualstack,
       _negative_com_amazonaws_apHsouthH2_emrappuiHprod,
       _negative_com_amazonaws_apHsouthH2_emrnotebooksHprod,
@@ -12589,6 +12667,18 @@ extension PublicSuffix {
     "aws-cloud9",
     next: [
       _negative_com_amazonaws_apHsoutheastH1_awsHcloud9_webviewHassets,
+    ]
+  )
+  private static let _negative_com_amazonaws_apHsoutheastH1_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_apHsoutheastH1_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_apHsoutheastH1_bedrockHagentcore_consentHportal,
     ]
   )
   private static let _negative_com_amazonaws_apHsoutheastH1_cloud9_vfs: PublicSuffix.Node = .label(
@@ -12689,6 +12779,7 @@ extension PublicSuffix {
     next: [
       _negative_com_amazonaws_apHsoutheastH1_analyticsHgateway,
       _negative_com_amazonaws_apHsoutheastH1_awsHcloud9,
+      _negative_com_amazonaws_apHsoutheastH1_bedrockHagentcore,
       _negative_com_amazonaws_apHsoutheastH1_cloud9,
       _negative_com_amazonaws_apHsoutheastH1_dualstack,
       _negative_com_amazonaws_apHsoutheastH1_emrappuiHprod,
@@ -12717,6 +12808,18 @@ extension PublicSuffix {
     "aws-cloud9",
     next: [
       _negative_com_amazonaws_apHsoutheastH2_awsHcloud9_webviewHassets,
+    ]
+  )
+  private static let _negative_com_amazonaws_apHsoutheastH2_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_apHsoutheastH2_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_apHsoutheastH2_bedrockHagentcore_consentHportal,
     ]
   )
   private static let _negative_com_amazonaws_apHsoutheastH2_cloud9_vfs: PublicSuffix.Node = .label(
@@ -12817,6 +12920,7 @@ extension PublicSuffix {
     next: [
       _negative_com_amazonaws_apHsoutheastH2_analyticsHgateway,
       _negative_com_amazonaws_apHsoutheastH2_awsHcloud9,
+      _negative_com_amazonaws_apHsoutheastH2_bedrockHagentcore,
       _negative_com_amazonaws_apHsoutheastH2_cloud9,
       _negative_com_amazonaws_apHsoutheastH2_dualstack,
       _negative_com_amazonaws_apHsoutheastH2_emrappuiHprod,
@@ -13005,6 +13109,18 @@ extension PublicSuffix {
       _negative_com_amazonaws_apHsoutheastH4_s3Hwebsite,
     ]
   )
+  private static let _negative_com_amazonaws_apHsoutheastH5_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_apHsoutheastH5_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_apHsoutheastH5_bedrockHagentcore_consentHportal,
+    ]
+  )
   private static let _negative_com_amazonaws_apHsoutheastH5_dualstack_s3: PublicSuffix.Node = .label(
     "s3",
     next: [
@@ -13070,6 +13186,7 @@ extension PublicSuffix {
   private static let _negative_com_amazonaws_apHsoutheastH5: PublicSuffix.Node = .label(
     "ap-southeast-5",
     next: [
+      _negative_com_amazonaws_apHsoutheastH5_bedrockHagentcore,
       _negative_com_amazonaws_apHsoutheastH5_dualstack,
       _negative_com_amazonaws_apHsoutheastH5_executeHapi,
       _negative_com_amazonaws_apHsoutheastH5_s3,
@@ -13077,6 +13194,24 @@ extension PublicSuffix {
       _negative_com_amazonaws_apHsoutheastH5_s3Hdeprecated,
       _negative_com_amazonaws_apHsoutheastH5_s3HobjectHlambda,
       _negative_com_amazonaws_apHsoutheastH5_s3Hwebsite,
+    ]
+  )
+  private static let _negative_com_amazonaws_apHsoutheastH7_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_apHsoutheastH7_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_apHsoutheastH7_bedrockHagentcore_consentHportal,
+    ]
+  )
+  private static let _negative_com_amazonaws_apHsoutheastH7: PublicSuffix.Node = .label(
+    "ap-southeast-7",
+    next: [
+      _negative_com_amazonaws_apHsoutheastH7_bedrockHagentcore,
     ]
   )
   private static let _negative_com_amazonaws_caHcentralH1_awsHcloud9_webviewHassets: PublicSuffix.Node = .label(
@@ -13089,6 +13224,18 @@ extension PublicSuffix {
     "aws-cloud9",
     next: [
       _negative_com_amazonaws_caHcentralH1_awsHcloud9_webviewHassets,
+    ]
+  )
+  private static let _negative_com_amazonaws_caHcentralH1_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_caHcentralH1_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_caHcentralH1_bedrockHagentcore_consentHportal,
     ]
   )
   private static let _negative_com_amazonaws_caHcentralH1_cloud9_vfs: PublicSuffix.Node = .label(
@@ -13214,6 +13361,7 @@ extension PublicSuffix {
     "ca-central-1",
     next: [
       _negative_com_amazonaws_caHcentralH1_awsHcloud9,
+      _negative_com_amazonaws_caHcentralH1_bedrockHagentcore,
       _negative_com_amazonaws_caHcentralH1_cloud9,
       _negative_com_amazonaws_caHcentralH1_dualstack,
       _negative_com_amazonaws_caHcentralH1_emrappuiHprod,
@@ -13380,6 +13528,18 @@ extension PublicSuffix {
       _negative_com_amazonaws_euHcentralH1_awsHcloud9_webviewHassets,
     ]
   )
+  private static let _negative_com_amazonaws_euHcentralH1_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_euHcentralH1_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_euHcentralH1_bedrockHagentcore_consentHportal,
+    ]
+  )
   private static let _negative_com_amazonaws_euHcentralH1_cloud9_vfs: PublicSuffix.Node = .label(
     "vfs",
     next: [
@@ -13478,6 +13638,7 @@ extension PublicSuffix {
     next: [
       _negative_com_amazonaws_euHcentralH1_analyticsHgateway,
       _negative_com_amazonaws_euHcentralH1_awsHcloud9,
+      _negative_com_amazonaws_euHcentralH1_bedrockHagentcore,
       _negative_com_amazonaws_euHcentralH1_cloud9,
       _negative_com_amazonaws_euHcentralH1_dualstack,
       _negative_com_amazonaws_euHcentralH1_emrappuiHprod,
@@ -13590,6 +13751,18 @@ extension PublicSuffix {
       _negative_com_amazonaws_euHnorthH1_awsHcloud9_webviewHassets,
     ]
   )
+  private static let _negative_com_amazonaws_euHnorthH1_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_euHnorthH1_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_euHnorthH1_bedrockHagentcore_consentHportal,
+    ]
+  )
   private static let _negative_com_amazonaws_euHnorthH1_cloud9_vfs: PublicSuffix.Node = .label(
     "vfs",
     next: [
@@ -13680,6 +13853,7 @@ extension PublicSuffix {
     "eu-north-1",
     next: [
       _negative_com_amazonaws_euHnorthH1_awsHcloud9,
+      _negative_com_amazonaws_euHnorthH1_bedrockHagentcore,
       _negative_com_amazonaws_euHnorthH1_cloud9,
       _negative_com_amazonaws_euHnorthH1_dualstack,
       _negative_com_amazonaws_euHnorthH1_emrappuiHprod,
@@ -13702,6 +13876,18 @@ extension PublicSuffix {
     "aws-cloud9",
     next: [
       _negative_com_amazonaws_euHsouthH1_awsHcloud9_webviewHassets,
+    ]
+  )
+  private static let _negative_com_amazonaws_euHsouthH1_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_euHsouthH1_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_euHsouthH1_bedrockHagentcore_consentHportal,
     ]
   )
   private static let _negative_com_amazonaws_euHsouthH1_cloud9_vfs: PublicSuffix.Node = .label(
@@ -13801,6 +13987,7 @@ extension PublicSuffix {
     "eu-south-1",
     next: [
       _negative_com_amazonaws_euHsouthH1_awsHcloud9,
+      _negative_com_amazonaws_euHsouthH1_bedrockHagentcore,
       _negative_com_amazonaws_euHsouthH1_cloud9,
       _negative_com_amazonaws_euHsouthH1_dualstack,
       _negative_com_amazonaws_euHsouthH1_emrappuiHprod,
@@ -13811,6 +13998,18 @@ extension PublicSuffix {
       _negative_com_amazonaws_euHsouthH1_s3Haccesspoint,
       _negative_com_amazonaws_euHsouthH1_s3HobjectHlambda,
       _negative_com_amazonaws_euHsouthH1_s3Hwebsite,
+    ]
+  )
+  private static let _negative_com_amazonaws_euHsouthH2_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_euHsouthH2_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_euHsouthH2_bedrockHagentcore_consentHportal,
     ]
   )
   private static let _negative_com_amazonaws_euHsouthH2_dualstack_s3: PublicSuffix.Node = .label(
@@ -13890,6 +14089,7 @@ extension PublicSuffix {
   private static let _negative_com_amazonaws_euHsouthH2: PublicSuffix.Node = .label(
     "eu-south-2",
     next: [
+      _negative_com_amazonaws_euHsouthH2_bedrockHagentcore,
       _negative_com_amazonaws_euHsouthH2_dualstack,
       _negative_com_amazonaws_euHsouthH2_emrappuiHprod,
       _negative_com_amazonaws_euHsouthH2_emrnotebooksHprod,
@@ -13917,6 +14117,18 @@ extension PublicSuffix {
     "aws-cloud9",
     next: [
       _negative_com_amazonaws_euHwestH1_awsHcloud9_webviewHassets,
+    ]
+  )
+  private static let _negative_com_amazonaws_euHwestH1_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_euHwestH1_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_euHwestH1_bedrockHagentcore_consentHportal,
     ]
   )
   private static let _negative_com_amazonaws_euHwestH1_cloud9_vfs: PublicSuffix.Node = .label(
@@ -14023,6 +14235,7 @@ extension PublicSuffix {
     next: [
       _negative_com_amazonaws_euHwestH1_analyticsHgateway,
       _negative_com_amazonaws_euHwestH1_awsHcloud9,
+      _negative_com_amazonaws_euHwestH1_bedrockHagentcore,
       _negative_com_amazonaws_euHwestH1_cloud9,
       _negative_com_amazonaws_euHwestH1_dualstack,
       _negative_com_amazonaws_euHwestH1_emrappuiHprod,
@@ -14046,6 +14259,18 @@ extension PublicSuffix {
     "aws-cloud9",
     next: [
       _negative_com_amazonaws_euHwestH2_awsHcloud9_webviewHassets,
+    ]
+  )
+  private static let _negative_com_amazonaws_euHwestH2_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_euHwestH2_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_euHwestH2_bedrockHagentcore_consentHportal,
     ]
   )
   private static let _negative_com_amazonaws_euHwestH2_cloud9_vfs: PublicSuffix.Node = .label(
@@ -14138,6 +14363,7 @@ extension PublicSuffix {
     "eu-west-2",
     next: [
       _negative_com_amazonaws_euHwestH2_awsHcloud9,
+      _negative_com_amazonaws_euHwestH2_bedrockHagentcore,
       _negative_com_amazonaws_euHwestH2_cloud9,
       _negative_com_amazonaws_euHwestH2_dualstack,
       _negative_com_amazonaws_euHwestH2_emrappuiHprod,
@@ -14160,6 +14386,18 @@ extension PublicSuffix {
     "aws-cloud9",
     next: [
       _negative_com_amazonaws_euHwestH3_awsHcloud9_webviewHassets,
+    ]
+  )
+  private static let _negative_com_amazonaws_euHwestH3_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_euHwestH3_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_euHwestH3_bedrockHagentcore_consentHportal,
     ]
   )
   private static let _negative_com_amazonaws_euHwestH3_cloud9_vfs: PublicSuffix.Node = .label(
@@ -14259,6 +14497,7 @@ extension PublicSuffix {
     "eu-west-3",
     next: [
       _negative_com_amazonaws_euHwestH3_awsHcloud9,
+      _negative_com_amazonaws_euHwestH3_bedrockHagentcore,
       _negative_com_amazonaws_euHwestH3_cloud9,
       _negative_com_amazonaws_euHwestH3_dualstack,
       _negative_com_amazonaws_euHwestH3_emrappuiHprod,
@@ -15064,6 +15303,18 @@ extension PublicSuffix {
       _negative_com_amazonaws_saHeastH1_awsHcloud9_webviewHassets,
     ]
   )
+  private static let _negative_com_amazonaws_saHeastH1_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_saHeastH1_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_saHeastH1_bedrockHagentcore_consentHportal,
+    ]
+  )
   private static let _negative_com_amazonaws_saHeastH1_cloud9_vfs: PublicSuffix.Node = .label(
     "vfs",
     next: [
@@ -15161,6 +15412,7 @@ extension PublicSuffix {
     "sa-east-1",
     next: [
       _negative_com_amazonaws_saHeastH1_awsHcloud9,
+      _negative_com_amazonaws_saHeastH1_bedrockHagentcore,
       _negative_com_amazonaws_saHeastH1_cloud9,
       _negative_com_amazonaws_saHeastH1_dualstack,
       _negative_com_amazonaws_saHeastH1_emrappuiHprod,
@@ -15189,6 +15441,18 @@ extension PublicSuffix {
     "aws-cloud9",
     next: [
       _negative_com_amazonaws_usHeastH1_awsHcloud9_webviewHassets,
+    ]
+  )
+  private static let _negative_com_amazonaws_usHeastH1_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_usHeastH1_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_usHeastH1_bedrockHagentcore_consentHportal,
     ]
   )
   private static let _negative_com_amazonaws_usHeastH1_cloud9_vfs: PublicSuffix.Node = .label(
@@ -15322,6 +15586,7 @@ extension PublicSuffix {
       .termination,
       _negative_com_amazonaws_usHeastH1_analyticsHgateway,
       _negative_com_amazonaws_usHeastH1_awsHcloud9,
+      _negative_com_amazonaws_usHeastH1_bedrockHagentcore,
       _negative_com_amazonaws_usHeastH1_cloud9,
       _negative_com_amazonaws_usHeastH1_dualstack,
       _negative_com_amazonaws_usHeastH1_emrappuiHprod,
@@ -15353,6 +15618,18 @@ extension PublicSuffix {
     "aws-cloud9",
     next: [
       _negative_com_amazonaws_usHeastH2_awsHcloud9_webviewHassets,
+    ]
+  )
+  private static let _negative_com_amazonaws_usHeastH2_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_usHeastH2_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_usHeastH2_bedrockHagentcore_consentHportal,
     ]
   )
   private static let _negative_com_amazonaws_usHeastH2_cloud9_vfs: PublicSuffix.Node = .label(
@@ -15485,6 +15762,7 @@ extension PublicSuffix {
     next: [
       _negative_com_amazonaws_usHeastH2_analyticsHgateway,
       _negative_com_amazonaws_usHeastH2_awsHcloud9,
+      _negative_com_amazonaws_usHeastH2_bedrockHagentcore,
       _negative_com_amazonaws_usHeastH2_cloud9,
       _negative_com_amazonaws_usHeastH2_dualstack,
       _negative_com_amazonaws_usHeastH2_emrappuiHprod,
@@ -15616,6 +15894,18 @@ extension PublicSuffix {
       _negative_com_amazonaws_usHgovHeastH1_s3Hwebsite,
     ]
   )
+  private static let _negative_com_amazonaws_usHgovHwestH1_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_usHgovHwestH1_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_usHgovHwestH1_bedrockHagentcore_consentHportal,
+    ]
+  )
   private static let _negative_com_amazonaws_usHgovHwestH1_dualstack_s3: PublicSuffix.Node = .label(
     "s3",
     next: [
@@ -15719,6 +16009,7 @@ extension PublicSuffix {
   private static let _negative_com_amazonaws_usHgovHwestH1: PublicSuffix.Node = .label(
     "us-gov-west-1",
     next: [
+      _negative_com_amazonaws_usHgovHwestH1_bedrockHagentcore,
       _negative_com_amazonaws_usHgovHwestH1_dualstack,
       _negative_com_amazonaws_usHgovHwestH1_emrappuiHprod,
       _negative_com_amazonaws_usHgovHwestH1_emrnotebooksHprod,
@@ -15742,6 +16033,18 @@ extension PublicSuffix {
     "aws-cloud9",
     next: [
       _negative_com_amazonaws_usHwestH1_awsHcloud9_webviewHassets,
+    ]
+  )
+  private static let _negative_com_amazonaws_usHwestH1_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_usHwestH1_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_usHwestH1_bedrockHagentcore_consentHportal,
     ]
   )
   private static let _negative_com_amazonaws_usHwestH1_cloud9_vfs: PublicSuffix.Node = .label(
@@ -15867,6 +16170,7 @@ extension PublicSuffix {
     "us-west-1",
     next: [
       _negative_com_amazonaws_usHwestH1_awsHcloud9,
+      _negative_com_amazonaws_usHwestH1_bedrockHagentcore,
       _negative_com_amazonaws_usHwestH1_cloud9,
       _negative_com_amazonaws_usHwestH1_dualstack,
       _negative_com_amazonaws_usHwestH1_emrappuiHprod,
@@ -15897,6 +16201,18 @@ extension PublicSuffix {
     "aws-cloud9",
     next: [
       _negative_com_amazonaws_usHwestH2_awsHcloud9_webviewHassets,
+    ]
+  )
+  private static let _negative_com_amazonaws_usHwestH2_bedrockHagentcore_consentHportal: PublicSuffix.Node = .label(
+    "consent-portal",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_amazonaws_usHwestH2_bedrockHagentcore: PublicSuffix.Node = .label(
+    "bedrock-agentcore",
+    next: [
+      _negative_com_amazonaws_usHwestH2_bedrockHagentcore_consentHportal,
     ]
   )
   private static let _negative_com_amazonaws_usHwestH2_cloud9_vfs: PublicSuffix.Node = .label(
@@ -16029,6 +16345,7 @@ extension PublicSuffix {
     next: [
       _negative_com_amazonaws_usHwestH2_analyticsHgateway,
       _negative_com_amazonaws_usHwestH2_awsHcloud9,
+      _negative_com_amazonaws_usHwestH2_bedrockHagentcore,
       _negative_com_amazonaws_usHwestH2_cloud9,
       _negative_com_amazonaws_usHwestH2_dualstack,
       _negative_com_amazonaws_usHwestH2_emrappuiHprod,
@@ -16060,6 +16377,7 @@ extension PublicSuffix {
       _negative_com_amazonaws_apHsoutheastH3,
       _negative_com_amazonaws_apHsoutheastH4,
       _negative_com_amazonaws_apHsoutheastH5,
+      _negative_com_amazonaws_apHsoutheastH7,
       _negative_com_amazonaws_caHcentralH1,
       _negative_com_amazonaws_caHwestH1,
       _negative_com_amazonaws_compute,
@@ -17850,6 +18168,50 @@ extension PublicSuffix {
       _negative_com_fbsbx_apps,
     ]
   )
+  private static let _negative_com_finHncloudstorage_object_kr_s3Hwebsite: PublicSuffix.Node = .label(
+    "s3-website",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_finHncloudstorage_object_kr: PublicSuffix.Node = .label(
+    "kr",
+    next: [
+      .termination,
+      _negative_com_finHncloudstorage_object_kr_s3Hwebsite,
+    ]
+  )
+  private static let _negative_com_finHncloudstorage_object: PublicSuffix.Node = .label(
+    "object",
+    next: [
+      _negative_com_finHncloudstorage_object_kr,
+    ]
+  )
+  private static let _negative_com_finHncloudstorage_private_object_kr: PublicSuffix.Node = .label(
+    "kr",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_finHncloudstorage_private_object: PublicSuffix.Node = .label(
+    "object",
+    next: [
+      _negative_com_finHncloudstorage_private_object_kr,
+    ]
+  )
+  private static let _negative_com_finHncloudstorage_private: PublicSuffix.Node = .label(
+    "private",
+    next: [
+      _negative_com_finHncloudstorage_private_object,
+    ]
+  )
+  private static let _negative_com_finHncloudstorage: PublicSuffix.Node = .label(
+    "fin-ncloudstorage",
+    next: [
+      _negative_com_finHncloudstorage_object,
+      _negative_com_finHncloudstorage_private,
+    ]
+  )
   private static let _negative_com_firebaseapp: PublicSuffix.Node = .label(
     "firebaseapp",
     next: [
@@ -18244,6 +18606,85 @@ extension PublicSuffix {
     "gotpantheon",
     next: [
       .termination,
+    ]
+  )
+  private static let _negative_com_govHncloudstorage_kr: PublicSuffix.Node = .label(
+    "kr",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_govHncloudstorage_krHprivate: PublicSuffix.Node = .label(
+    "kr-private",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_govHncloudstorage_object_kr_s3Hwebsite: PublicSuffix.Node = .label(
+    "s3-website",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_govHncloudstorage_object_kr: PublicSuffix.Node = .label(
+    "kr",
+    next: [
+      .termination,
+      _negative_com_govHncloudstorage_object_kr_s3Hwebsite,
+    ]
+  )
+  private static let _negative_com_govHncloudstorage_object_krs_s3Hwebsite: PublicSuffix.Node = .label(
+    "s3-website",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_govHncloudstorage_object_krs: PublicSuffix.Node = .label(
+    "krs",
+    next: [
+      .termination,
+      _negative_com_govHncloudstorage_object_krs_s3Hwebsite,
+    ]
+  )
+  private static let _negative_com_govHncloudstorage_object: PublicSuffix.Node = .label(
+    "object",
+    next: [
+      _negative_com_govHncloudstorage_object_kr,
+      _negative_com_govHncloudstorage_object_krs,
+    ]
+  )
+  private static let _negative_com_govHncloudstorage_private_object_kr: PublicSuffix.Node = .label(
+    "kr",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_govHncloudstorage_private_object_krs: PublicSuffix.Node = .label(
+    "krs",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_govHncloudstorage_private_object: PublicSuffix.Node = .label(
+    "object",
+    next: [
+      _negative_com_govHncloudstorage_private_object_kr,
+      _negative_com_govHncloudstorage_private_object_krs,
+    ]
+  )
+  private static let _negative_com_govHncloudstorage_private: PublicSuffix.Node = .label(
+    "private",
+    next: [
+      _negative_com_govHncloudstorage_private_object,
+    ]
+  )
+  private static let _negative_com_govHncloudstorage: PublicSuffix.Node = .label(
+    "gov-ncloudstorage",
+    next: [
+      _negative_com_govHncloudstorage_kr,
+      _negative_com_govHncloudstorage_krHprivate,
+      _negative_com_govHncloudstorage_object,
+      _negative_com_govHncloudstorage_private,
     ]
   )
   private static let _negative_com_gr: PublicSuffix.Node = .label(
@@ -19159,6 +19600,289 @@ extension PublicSuffix {
     "myvnc",
     next: [
       .termination,
+    ]
+  )
+  private static let _negative_com_ncloud_objectstorage_kr: PublicSuffix.Node = .label(
+    "kr",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncloud_objectstorage_sg: PublicSuffix.Node = .label(
+    "sg",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncloud_objectstorage: PublicSuffix.Node = .label(
+    "objectstorage",
+    next: [
+      _negative_com_ncloud_objectstorage_kr,
+      _negative_com_ncloud_objectstorage_sg,
+    ]
+  )
+  private static let _negative_com_ncloud: PublicSuffix.Node = .label(
+    "ncloud",
+    next: [
+      _negative_com_ncloud_objectstorage,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_kr: PublicSuffix.Node = .label(
+    "kr",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_krHnaver: PublicSuffix.Node = .label(
+    "kr-naver",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_krHnaverHdev: PublicSuffix.Node = .label(
+    "kr-naver-dev",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_krHprivate: PublicSuffix.Node = .label(
+    "kr-private",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_object_de_s3Hwebsite: PublicSuffix.Node = .label(
+    "s3-website",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_object_de: PublicSuffix.Node = .label(
+    "de",
+    next: [
+      .termination,
+      _negative_com_ncloudstorage_object_de_s3Hwebsite,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_object_kr_s3Hwebsite: PublicSuffix.Node = .label(
+    "s3-website",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_object_kr: PublicSuffix.Node = .label(
+    "kr",
+    next: [
+      .termination,
+      _negative_com_ncloudstorage_object_kr_s3Hwebsite,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_object_sg_s3Hwebsite: PublicSuffix.Node = .label(
+    "s3-website",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_object_sg: PublicSuffix.Node = .label(
+    "sg",
+    next: [
+      .termination,
+      _negative_com_ncloudstorage_object_sg_s3Hwebsite,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_object_us_s3Hwebsite: PublicSuffix.Node = .label(
+    "s3-website",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_object_us: PublicSuffix.Node = .label(
+    "us",
+    next: [
+      .termination,
+      _negative_com_ncloudstorage_object_us_s3Hwebsite,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_object: PublicSuffix.Node = .label(
+    "object",
+    next: [
+      _negative_com_ncloudstorage_object_de,
+      _negative_com_ncloudstorage_object_kr,
+      _negative_com_ncloudstorage_object_sg,
+      _negative_com_ncloudstorage_object_us,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_private_object_kr: PublicSuffix.Node = .label(
+    "kr",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_private_object_sg: PublicSuffix.Node = .label(
+    "sg",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_private_object: PublicSuffix.Node = .label(
+    "object",
+    next: [
+      _negative_com_ncloudstorage_private_object_kr,
+      _negative_com_ncloudstorage_private_object_sg,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_private: PublicSuffix.Node = .label(
+    "private",
+    next: [
+      _negative_com_ncloudstorage_private_object,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_website_kr: PublicSuffix.Node = .label(
+    "kr",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_website_krHnaver: PublicSuffix.Node = .label(
+    "kr-naver",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_website_krHnaverHdev: PublicSuffix.Node = .label(
+    "kr-naver-dev",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncloudstorage_website: PublicSuffix.Node = .label(
+    "website",
+    next: [
+      _negative_com_ncloudstorage_website_kr,
+      _negative_com_ncloudstorage_website_krHnaver,
+      _negative_com_ncloudstorage_website_krHnaverHdev,
+    ]
+  )
+  private static let _negative_com_ncloudstorage: PublicSuffix.Node = .label(
+    "ncloudstorage",
+    next: [
+      _negative_com_ncloudstorage_kr,
+      _negative_com_ncloudstorage_krHnaver,
+      _negative_com_ncloudstorage_krHnaverHdev,
+      _negative_com_ncloudstorage_krHprivate,
+      _negative_com_ncloudstorage_object,
+      _negative_com_ncloudstorage_private,
+      _negative_com_ncloudstorage_website,
+    ]
+  )
+  private static let _negative_com_ncpstorage_object_jp: PublicSuffix.Node = .label(
+    "jp",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncpstorage_object_jp4_jp: PublicSuffix.Node = .label(
+    "jp",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncpstorage_object_jp4: PublicSuffix.Node = .label(
+    "jp4",
+    next: [
+      _negative_com_ncpstorage_object_jp4_jp,
+    ]
+  )
+  private static let _negative_com_ncpstorage_object_jp5_jp: PublicSuffix.Node = .label(
+    "jp",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncpstorage_object_jp5: PublicSuffix.Node = .label(
+    "jp5",
+    next: [
+      _negative_com_ncpstorage_object_jp5_jp,
+    ]
+  )
+  private static let _negative_com_ncpstorage_object_kr: PublicSuffix.Node = .label(
+    "kr",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncpstorage_object_s3HwebsiteHjp: PublicSuffix.Node = .label(
+    "s3-website-jp",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncpstorage_object: PublicSuffix.Node = .label(
+    "object",
+    next: [
+      _negative_com_ncpstorage_object_jp,
+      _negative_com_ncpstorage_object_jp4,
+      _negative_com_ncpstorage_object_jp5,
+      _negative_com_ncpstorage_object_kr,
+      _negative_com_ncpstorage_object_s3HwebsiteHjp,
+    ]
+  )
+  private static let _negative_com_ncpstorage_private_object_jp: PublicSuffix.Node = .label(
+    "jp",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncpstorage_private_object_jp4_jp: PublicSuffix.Node = .label(
+    "jp",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncpstorage_private_object_jp4: PublicSuffix.Node = .label(
+    "jp4",
+    next: [
+      _negative_com_ncpstorage_private_object_jp4_jp,
+    ]
+  )
+  private static let _negative_com_ncpstorage_private_object_jp5_jp: PublicSuffix.Node = .label(
+    "jp",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncpstorage_private_object_jp5: PublicSuffix.Node = .label(
+    "jp5",
+    next: [
+      _negative_com_ncpstorage_private_object_jp5_jp,
+    ]
+  )
+  private static let _negative_com_ncpstorage_private_object_kr: PublicSuffix.Node = .label(
+    "kr",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_com_ncpstorage_private_object: PublicSuffix.Node = .label(
+    "object",
+    next: [
+      _negative_com_ncpstorage_private_object_jp,
+      _negative_com_ncpstorage_private_object_jp4,
+      _negative_com_ncpstorage_private_object_jp5,
+      _negative_com_ncpstorage_private_object_kr,
+    ]
+  )
+  private static let _negative_com_ncpstorage_private: PublicSuffix.Node = .label(
+    "private",
+    next: [
+      _negative_com_ncpstorage_private_object,
+    ]
+  )
+  private static let _negative_com_ncpstorage: PublicSuffix.Node = .label(
+    "ncpstorage",
+    next: [
+      _negative_com_ncpstorage_object,
+      _negative_com_ncpstorage_private,
     ]
   )
   private static let _negative_com_neatHurl: PublicSuffix.Node = .label(
@@ -20200,6 +20924,7 @@ extension PublicSuffix {
       _negative_com_fastlyHterrarium,
       _negative_com_fastvpsHserver,
       _negative_com_fbsbx,
+      _negative_com_finHncloudstorage,
       _negative_com_firebaseapp,
       _negative_com_firewallHgateway,
       _negative_com_fldrv,
@@ -20266,6 +20991,7 @@ extension PublicSuffix {
       _negative_com_googlecode,
       _negative_com_gotdns,
       _negative_com_gotpantheon,
+      _negative_com_govHncloudstorage,
       _negative_com_gr,
       _negative_com_grayjayleagues,
       _negative_com_hatenablog,
@@ -20393,6 +21119,9 @@ extension PublicSuffix {
       _negative_com_mythicHbeasts,
       _negative_com_mytuleap,
       _negative_com_myvnc,
+      _negative_com_ncloud,
+      _negative_com_ncloudstorage,
+      _negative_com_ncpstorage,
       _negative_com_neatHurl,
       _negative_com_netHfreaks,
       _negative_com_nfshost,
@@ -23829,10 +24558,17 @@ extension PublicSuffix {
       _negative_eu_amazonwebservices_on_euscHdeHeastH1_cognitoHidp_auth,
     ]
   )
+  private static let _negative_eu_amazonwebservices_on_euscHdeHeastH1_transferHwebapp: PublicSuffix.Node = .label(
+    "transfer-webapp",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_eu_amazonwebservices_on_euscHdeHeastH1: PublicSuffix.Node = .label(
     "eusc-de-east-1",
     next: [
       _negative_eu_amazonwebservices_on_euscHdeHeastH1_cognitoHidp,
+      _negative_eu_amazonwebservices_on_euscHdeHeastH1_transferHwebapp,
     ]
   )
   private static let _negative_eu_amazonwebservices_on: PublicSuffix.Node = .label(
@@ -64704,12 +65440,6 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_si_gitapp: PublicSuffix.Node = .label(
-    "gitapp",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_si_gitpage: PublicSuffix.Node = .label(
     "gitpage",
     next: [
@@ -64721,7 +65451,6 @@ extension PublicSuffix {
     next: [
       .termination,
       _negative_si_f5,
-      _negative_si_gitapp,
       _negative_si_gitpage,
     ]
   )
@@ -66249,12 +66978,6 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_systems_knightpoint: PublicSuffix.Node = .label(
-    "knightpoint",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_systems_miren: PublicSuffix.Node = .label(
     "miren",
     next: [
@@ -66265,7 +66988,6 @@ extension PublicSuffix {
     "systems",
     next: [
       .termination,
-      _negative_systems_knightpoint,
       _negative_systems_miren,
     ]
   )
