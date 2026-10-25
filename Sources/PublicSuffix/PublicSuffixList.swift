@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-10-17T18:52:18Z
-// ETag: "462064fbdf82514299400f5176ff8ade"
+// Last-Modified: 2026-10-22T08:36:50Z
+// ETag: "ef9d179d774e5e76dc87dc5d7e74200b"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -11537,12 +11537,6 @@ extension PublicSuffix {
       .any,
     ]
   )
-  private static let _negative_com_aliases121: PublicSuffix.Node = .label(
-    "aliases121",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_com_alibabacloudcs: PublicSuffix.Node = .label(
     "alibabacloudcs",
     next: [
@@ -20790,6 +20784,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_com_ztnaHdingtalk: PublicSuffix.Node = .label(
+    "ztna-dingtalk",
+    next: [
+      .any,
+    ]
+  )
   private static let _negative_com: PublicSuffix.Node = .label(
     "com",
     next: [
@@ -20805,7 +20805,6 @@ extension PublicSuffix {
       _negative_com_adobeaemcloud,
       _negative_com_africa,
       _negative_com_aivencloud,
-      _negative_com_aliases121,
       _negative_com_alibabacloudcs,
       _negative_com_amazonaws,
       _negative_com_amazoncognito,
@@ -21254,6 +21253,7 @@ extension PublicSuffix {
       _negative_com_xtooldevice,
       _negative_com_yolasite,
       _negative_com_za,
+      _negative_com_ztnaHdingtalk,
     ]
   )
   private static let _negative_commbank: PublicSuffix.Node = .label(
@@ -67675,12 +67675,6 @@ extension PublicSuffix {
       .termination,
     ]
   )
-  private static let _negative_to_oya: PublicSuffix.Node = .label(
-    "oya",
-    next: [
-      .termination,
-    ]
-  )
   private static let _negative_to_quickconnect_direct: PublicSuffix.Node = .label(
     "direct",
     next: [
@@ -67717,7 +67711,6 @@ extension PublicSuffix {
       _negative_to_net,
       _negative_to_nett,
       _negative_to_org,
-      _negative_to_oya,
       _negative_to_quickconnect,
       _negative_to_vpnplus,
       _negative_to_x0,
