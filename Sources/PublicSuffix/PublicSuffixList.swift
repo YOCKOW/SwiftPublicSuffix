@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-10-22T08:36:50Z
-// ETag: "ef9d179d774e5e76dc87dc5d7e74200b"
+// Last-Modified: 2026-10-31T14:17:35Z
+// ETag: "53ba2aa2df6dbe30f8f0c4ddf5b2c74e"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -26681,12 +26681,6 @@ extension PublicSuffix {
   )
   private static let _negative_help: PublicSuffix.Node = .label(
     "help",
-    next: [
-      .termination,
-    ]
-  )
-  private static let _negative_helsinki: PublicSuffix.Node = .label(
-    "helsinki",
     next: [
       .termination,
     ]
@@ -75027,7 +75021,6 @@ extension PublicSuffix {
     _negative_health,
     _negative_healthcare,
     _negative_help,
-    _negative_helsinki,
     _negative_here,
     _negative_hermes,
     _negative_hiphop,
