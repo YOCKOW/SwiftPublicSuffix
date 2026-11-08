@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-10-31T14:17:35Z
-// ETag: "53ba2aa2df6dbe30f8f0c4ddf5b2c74e"
+// Last-Modified: 2026-11-06T09:01:55Z
+// ETag: "3248b0b2bc105736aab75e6f08875881"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -2095,10 +2095,17 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_app_lovable_auth: PublicSuffix.Node = .label(
+    "auth",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_app_lovable: PublicSuffix.Node = .label(
     "lovable",
     next: [
       .termination,
+      _negative_app_lovable_auth,
     ]
   )
   private static let _negative_app_luyani: PublicSuffix.Node = .label(
@@ -2259,6 +2266,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_app_sliplane: PublicSuffix.Node = .label(
+    "sliplane",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_app_snowflake_privatelink: PublicSuffix.Node = .label(
     "privatelink",
     next: [
@@ -2414,6 +2427,7 @@ extension PublicSuffix {
       _negative_app_rocketpreview,
       _negative_app_run,
       _negative_app_shiptoday,
+      _negative_app_sliplane,
       _negative_app_snowflake,
       _negative_app_spawnbase,
       _negative_app_sprites,
@@ -6763,10 +6777,30 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_bot_grok_apps: PublicSuffix.Node = .label(
+    "apps",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_bot_grok_pages: PublicSuffix.Node = .label(
+    "pages",
+    next: [
+      .any,
+    ]
+  )
+  private static let _negative_bot_grok: PublicSuffix.Node = .label(
+    "grok",
+    next: [
+      _negative_bot_grok_apps,
+      _negative_bot_grok_pages,
+    ]
+  )
   private static let _negative_bot: PublicSuffix.Node = .label(
     "bot",
     next: [
       .termination,
+      _negative_bot_grok,
     ]
   )
   private static let _negative_boutique: PublicSuffix.Node = .label(
@@ -23100,6 +23134,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_dev_pagelemon: PublicSuffix.Node = .label(
+    "pagelemon",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_dev_pages: PublicSuffix.Node = .label(
     "pages",
     next: [
@@ -23254,6 +23294,7 @@ extension PublicSuffix {
       _negative_dev_myaddr,
       _negative_dev_ngrok,
       _negative_dev_ngrokHfree,
+      _negative_dev_pagelemon,
       _negative_dev_pages,
       _negative_dev_panel,
       _negative_dev_payload,
@@ -60372,6 +60413,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_page_linkyhost: PublicSuffix.Node = .label(
+    "linkyhost",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_page_mybox: PublicSuffix.Node = .label(
     "mybox",
     next: [
@@ -60417,6 +60464,7 @@ extension PublicSuffix {
       _negative_page_deuxfleurs,
       _negative_page_heyflow,
       _negative_page_hlx,
+      _negative_page_linkyhost,
       _negative_page_mybox,
       _negative_page_pdns,
       _negative_page_plesk,
@@ -64237,6 +64285,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_run_sanity: PublicSuffix.Node = .label(
+    "sanity",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_run_stackit: PublicSuffix.Node = .label(
     "stackit",
     next: [
@@ -64286,6 +64340,7 @@ extension PublicSuffix {
       _negative_run_onporter,
       _negative_run_ravendb,
       _negative_run_repl,
+      _negative_run_sanity,
       _negative_run_stackit,
       _negative_run_val,
       _negative_run_vercel,
@@ -65546,6 +65601,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_site_docsflowy: PublicSuffix.Node = .label(
+    "docsflowy",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_site_fastvps: PublicSuffix.Node = .label(
     "fastvps",
     next: [
@@ -65724,6 +65785,7 @@ extension PublicSuffix {
       _negative_site_convex,
       _negative_site_cpanel,
       _negative_site_cyon,
+      _negative_site_docsflowy,
       _negative_site_fastvps,
       _negative_site_figma,
       _negative_site_figmaHgov,
@@ -66065,6 +66127,12 @@ extension PublicSuffix {
       _negative_space_hf_static,
     ]
   )
+  private static let _negative_space_manus: PublicSuffix.Node = .label(
+    "manus",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_space_myfast: PublicSuffix.Node = .label(
     "myfast",
     next: [
@@ -66103,6 +66171,7 @@ extension PublicSuffix {
       _negative_space_deployagent,
       _negative_space_heiyu,
       _negative_space_hf,
+      _negative_space_manus,
       _negative_space_myfast,
       _negative_space_project,
       _negative_space_uber,
@@ -66414,11 +66483,18 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_studio_sanity: PublicSuffix.Node = .label(
+    "sanity",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_studio: PublicSuffix.Node = .label(
     "studio",
     next: [
       .termination,
       _negative_studio_ai,
+      _negative_studio_sanity,
     ]
   )
   private static let _negative_study: PublicSuffix.Node = .label(
