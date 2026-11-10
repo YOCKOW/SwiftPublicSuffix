@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-11-06T09:01:55Z
-// ETag: "3248b0b2bc105736aab75e6f08875881"
+// Last-Modified: 2026-11-09T13:00:26Z
+// ETag: "8cf9bc843fa9fe279723144156194e00"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -60437,6 +60437,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_page_prod: PublicSuffix.Node = .label(
+    "prod",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_page_prvcy: PublicSuffix.Node = .label(
     "prvcy",
     next: [
@@ -60468,6 +60474,7 @@ extension PublicSuffix {
       _negative_page_mybox,
       _negative_page_pdns,
       _negative_page_plesk,
+      _negative_page_prod,
       _negative_page_prvcy,
       _negative_page_rocky,
       _negative_page_statichost,
@@ -62665,11 +62672,18 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_place_ship: PublicSuffix.Node = .label(
+    "ship",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_place: PublicSuffix.Node = .label(
     "place",
     next: [
       .termination,
       _negative_place_co,
+      _negative_place_ship,
     ]
   )
   private static let _negative_play: PublicSuffix.Node = .label(
@@ -71938,6 +71952,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_vn_ad: PublicSuffix.Node = .label(
+    "ad",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_vn_ai: PublicSuffix.Node = .label(
     "ai",
     next: [
@@ -71946,6 +71966,12 @@ extension PublicSuffix {
   )
   private static let _negative_vn_angiang: PublicSuffix.Node = .label(
     "angiang",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_vn_ap: PublicSuffix.Node = .label(
+    "ap",
     next: [
       .termination,
     ]
@@ -72268,6 +72294,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_vn_on: PublicSuffix.Node = .label(
+    "on",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_vn_org: PublicSuffix.Node = .label(
     "org",
     next: [
@@ -72411,8 +72443,10 @@ extension PublicSuffix {
     next: [
       .termination,
       _negative_vn_ac,
+      _negative_vn_ad,
       _negative_vn_ai,
       _negative_vn_angiang,
+      _negative_vn_ap,
       _negative_vn_bacgiang,
       _negative_vn_backan,
       _negative_vn_baclieu,
@@ -72466,6 +72500,7 @@ extension PublicSuffix {
       _negative_vn_nghean,
       _negative_vn_ninhbinh,
       _negative_vn_ninhthuan,
+      _negative_vn_on,
       _negative_vn_org,
       _negative_vn_phutho,
       _negative_vn_phuyen,
