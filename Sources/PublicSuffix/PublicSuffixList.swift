@@ -4,8 +4,8 @@
 //# The material(s) to generate this file was/were obtained from below:
 //
 // URL: https://publicsuffix.org/list/public_suffix_list.dat
-// Last-Modified: 2026-11-09T13:00:26Z
-// ETag: "8cf9bc843fa9fe279723144156194e00"
+// Last-Modified: 2026-11-13T14:44:45Z
+// ETag: "cdf227dfbec8db6a6cc5841cd71f522a"
 
 // NOTICE: Original source code is licensed under Mozilla Public License Version 2.0 (MPL2.0)
 //         and, this file contains the source converted to Swift language.
@@ -1928,6 +1928,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_app_cloudzyro: PublicSuffix.Node = .label(
+    "cloudzyro",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_app_codepen: PublicSuffix.Node = .label(
     "codepen",
     next: [
@@ -1942,6 +1948,12 @@ extension PublicSuffix {
   )
   private static let _negative_app_corespeed: PublicSuffix.Node = .label(
     "corespeed",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_app_crbts: PublicSuffix.Node = .label(
+    "crbts",
     next: [
       .termination,
     ]
@@ -2142,6 +2154,26 @@ extension PublicSuffix {
     "mocha",
     next: [
       .termination,
+    ]
+  )
+  private static let _negative_app_modelence_cloud: PublicSuffix.Node = .label(
+    "cloud",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_app_modelence_sandbox: PublicSuffix.Node = .label(
+    "sandbox",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_app_modelence: PublicSuffix.Node = .label(
+    "modelence",
+    next: [
+      .termination,
+      _negative_app_modelence_cloud,
+      _negative_app_modelence_sandbox,
     ]
   )
   private static let _negative_app_netlify: PublicSuffix.Node = .label(
@@ -2382,9 +2414,11 @@ extension PublicSuffix {
       _negative_app_clerk,
       _negative_app_clerkstage,
       _negative_app_cloudflare,
+      _negative_app_cloudzyro,
       _negative_app_codepen,
       _negative_app_convex,
       _negative_app_corespeed,
+      _negative_app_crbts,
       _negative_app_csb,
       _negative_app_developer,
       _negative_app_e2b,
@@ -2410,6 +2444,7 @@ extension PublicSuffix {
       _negative_app_messerli,
       _negative_app_miren,
       _negative_app_mocha,
+      _negative_app_modelence,
       _negative_app_netlify,
       _negative_app_ngrok,
       _negative_app_ngrokHfree,
@@ -22247,6 +22282,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_de_gov: PublicSuffix.Node = .label(
+    "gov",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_de_günstigbestellen: PublicSuffix.Node = .label(
     "günstigbestellen",
     next: [
@@ -22598,6 +22639,7 @@ extension PublicSuffix {
       _negative_de_fuettertdasnetz,
       _negative_de_gitHrepos,
       _negative_de_goip,
+      _negative_de_gov,
       _negative_de_günstigbestellen,
       _negative_de_günstigliefern,
       _negative_de_heimdns,
@@ -22736,6 +22778,12 @@ extension PublicSuffix {
       .termination,
       _negative_design_bss,
       _negative_design_graphic,
+    ]
+  )
+  private static let _negative_dev_abyme: PublicSuffix.Node = .label(
+    "abyme",
+    next: [
+      .termination,
     ]
   )
   private static let _negative_dev_barsy: PublicSuffix.Node = .label(
@@ -23259,6 +23307,7 @@ extension PublicSuffix {
     "dev",
     next: [
       .termination,
+      _negative_dev_abyme,
       _negative_dev_barsy,
       _negative_dev_bearblog,
       _negative_dev_botdash,
@@ -27049,6 +27098,39 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_host_amba_app: PublicSuffix.Node = .label(
+    "app",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_host_amba_cdn: PublicSuffix.Node = .label(
+    "cdn",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_host_amba_fn: PublicSuffix.Node = .label(
+    "fn",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_host_amba_go: PublicSuffix.Node = .label(
+    "go",
+    next: [
+      .termination,
+    ]
+  )
+  private static let _negative_host_amba: PublicSuffix.Node = .label(
+    "amba",
+    next: [
+      _negative_host_amba_app,
+      _negative_host_amba_cdn,
+      _negative_host_amba_fn,
+      _negative_host_amba_go,
+    ]
+  )
   private static let _negative_host_bolt: PublicSuffix.Node = .label(
     "bolt",
     next: [
@@ -27143,6 +27225,7 @@ extension PublicSuffix {
     "host",
     next: [
       .termination,
+      _negative_host_amba,
       _negative_host_bolt,
       _negative_host_cloudaccess,
       _negative_host_easypanel,
@@ -60461,6 +60544,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_page_vibekit: PublicSuffix.Node = .label(
+    "vibekit",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_page: PublicSuffix.Node = .label(
     "page",
     next: [
@@ -60478,6 +60567,7 @@ extension PublicSuffix {
       _negative_page_prvcy,
       _negative_page_rocky,
       _negative_page_statichost,
+      _negative_page_vibekit,
     ]
   )
   private static let _negative_panasonic: PublicSuffix.Node = .label(
@@ -64299,6 +64389,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_run_rwx: PublicSuffix.Node = .label(
+    "rwx",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_run_sanity: PublicSuffix.Node = .label(
     "sanity",
     next: [
@@ -64354,6 +64450,7 @@ extension PublicSuffix {
       _negative_run_onporter,
       _negative_run_ravendb,
       _negative_run_repl,
+      _negative_run_rwx,
       _negative_run_sanity,
       _negative_run_stackit,
       _negative_run_val,
@@ -65669,6 +65766,12 @@ extension PublicSuffix {
       .termination,
     ]
   )
+  private static let _negative_site_medusajs: PublicSuffix.Node = .label(
+    "medusajs",
+    next: [
+      .termination,
+    ]
+  )
   private static let _negative_site_notion: PublicSuffix.Node = .label(
     "notion",
     next: [
@@ -65808,6 +65911,7 @@ extension PublicSuffix {
       _negative_site_jouwweb,
       _negative_site_loginline,
       _negative_site_madethis,
+      _negative_site_medusajs,
       _negative_site_notion,
       _negative_site_novecore,
       _negative_site_omniwe,
